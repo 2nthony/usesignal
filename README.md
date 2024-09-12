@@ -11,14 +11,6 @@ _description_
 > **Note**:
 > Replace `signals-use`, `_description_` and `2nthony` globally to use this template.
 
-## Sponsors
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/2nthony/static/sponsors.svg">
-    <img src='https://cdn.jsdelivr.net/gh/2nthony/static/sponsors.svg'/>
-  </a>
-</p>
-
 ## License
 
 [MIT](./LICENSE) License © 2024-PRESENT [2nthony](https://github.com/2nthony)
