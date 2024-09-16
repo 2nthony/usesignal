@@ -6,10 +6,23 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-_description_
+**Signal-Use**
+<br>
+Collection of Essential React with Signals Hooks. Heavily inspired by [VueUse](https://vueuse.org/).
 
-> **Note**:
-> Replace `signals-use`, `_description_` and `2nthony` globally to use this template.
+## Install
+
+```sh
+pnpm add @preact/signals-react @signals-use/core
+```
+
+## Usage
+
+```ts
+import { usePreferredDark } from '@signals-use/core'
+
+const isDark = usePreferredDark()
+```
 
 ## License
 
