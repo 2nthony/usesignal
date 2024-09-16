@@ -1,6 +1,6 @@
 import { useMediaQuery } from '.'
 
-export default function Demo() {
+export default function DemoUseMediaQuery() {
   const isLargeScreen = useMediaQuery('(min-width: 1024px)')
   const isPreferredDark = useMediaQuery('(prefers-color-scheme: dark)')
 

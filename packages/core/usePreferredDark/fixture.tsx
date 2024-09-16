@@ -1,6 +1,6 @@
 import { usePreferredDark } from '.'
 
-export default function Demo() {
+export default function DemoUsePreferredDark() {
   const preferredDark = usePreferredDark()
 
   return (

@@ -1,7 +1,7 @@
 import { useSignal } from '@signals-use/shared'
 import { useSignalWatch } from '.'
 
-export default function Demo() {
+export default function DemoUseSignalWatchBase() {
   const count1 = useSignal(0)
   const count2 = useSignal(0)
 

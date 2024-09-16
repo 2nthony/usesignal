@@ -1,6 +1,6 @@
 import { useToggle } from '.'
 
-export default function UseToggle() {
+export default function DemoUseToggle() {
   const [value, toggle] = useToggle(false)
 
   return (
