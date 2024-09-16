@@ -1,0 +1,24 @@
+{
+  "name": "@signals-use/core",
+  "version": "0.0.0",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "@preact/signals-react": "*",
+    "react": "*"
+  },
+  "dependencies": {
+    "@signals-use/shared": "workspace:^"
+  },
+  "devDependencies": {
+    "@preact/signals-react": "^2.2.0",
+    "@types/react": "^18.3.5",
+    "react": "^18.3.1"
+  }
+}
