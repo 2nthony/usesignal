@@ -8,14 +8,14 @@ export function isSignal(s: any): s is Signal {
   return !!s?.brand
 }
 
-export function signal<T>(value?: MaybeSignal<T>): Signal<T> {
+export function signal<T>(value?: MaybeSignal<T> | null | undefined): Signal<T> {
   const valueIsSignal = isSignal(value)
   const _value = valueIsSignal ? value : _signal(value)
 
   return _value as Signal<T>
 }
 
-export function useSignal<T>(value?: MaybeSignal<T>) {
+export function useSignal<T>(value?: MaybeSignal<T> | null | undefined) {
   // NOTE: not sure call this here is ok
   useSignals()
 
