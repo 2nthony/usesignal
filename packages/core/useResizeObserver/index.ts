@@ -41,7 +41,7 @@ export function useResizeObserver(
       : [toValue(_targets)]
   })
 
-  const dispose = useSignalWatch(
+  const stopWatch = useSignalWatch(
     targets,
     (els) => {
       cleanup()
@@ -59,7 +59,7 @@ export function useResizeObserver(
 
   const stop = () => {
     cleanup()
-    dispose()
+    stopWatch()
   }
 
   return {

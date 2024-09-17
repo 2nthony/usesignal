@@ -15,15 +15,15 @@ export function useSignalWatch<T>(
 ) {
   const { immediate = false } = options ?? {}
 
-  const disposeEffect = useSignal<(() => void) | null>()
+  const dispose = useSignal<(() => void) | null>()
   const isArrayValues = Array.isArray(value)
   const values = isArrayValues ? value : [value]
 
   let prevValues = values.map(toValue)
 
-  function dispose() {
-    disposeEffect.value?.()
-    disposeEffect.value = null
+  function stop() {
+    dispose.value?.()
+    dispose.value = null
   }
 
   function effectFn(force = false) {
@@ -52,12 +52,12 @@ export function useSignalWatch<T>(
       effectFn(true)
     }
 
-    disposeEffect.value = effect(effectFn)
+    dispose.value = effect(effectFn)
 
     return () => {
-      dispose()
+      stop()
     }
   }, [])
 
-  return dispose
+  return stop
 }

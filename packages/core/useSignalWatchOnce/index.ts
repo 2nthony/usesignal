@@ -7,12 +7,12 @@ export function useSignalWatchOnce(
 ) {
   let changed = false
 
-  const dispose = useSignalWatch(v, (val, prevValue) => {
+  const stop = useSignalWatch(v, (val, prevValue) => {
     cb(val, prevValue)
 
     changed = true
     if (changed) {
-      dispose()
+      stop()
     }
   }, options)
 }

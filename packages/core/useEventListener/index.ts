@@ -90,7 +90,7 @@ export function useEventListener(...args: any) {
     cleanups.length = 0
   }
 
-  const dispose = useSignalWatch(
+  const stopWatch = useSignalWatch(
     // @ts-expect-error watch signals
     [target, options],
     ([el, options]) => {
@@ -114,7 +114,7 @@ export function useEventListener(...args: any) {
   )
 
   function stop() {
-    dispose()
+    stopWatch()
     cleanup()
   }
 
