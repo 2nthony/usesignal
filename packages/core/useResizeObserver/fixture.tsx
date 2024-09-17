@@ -13,9 +13,13 @@ export default function DemoUseResizeObserver() {
   })
 
   return (
-    <textarea
-      ref={ref as unknown as LegacyRef<HTMLTextAreaElement>}
-      value={text.value}
-    />
+    <div>
+      <p>Resize the box to see changes</p>
+
+      <textarea
+        ref={ref as unknown as LegacyRef<HTMLTextAreaElement>}
+        value={text.value}
+      />
+    </div>
   )
 }
