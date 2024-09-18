@@ -1,5 +1,5 @@
+import { useSignal } from '@resignals/shared'
 import { useSignalWatch } from '.'
-import { useSignal } from '../../shared/signals'
 
 export default function DemoUseSignalWatchImmediate() {
   const count1 = useSignal(0)
