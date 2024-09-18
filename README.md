@@ -13,13 +13,13 @@ Collection of Essential React with Signals Hooks. Heavily inspired by [VueUse](h
 ## Install
 
 ```sh
-pnpm add @preact/signals-react @resignals/use
+pnpm add @preact/signals-react @resignals/hooks
 ```
 
 ## Usage
 
 ```ts
-import { usePreferredDark } from '@resignals/use'
+import { usePreferredDark } from '@resignals/hooks'
 
 const isDark = usePreferredDark()
 ```

@@ -1,6 +1,6 @@
-import { isSignal, useSignal } from '@resignals/shared'
 import type { Signal } from '@preact/signals-react'
 import type { MaybeSignal } from '@resignals/shared'
+import { isSignal, useSignal } from '@resignals/shared'
 
 export function useToggle<Truthy, Falsy, T = Truthy | Falsy>(initialValue: Signal<T>): (value?: T) => T
 export function useToggle<Truthy = true, Falsy = false, T = Truthy | Falsy>(initialValue?: T): [Signal<T>, (value?: T) => T]

@@ -1,10 +1,10 @@
+import type { Arrayable, MaybeSignal } from '@resignals/shared'
+import type { ConfigurableWindow } from '../_configurable'
 import { useComputed } from '@preact/signals-react'
 import { toValue } from '@resignals/shared'
-import type { Arrayable, MaybeSignal } from '@resignals/shared'
 import { defaultWindow } from '../_configurable'
-import { useSignalWatch } from '../signal-watch'
-import { useSupported } from '../supported'
-import type { ConfigurableWindow } from '../_configurable'
+import { useSignalWatch } from '../use-signal-watch'
+import { useSupported } from '../use-supported'
 
 export type ResizeObserverCallback = (entries: ReadonlyArray<ResizeObserverEntry>, observer: ResizeObserver) => void
 

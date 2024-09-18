@@ -8,8 +8,8 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "paths": {
-      "@resignals/use": ["./packages/use/index.ts"],
-      "@resignals/use/*": ["./packages/use/*"],
+      "@resignals/hooks": ["./packages/hooks/index.ts"],
+      "@resignals/hooks/*": ["./packages/hooks/*"],
       "@resignals/shared": ["./packages/shared/index.ts"],
       "@resignals/shared/*": ["./packages/shared/*"]
     },

@@ -1,5 +1,5 @@
 import { useComputed } from '@preact/signals-react'
-import { useMounted } from '../mounted'
+import { useMounted } from '../use-mounted'
 
 export function useSupported(callback: () => unknown) {
   const isMounted = useMounted()

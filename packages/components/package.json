@@ -10,13 +10,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
-    "@resignals/use": "workspace:^"
+    "@resignals/hooks": "workspace:^"
   },
   "dependencies": {
     "@resignals/shared": "workspace:^"
   },
   "devDependencies": {
-    "@resignals/use": "workspace:^",
+    "@resignals/hooks": "workspace:^",
     "@types/react": "catalog:",
     "react": "catalog:"
   }

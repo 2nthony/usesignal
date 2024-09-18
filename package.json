@@ -15,7 +15,7 @@
   "bugs": "https://github.com/2nthony/resignals/issues",
   "keywords": [],
   "scripts": {
-    "build-use": "nr --filter @resignals/use build",
+    "build-use": "nr --filter @resignals/hooks build",
     "build": "nr build-use",
     "lint": "eslint .",
     "prepublishOnly": "nr build",

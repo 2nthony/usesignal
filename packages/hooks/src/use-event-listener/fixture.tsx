@@ -1,5 +1,5 @@
-import { useSignal } from '@resignals/shared'
 import type { LegacyRef } from 'react'
+import { useSignal } from '@resignals/shared'
 import { useEventListener } from '.'
 
 export default function Demo() {

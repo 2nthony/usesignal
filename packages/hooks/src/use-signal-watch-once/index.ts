@@ -1,4 +1,4 @@
-import { useSignalWatch } from '../signal-watch'
+import { useSignalWatch } from '../use-signal-watch'
 
 export function useSignalWatchOnce(
   v: Parameters<typeof useSignalWatch>[0],

@@ -1,5 +1,5 @@
 {
-  "name": "@resignals/use",
+  "name": "@resignals/hooks",
   "type": "module",
   "version": "0.0.0",
   "description": "",
@@ -8,7 +8,7 @@
   "keywords": [
     "react",
     "signals",
-    "hooks"
+    "react-hooks"
   ],
   "sideEffects": false,
   "exports": {
