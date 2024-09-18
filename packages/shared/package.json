@@ -13,6 +13,6 @@
     "@preact/signals-react": "*"
   },
   "devDependencies": {
-    "@preact/signals-react": "^2.2.0"
+    "@preact/signals-react": "catalog:"
   }
 }

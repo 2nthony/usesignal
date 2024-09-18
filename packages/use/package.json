@@ -1,25 +1,33 @@
 {
   "name": "@resignals/use",
+  "type": "module",
   "version": "0.0.0",
   "description": "",
   "author": "",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "signals",
+    "hooks"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./index.mjs",
-      "require": "./index.cjs"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./*": "./*"
   },
-  "main": "./index.cjs",
-  "module": "./index.mjs",
-  "unpkg": "./index.iife.min.js",
-  "jsdelivr": "./index.iife.min.js",
-  "types": "./index.d.cts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "unpkg": "./dist/index.global.js",
+  "jsdelivr": "./dist/index.global.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup"
   },
   "peerDependencies": {
     "@preact/signals-react": "*",
@@ -29,8 +37,9 @@
     "@resignals/shared": "workspace:^"
   },
   "devDependencies": {
-    "@preact/signals-react": "^2.2.0",
-    "@types/react": "^18.3.5",
-    "react": "^18.3.1"
+    "@preact/signals-react": "catalog:",
+    "@types/react": "catalog:",
+    "react": "catalog:",
+    "tsup": "catalog:"
   }
 }

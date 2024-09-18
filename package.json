@@ -2,6 +2,7 @@
   "name": "resignals",
   "type": "module",
   "version": "0.0.0",
+  "private": true,
   "packageManager": "pnpm@9.9.0",
   "description": "_description_",
   "author": "2nthony <hi@2nthony.com>",
@@ -13,31 +14,9 @@
   },
   "bugs": "https://github.com/2nthony/resignals/issues",
   "keywords": [],
-  "sideEffects": false,
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
-  },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "build": "unbuild",
-    "dev": "unbuild --stub",
+    "build-use": "nr --filter @resignals/use build",
+    "build": "nr build-use",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
@@ -49,29 +28,28 @@
     "cosmos-export": "cosmos-export"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.3.2",
-    "@antfu/ni": "^0.23.0",
-    "@antfu/utils": "^0.7.10",
-    "@preact/signals-react": "^2.2.0",
-    "@types/node": "^22.5.4",
-    "@types/react": "^18.3.5",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "bumpp": "^9.5.2",
-    "eslint": "^9.9.1",
-    "esno": "^4.7.0",
-    "globals": "^15.9.0",
-    "lint-staged": "^15.2.10",
-    "pnpm": "^9.9.0",
-    "react": "^18.3.1",
-    "react-cosmos": "^6.2.0",
-    "react-cosmos-plugin-vite": "^6.2.0",
-    "react-dom": "^18.3.1",
-    "simple-git-hooks": "^2.11.1",
-    "typescript": "^5.5.4",
-    "unbuild": "^2.0.0",
-    "vite": "^5.4.3",
-    "vitest": "^2.0.5"
+    "@antfu/eslint-config": "catalog:",
+    "@antfu/ni": "catalog:",
+    "@antfu/utils": "catalog:",
+    "@preact/signals-react": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "bumpp": "catalog:",
+    "eslint": "catalog:",
+    "esno": "catalog:",
+    "globals": "catalog:",
+    "lint-staged": "catalog:",
+    "pnpm": "catalog:",
+    "react": "catalog:",
+    "react-cosmos": "catalog:",
+    "react-cosmos-plugin-vite": "catalog:",
+    "react-dom": "catalog:",
+    "simple-git-hooks": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

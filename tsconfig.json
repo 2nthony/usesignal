@@ -1,7 +1,35 @@
 {
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    "target": "es2020",
+    "jsx": "react-jsx",
+    "lib": ["ESNext", "DOM", "DOM.Iterable", "webworker"],
+    "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@resignals/use": ["./packages/use/index.ts"],
+      "@resignals/use/*": ["./packages/use/*"],
+      "@resignals/shared": ["./packages/shared/index.ts"],
+      "@resignals/shared/*": ["./packages/shared/*"]
+    },
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "*.ts",
+    "*.tsx",
+    "packages"
   ],
-  "files": []
+  "exclude": [
+    "node_modules",
+    "**/*.md",
+    "**/dist"
+  ]
 }

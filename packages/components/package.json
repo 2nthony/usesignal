@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@resignals/use": "workspace:^",
-    "@types/react": "^18.3.5",
-    "react": "^18.3.1"
+    "@types/react": "catalog:",
+    "react": "catalog:"
   }
 }
