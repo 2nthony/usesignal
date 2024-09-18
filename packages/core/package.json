@@ -5,7 +5,19 @@
   "author": "",
   "license": "MIT",
   "keywords": [],
-  "main": "index.js",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    },
+    "./*": "./*"
+  },
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "unpkg": "./index.iife.min.js",
+  "jsdelivr": "./index.iife.min.js",
+  "types": "./index.d.cts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
