@@ -2,8 +2,8 @@ import { useSignal } from '@resignals/shared'
 import { defaultWindow } from '../_configurable'
 import { useEventListener } from '../event-listener'
 import { useMediaQuery } from '../media-query'
-import { useOnMounted } from '../useOnMounted'
-import { useSignalWatch } from '../useSignalWatch'
+import { useOnMounted } from '../on-mounted'
+import { useSignalWatch } from '../signal-watch'
 import type { ConfigurableWindow } from '../_configurable'
 
 export interface UseWindowSizeOptions extends ConfigurableWindow {

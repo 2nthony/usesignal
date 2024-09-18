@@ -2,7 +2,7 @@
 
 import { type Arrayable, type Fn, isObject, type MaybeSignal, useSignal } from '@resignals/shared'
 import { defaultWindow } from '../_configurable'
-import { useSignalWatch } from '../useSignalWatch'
+import { useSignalWatch } from '../signal-watch'
 
 interface InferEventTarget<Events> {
   addEventListener: (event: Events, fn?: any, options?: any) => any
