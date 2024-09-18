@@ -1,6 +1,6 @@
 /* eslint-disable ts/no-unsafe-function-type */
 
-import { type Arrayable, type Fn, isObject, type MaybeSignal, useSignal } from '@signals-use/shared'
+import { type Arrayable, type Fn, isObject, type MaybeSignal, useSignal } from '@resignals/shared'
 import { defaultWindow } from '../_configurable'
 import { useSignalWatch } from '../useSignalWatch'
 

@@ -1,4 +1,4 @@
-import { isClient } from '@signals-use/shared'
+import { isClient } from '@resignals/shared'
 
 export interface ConfigurableWindow {
   /*

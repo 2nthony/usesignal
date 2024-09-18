@@ -80,29 +80,13 @@ importers:
 
   packages/components:
     dependencies:
-      '@signals-use/shared':
+      '@resignals/shared':
         specifier: workspace:^
         version: link:../shared
     devDependencies:
-      '@signals-use/core':
+      '@resignals/use':
         specifier: workspace:^
-        version: link:../core
-      '@types/react':
-        specifier: ^18.3.5
-        version: 18.3.5
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-
-  packages/core:
-    dependencies:
-      '@signals-use/shared':
-        specifier: workspace:^
-        version: link:../shared
-    devDependencies:
-      '@preact/signals-react':
-        specifier: ^2.2.0
-        version: 2.2.0(react@18.3.1)
+        version: link:../use
       '@types/react':
         specifier: ^18.3.5
         version: 18.3.5
@@ -115,6 +99,22 @@ importers:
       '@preact/signals-react':
         specifier: ^2.2.0
         version: 2.2.0(react@18.3.1)
+
+  packages/use:
+    dependencies:
+      '@resignals/shared':
+        specifier: workspace:^
+        version: link:../shared
+    devDependencies:
+      '@preact/signals-react':
+        specifier: ^2.2.0
+        version: 2.2.0(react@18.3.1)
+      '@types/react':
+        specifier: ^18.3.5
+        version: 18.3.5
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
 
 packages:
 

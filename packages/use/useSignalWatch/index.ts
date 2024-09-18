@@ -1,7 +1,7 @@
 import { effect } from '@preact/signals-react'
-import { toValue, useSignal } from '@signals-use/shared'
+import { toValue, useSignal } from '@resignals/shared'
 import { useEffect } from 'react'
-import type { AnyFn, Arrayable, MaybeSignal } from '@signals-use/shared'
+import type { AnyFn, Arrayable, MaybeSignal } from '@resignals/shared'
 
 interface SignalWatchOptions {
   immediate?: boolean

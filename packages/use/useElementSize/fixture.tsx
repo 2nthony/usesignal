@@ -1,4 +1,4 @@
-import { useSignal } from '@signals-use/shared'
+import { useSignal } from '@resignals/shared'
 import type { LegacyRef } from 'react'
 import { useElementSize } from '.'
 

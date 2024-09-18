@@ -1,6 +1,6 @@
 import { useComputed } from '@preact/signals-react'
-import { toValue } from '@signals-use/shared'
-import type { Arrayable, MaybeSignal } from '@signals-use/shared'
+import { toValue } from '@resignals/shared'
+import type { Arrayable, MaybeSignal } from '@resignals/shared'
 import { defaultWindow } from '../_configurable'
 import { useSignalWatch } from '../useSignalWatch'
 import { useSupported } from '../useSupported'

@@ -1,4 +1,4 @@
-import { type MaybeSignal, useSignal } from '@signals-use/shared'
+import { type MaybeSignal, useSignal } from '@resignals/shared'
 
 interface Props {
   when: MaybeSignal<boolean>

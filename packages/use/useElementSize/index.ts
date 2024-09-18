@@ -1,6 +1,6 @@
 import { useComputed } from '@preact/signals-react'
-import { toValue, useSignal } from '@signals-use/shared'
-import type { MaybeReadonlySignal } from '@signals-use/shared'
+import { toValue, useSignal } from '@resignals/shared'
+import type { MaybeReadonlySignal } from '@resignals/shared'
 import { defaultWindow } from '../_configurable'
 import { useOnMounted } from '../useOnMounted'
 import { useResizeObserver, type UseResizeObserverOptions } from '../useResizeObserver'

@@ -1,5 +1,5 @@
 {
-  "name": "@signals-use/components",
+  "name": "@resignals/components",
   "version": "1.0.0",
   "description": "",
   "author": "",
@@ -10,13 +10,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
-    "@signals-use/core": "workspace:^"
+    "@resignals/use": "workspace:^"
   },
   "dependencies": {
-    "@signals-use/shared": "workspace:^"
+    "@resignals/shared": "workspace:^"
   },
   "devDependencies": {
-    "@signals-use/core": "workspace:^",
+    "@resignals/use": "workspace:^",
     "@types/react": "^18.3.5",
     "react": "^18.3.1"
   }

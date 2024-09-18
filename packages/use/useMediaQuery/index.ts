@@ -1,6 +1,6 @@
 import { useSignalEffect } from '@preact/signals-react'
-import { toValue, useSignal } from '@signals-use/shared'
-import type { MaybeSignal } from '@signals-use/shared'
+import { toValue, useSignal } from '@resignals/shared'
+import type { MaybeSignal } from '@resignals/shared'
 import { defaultWindow } from '../_configurable'
 import { useSupported } from '../useSupported'
 import type { ConfigurableWindow } from '../_configurable'

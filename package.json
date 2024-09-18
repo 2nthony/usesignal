@@ -1,17 +1,17 @@
 {
-  "name": "signals-use",
+  "name": "resignals",
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@9.9.0",
   "description": "_description_",
   "author": "2nthony <hi@2nthony.com>",
   "license": "MIT",
-  "homepage": "https://github.com/2nthony/signals-use#readme",
+  "homepage": "https://github.com/2nthony/resignals#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/2nthony/signals-use.git"
+    "url": "git+https://github.com/2nthony/resignals.git"
   },
-  "bugs": "https://github.com/2nthony/signals-use/issues",
+  "bugs": "https://github.com/2nthony/resignals/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {

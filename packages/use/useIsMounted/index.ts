@@ -1,4 +1,4 @@
-import { useSignal } from '@signals-use/shared'
+import { useSignal } from '@resignals/shared'
 import { useEffect } from 'react'
 
 /**
