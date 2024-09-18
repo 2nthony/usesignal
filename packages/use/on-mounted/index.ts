@@ -1,8 +1,8 @@
-import { useIsMounted } from '../useIsMounted'
+import { useMounted } from '../mounted'
 import { useSignalWatchOnce } from '../useSignalWatchOnce'
 
 export function useOnMounted(cb: () => void): void {
-  const isMounted = useIsMounted()
+  const isMounted = useMounted()
 
   useSignalWatchOnce(isMounted, cb)
 }

@@ -1,8 +1,8 @@
 import { useComputed } from '@preact/signals-react'
-import { useIsMounted } from '../useIsMounted'
+import { useMounted } from '../mounted'
 
 export function useSupported(callback: () => unknown) {
-  const isMounted = useIsMounted()
+  const isMounted = useMounted()
 
   return useComputed(() => {
     // to trigger the ref

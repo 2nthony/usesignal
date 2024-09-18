@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 /**
  * Mounted state in signal
  */
-export function useIsMounted() {
+export function useMounted() {
   const isMounted = useSignal(false)
 
   useEffect(() => {

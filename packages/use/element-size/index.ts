@@ -2,9 +2,9 @@ import { useComputed } from '@preact/signals-react'
 import { toValue, useSignal } from '@resignals/shared'
 import type { MaybeReadonlySignal } from '@resignals/shared'
 import { defaultWindow } from '../_configurable'
-import { useOnMounted } from '../useOnMounted'
-import { useResizeObserver, type UseResizeObserverOptions } from '../useResizeObserver'
-import { useSignalWatch } from '../useSignalWatch'
+import { useOnMounted } from '../on-mounted'
+import { useResizeObserver, type UseResizeObserverOptions } from '../resize-observer'
+import { useSignalWatch } from '../signal-watch'
 
 export interface ElementSize {
   width: number
