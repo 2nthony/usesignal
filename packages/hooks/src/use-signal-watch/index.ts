@@ -5,6 +5,14 @@ import { useEffect } from 'react'
 
 interface SignalWatchOptions {
   immediate?: boolean
+  once?: boolean
+}
+
+interface SignalWatchHandle {
+  (): void // callable, same as stop
+  // pause: () => void
+  // resume: () => void
+  // stop: () => void
 }
 
 export function useSignalWatch<T>(
@@ -12,8 +20,8 @@ export function useSignalWatch<T>(
   // FIXME: fix cb type
   cb: AnyFn,
   options?: SignalWatchOptions,
-) {
-  const { immediate = false } = options ?? {}
+): SignalWatchHandle {
+  const { immediate = false, once = false } = options ?? {}
 
   const dispose = useSignal<(() => void) | null>()
   const isArrayValues = Array.isArray(value)
@@ -44,6 +52,10 @@ export function useSignalWatch<T>(
       const cbPrevValues = isArrayValues ? prevValues : prevValues[0]
       cb(cbNewValues, cbPrevValues)
       prevValues = newValues
+
+      if (once) {
+        stop()
+      }
     }
   }
 

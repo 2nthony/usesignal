@@ -1,13 +1,13 @@
 import { useSignal } from '@resignals/shared'
-import { useSignalWatchOnce } from '.'
+import { useSignalWatch } from '.'
 
 export default function DemoUseSignalWatchOnce() {
   const count = useSignal(0)
   const changedCount = useSignal(0)
 
-  useSignalWatchOnce(count, (countVal) => {
+  useSignalWatch(count, (countVal) => {
     changedCount.value = countVal
-  })
+  }, { once: true })
 
   return (
     <div>
