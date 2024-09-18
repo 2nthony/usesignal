@@ -4,10 +4,15 @@ import { effect } from '@preact/signals-react'
 import { toValue, useSignal } from '@resignals/shared'
 import { useEffect } from 'react'
 
-interface SignalWatchOptions {
+export interface SignalWatchOptions {
   immediate?: boolean
   once?: boolean
 }
+
+// FIXME: should support getter
+export type SignalWatchSource<T> = Arrayable<MaybeSignal<T>>
+// FIXME: fix cb type
+export type SignalWatchCallback = AnyFn
 
 interface SignalWatchHandler {
   (): void // callable, same as stop
@@ -18,9 +23,8 @@ interface SignalWatchHandler {
 }
 
 export function useSignalWatch<T>(
-  value: Arrayable<MaybeSignal<T>>,
-  // FIXME: fix cb type
-  cb: AnyFn,
+  value: SignalWatchSource<T>,
+  cb: SignalWatchCallback,
   options?: SignalWatchOptions,
 ): SignalWatchHandler {
   const { immediate = false, once = false } = options ?? {}
