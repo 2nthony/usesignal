@@ -1,3 +1,4 @@
+import type { Signal } from '@preact/signals-react'
 import type { AnyFn, Arrayable, MaybeSignal } from '@resignals/shared'
 import { effect } from '@preact/signals-react'
 import { toValue, useSignal } from '@resignals/shared'
@@ -8,11 +9,12 @@ interface SignalWatchOptions {
   once?: boolean
 }
 
-interface SignalWatchHandle {
+interface SignalWatchHandler {
   (): void // callable, same as stop
-  // pause: () => void
-  // resume: () => void
-  // stop: () => void
+  isActive: Signal<boolean>
+  pause: () => void
+  resume: () => void
+  stop: () => void
 }
 
 export function useSignalWatch<T>(
@@ -20,8 +22,9 @@ export function useSignalWatch<T>(
   // FIXME: fix cb type
   cb: AnyFn,
   options?: SignalWatchOptions,
-): SignalWatchHandle {
+): SignalWatchHandler {
   const { immediate = false, once = false } = options ?? {}
+  const isActive = useSignal(true)
 
   const dispose = useSignal<(() => void) | null>()
   const isArrayValues = Array.isArray(value)
@@ -32,7 +35,22 @@ export function useSignalWatch<T>(
   function stop() {
     dispose.value?.()
     dispose.value = null
+    isActive.value = false
   }
+  function pause() {
+    if (dispose.value) {
+      isActive.value = false
+    }
+  }
+  function resume() {
+    if (dispose.value) {
+      isActive.value = true
+    }
+  }
+  stop.stop = stop
+  stop.isActive = isActive
+  stop.pause = pause
+  stop.resume = resume
 
   function effectFn(force = false) {
     const newValues = values.map(v => toValue(v))
@@ -47,7 +65,7 @@ export function useSignalWatch<T>(
       }
     }
 
-    if (changed) {
+    if (changed && isActive.peek()) {
       const cbNewValues = isArrayValues ? newValues : newValues[0]
       const cbPrevValues = isArrayValues ? prevValues : prevValues[0]
       cb(cbNewValues, cbPrevValues)
