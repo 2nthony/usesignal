@@ -26,10 +26,12 @@
     "build": "tsup"
   },
   "peerDependencies": {
-    "@preact/signals-react": "*"
+    "@preact/signals-react": "*",
+    "react": "*"
   },
   "devDependencies": {
     "@preact/signals-react": "catalog:",
+    "react": "catalog:",
     "tsup": "catalog:"
   }
 }
