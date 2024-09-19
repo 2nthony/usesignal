@@ -1,5 +1,5 @@
 import type { Signal } from '@preact/signals-react'
-import type { AnyFn, Arrayable, MaybeSignal } from '@resignals/shared'
+import type { Arrayable, MaybeSignal } from '@resignals/shared'
 import { effect } from '@preact/signals-react'
 import { toValue, useSignal } from '@resignals/shared'
 import { useEffect } from 'react'
@@ -11,8 +11,8 @@ export interface SignalWatchOptions {
 
 // FIXME: should support getter
 export type SignalWatchSource<T> = Arrayable<MaybeSignal<T>>
-// FIXME: fix cb type
-export type SignalWatchCallback = AnyFn
+
+export type SignalWatchCallback<V = any, OV = any> = (value: V, oldValue: OV) => any
 
 interface SignalWatchHandler {
   (): void // callable, same as stop
