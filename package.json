@@ -1,5 +1,5 @@
 {
-  "name": "resignals",
+  "name": "usesignal",
   "type": "module",
   "version": "0.0.0",
   "private": true,
@@ -7,15 +7,17 @@
   "description": "_description_",
   "author": "2nthony <hi@2nthony.com>",
   "license": "MIT",
-  "homepage": "https://github.com/2nthony/resignals#readme",
+  "homepage": "https://github.com/2nthony/usesignal#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/2nthony/resignals.git"
+    "url": "git+https://github.com/2nthony/usesignal.git"
   },
-  "bugs": "https://github.com/2nthony/resignals/issues",
+  "bugs": "https://github.com/2nthony/usesignal/issues",
   "keywords": [],
   "scripts": {
-    "build": "nr --filter @resignals/hooks --filter @resignals/shared build",
+    "build-core": "nr --filter @usesignal/core build",
+    "build-shared": "nr --filter @usesignal/shared build",
+    "build": "nr build-core && nr build-shared",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",

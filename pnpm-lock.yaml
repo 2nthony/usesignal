@@ -149,23 +149,23 @@ importers:
 
   packages/components:
     dependencies:
-      '@resignals/shared':
+      '@usesignal/shared':
         specifier: workspace:^
         version: link:../shared
     devDependencies:
-      '@resignals/hooks':
-        specifier: workspace:^
-        version: link:../hooks
       '@types/react':
         specifier: 'catalog:'
         version: 18.3.5
+      '@usesignal/core':
+        specifier: workspace:^
+        version: link:../core
       react:
         specifier: 'catalog:'
         version: 18.3.1
 
-  packages/hooks:
+  packages/core:
     dependencies:
-      '@resignals/shared':
+      '@usesignal/shared':
         specifier: workspace:^
         version: link:../shared
     devDependencies:

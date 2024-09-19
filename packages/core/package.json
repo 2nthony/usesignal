@@ -1,11 +1,15 @@
 {
-  "name": "@usesignal/shared",
+  "name": "@usesignal/core",
   "type": "module",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "author": "",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "signals",
+    "react-hooks"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
@@ -29,8 +33,12 @@
     "@preact/signals-react": "*",
     "react": "*"
   },
+  "dependencies": {
+    "@usesignal/shared": "workspace:^"
+  },
   "devDependencies": {
     "@preact/signals-react": "catalog:",
+    "@types/react": "catalog:",
     "react": "catalog:",
     "tsup": "catalog:"
   }

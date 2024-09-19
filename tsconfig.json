@@ -8,10 +8,10 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "paths": {
-      "@resignals/hooks": ["./packages/hooks/index.ts"],
-      "@resignals/hooks/*": ["./packages/hooks/*"],
-      "@resignals/shared": ["./packages/shared/index.ts"],
-      "@resignals/shared/*": ["./packages/shared/*"]
+      "@usesignal/core": ["./packages/core/index.ts"],
+      "@usesignal/core/*": ["./packages/core/*"],
+      "@usesignal/shared": ["./packages/shared/index.ts"],
+      "@usesignal/shared/*": ["./packages/shared/*"]
     },
     "allowImportingTsExtensions": true,
     "strict": true,

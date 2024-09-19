@@ -1,5 +1,5 @@
 {
-  "name": "@resignals/components",
+  "name": "@usesignal/components",
   "version": "1.0.0",
   "description": "",
   "author": "",
@@ -10,14 +10,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
-    "@resignals/hooks": "workspace:^"
+    "@usesignal/core": "workspace:^"
   },
   "dependencies": {
-    "@resignals/shared": "workspace:^"
+    "@usesignal/shared": "workspace:^"
   },
   "devDependencies": {
-    "@resignals/hooks": "workspace:^",
     "@types/react": "catalog:",
+    "@usesignal/core": "workspace:^",
     "react": "catalog:"
   }
 }
