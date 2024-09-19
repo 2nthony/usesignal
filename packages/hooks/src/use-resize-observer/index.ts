@@ -1,5 +1,5 @@
-import type { Arrayable, MaybeSignal } from '@resignals/shared'
 import type { ConfigurableWindow } from '../_configurable'
+import type { SignalWatchSource } from '../use-signal-watch'
 import { useComputed } from '@preact/signals-react'
 import { toValue } from '@resignals/shared'
 import { defaultWindow } from '../_configurable'
@@ -19,7 +19,7 @@ export interface UseResizeObserverOptions extends ConfigurableWindow {
 }
 
 export function useResizeObserver(
-  target: Arrayable<MaybeSignal<HTMLElement | null>>,
+  target: SignalWatchSource<HTMLElement>,
   callback: ResizeObserverCallback,
   options: UseResizeObserverOptions = {},
 ) {

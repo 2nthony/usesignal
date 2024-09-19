@@ -24,9 +24,9 @@ export type RemovableSignal<T> = Omit<Signal<T>, 'value'> & {
 export type MaybeSignal<T = any> = T | Signal<T>
 
 /**
- * Maybe it's a readonly signal, or a plain value.
+ * Maybe it's a readonly signal, or a getter function.
  */
-export type MaybeReadonlySignal<T = any> = T | ReadonlySignal<T>
+export type ReadonlySignalOrGetter<T = any> = ReadonlySignal<T> | (() => T)
 
 /**
  * Make all the nested attributes of an object or array to MaybeSignal<T>

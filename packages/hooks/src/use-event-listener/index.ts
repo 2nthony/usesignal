@@ -91,8 +91,7 @@ export function useEventListener(...args: any) {
   }
 
   const stopWatch = useSignalWatch(
-    // @ts-expect-error watch signals
-    [target, options],
+    [target, options] as [typeof _target, typeof _options],
     ([el, options]) => {
       cleanup()
 

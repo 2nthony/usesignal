@@ -1,4 +1,4 @@
-import type { MaybeReadonlySignal } from '@resignals/shared'
+import type { MaybeSignal } from '@resignals/shared'
 import { useComputed } from '@preact/signals-react'
 import { toValue, useSignal } from '@resignals/shared'
 import { defaultWindow } from '../_configurable'
@@ -14,7 +14,7 @@ export interface ElementSize {
 export type UseElementSizeReturn = ReturnType<typeof useElementSize>
 
 export function useElementSize(
-  target: MaybeReadonlySignal<HTMLElement | null>,
+  target: MaybeSignal<HTMLElement>,
   initialSize: ElementSize = { width: 0, height: 0 },
   options: UseResizeObserverOptions = {},
 ) {
