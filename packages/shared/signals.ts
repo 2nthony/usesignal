@@ -4,8 +4,6 @@ import { signal as _signal } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'
 
-export { useSignals }
-
 export function isSignal(s: any): s is Signal {
   return !!s?.brand
 }
