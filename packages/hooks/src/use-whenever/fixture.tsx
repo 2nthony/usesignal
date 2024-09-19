@@ -1,6 +1,5 @@
 import { useSignal } from '@resignals/shared'
 import { useWhenever } from '.'
-import { useSignalWatch } from '../use-signal-watch'
 import { useToggle } from '../use-toggle'
 
 export default function DemoUseWhenever() {
@@ -10,11 +9,12 @@ export default function DemoUseWhenever() {
   useWhenever(value, () => {
     text.value = 'triggered!'
   })
-  useSignalWatch(value, (val) => {
-    if (!val) {
+  useWhenever(
+    () => !value.value,
+    () => {
       text.value = ''
-    }
-  })
+    },
+  )
 
   return (
     <div>
