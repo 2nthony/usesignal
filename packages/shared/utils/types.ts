@@ -13,7 +13,7 @@ export type AnyFn = (...args: any[]) => any
 /**
  * A signal that allow to set null or undefined
  */
-export type RemovableRef<T> = Omit<Signal<T>, 'value'> & {
+export type RemovableSignal<T> = Omit<Signal<T>, 'value'> & {
   get value(): T
   set value(value: T | null | undefined)
 }
