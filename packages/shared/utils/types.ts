@@ -1,4 +1,4 @@
-import type { ReadonlySignal, Signal } from '@preact/signals-react'
+import type { Signal } from '@preact/signals-react'
 
 /**
  * Void function
@@ -22,11 +22,6 @@ export type RemovableSignal<T> = Omit<Signal<T>, 'value'> & {
  * Maybe it's a signal, or a plain value.
  */
 export type MaybeSignal<T = any> = T | Signal<T>
-
-/**
- * Maybe it's a readonly signal, or a getter function.
- */
-export type ReadonlySignalOrGetter<T = any> = ReadonlySignal<T> | (() => T)
 
 /**
  * Make all the nested attributes of an object or array to MaybeSignal<T>
