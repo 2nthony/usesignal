@@ -1,6 +1,6 @@
-import type { Signal } from '@preact/signals-react'
+import type { ReadonlySignal, Signal } from '@preact/signals-react'
 import type { Arrayable, MaybeSignal } from '@resignals/shared'
-import { effect } from '@preact/signals-react'
+import { effect, useComputed } from '@preact/signals-react'
 import { toValue, useSignal } from '@resignals/shared'
 import { useEffect } from 'react'
 
@@ -9,8 +9,7 @@ export interface SignalWatchOptions {
   once?: boolean
 }
 
-// FIXME: should support getter
-export type SignalWatchSource<T> = Arrayable<MaybeSignal<T>>
+export type SignalWatchSource<T> = Arrayable<MaybeSignal<T> | ReadonlySignal<T>>
 
 export type SignalWatchCallback<V = any, OV = any> = (value: V, oldValue: OV) => any
 
@@ -23,16 +22,32 @@ interface SignalWatchHandler {
 }
 
 export function useSignalWatch<T>(
-  value: SignalWatchSource<T>,
+  value: Arrayable<MaybeSignal<T>>,
   cb?: SignalWatchCallback,
   options?: SignalWatchOptions,
+): SignalWatchHandler
+
+export function useSignalWatch<T>(
+  value: () => T,
+  cb?: SignalWatchCallback,
+  options?: SignalWatchOptions,
+): SignalWatchHandler
+
+export function useSignalWatch(
+  value: any,
+  cb?: any,
+  options?: any,
 ): SignalWatchHandler {
+  if (typeof value === 'function') {
+    value = useComputed(value)
+  }
+
   const { immediate = false, once = false } = options ?? {}
   const isActive = useSignal(true)
 
   const dispose = useSignal<(() => void) | null>()
   const isArrayValues = Array.isArray(value)
-  const values = isArrayValues ? value : [value]
+  const values = (isArrayValues ? value : [value]) as ReadonlySignal[]
 
   let prevValues = values.map(toValue)
 
