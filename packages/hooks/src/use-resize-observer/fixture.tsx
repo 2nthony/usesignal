@@ -3,7 +3,7 @@ import { useSignal } from '@resignals/shared'
 import { useResizeObserver } from '.'
 
 export default function DemoUseResizeObserver() {
-  const ref = useSignal<HTMLTextAreaElement>(null)
+  const ref = useSignal<HTMLTextAreaElement>()
   const text = useSignal('')
 
   useResizeObserver(ref, (entries) => {

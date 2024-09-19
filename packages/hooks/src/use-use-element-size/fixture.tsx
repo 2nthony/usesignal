@@ -3,7 +3,7 @@ import { useSignal } from '@resignals/shared'
 import { useElementSize } from '.'
 
 export default function DemoUseElementSize() {
-  const ref = useSignal<HTMLTextAreaElement | null>(null)
+  const ref = useSignal<HTMLTextAreaElement >()
   const text = useSignal('')
 
   const { width, height } = useElementSize(
