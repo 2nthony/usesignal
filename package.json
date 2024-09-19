@@ -15,8 +15,7 @@
   "bugs": "https://github.com/2nthony/resignals/issues",
   "keywords": [],
   "scripts": {
-    "build-use": "nr --filter @resignals/hooks build",
-    "build": "nr build-use",
+    "build": "nr --filter @resignals/hooks --filter @resignals/shared build",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",

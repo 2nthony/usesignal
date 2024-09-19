@@ -1,18 +1,35 @@
 {
   "name": "@resignals/shared",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "author": "",
   "license": "MIT",
   "keywords": [],
-  "main": "index.js",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./*": "./*"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "unpkg": "./dist/index.global.js",
+  "jsdelivr": "./dist/index.global.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup"
   },
   "peerDependencies": {
     "@preact/signals-react": "*"
   },
   "devDependencies": {
-    "@preact/signals-react": "catalog:"
+    "@preact/signals-react": "catalog:",
+    "tsup": "catalog:"
   }
 }
