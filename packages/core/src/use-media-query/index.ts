@@ -1,9 +1,9 @@
-import type { MaybeSignal } from '@usesignal/shared'
 import type { ConfigurableWindow } from '../_configurable'
+import type { MaybeSignal } from '../utils'
 import { useSignalEffect } from '@preact/signals-react'
-import { toValue, useSignal } from '@usesignal/shared'
 import { defaultWindow } from '../_configurable'
 import { useSupported } from '../use-supported'
+import { toValue, useSignal } from '../utils'
 
 export function useMediaQuery(query: MaybeSignal<string>, options: ConfigurableWindow = {}) {
   const { window = defaultWindow } = options

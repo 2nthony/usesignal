@@ -1,5 +1,5 @@
-import { useSignal } from '@usesignal/shared'
 import { useOnMounted } from '.'
+import { useSignal } from '../utils'
 
 export default function DemoUseOnMounted() {
   const mounted = useSignal(false)

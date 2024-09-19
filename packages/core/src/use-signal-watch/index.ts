@@ -1,8 +1,8 @@
 import type { ReadonlySignal, Signal } from '@preact/signals-react'
-import type { Arrayable, MaybeSignal } from '@usesignal/shared'
+import type { Arrayable, MaybeSignal } from '../utils'
 import { computed, effect } from '@preact/signals-react'
-import { toValue, useSignal } from '@usesignal/shared'
 import { useEffect, useMemo } from 'react'
+import { toValue, useSignal } from '../utils'
 
 export interface SignalWatchOptions {
   immediate?: boolean

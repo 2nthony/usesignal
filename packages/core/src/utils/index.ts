@@ -1,6 +1,6 @@
-// https://github.com/vueuse/vueuse/blob/main/packages/shared/utils/index.ts
-
 export * from './is'
+export * from './signals'
+export * from './to-value'
 export * from './types'
 
 export async function nextTick(cb = () => {}) {

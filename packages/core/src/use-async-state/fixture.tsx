@@ -1,5 +1,5 @@
-import { useSignal } from '@usesignal/shared'
 import { useAsyncState } from '.'
+import { useSignal } from '../utils'
 
 export default function DemoUseAsyncState() {
   const id = useSignal(1)

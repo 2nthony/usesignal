@@ -1,6 +1,6 @@
 import type { LegacyRef } from 'react'
-import { useSignal } from '@usesignal/shared'
 import { useResizeObserver } from '.'
+import { useSignal } from '../utils'
 
 export default function DemoUseResizeObserver() {
   const ref = useSignal<HTMLTextAreaElement>()

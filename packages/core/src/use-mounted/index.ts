@@ -1,5 +1,5 @@
-import { useSignal } from '@usesignal/shared'
 import { useEffect } from 'react'
+import { useSignal } from '../utils'
 
 /**
  * Mounted state in signal

@@ -1,4 +1,4 @@
-import type { MaybeSignal } from '../utils/types'
+import type { MaybeSignal } from '..'
 import { isSignal } from '../signals'
 
 export function toValue<T>(s: MaybeSignal<T>): T {

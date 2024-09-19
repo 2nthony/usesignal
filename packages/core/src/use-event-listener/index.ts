@@ -1,8 +1,8 @@
 /* eslint-disable ts/no-unsafe-function-type */
 
-import { type Arrayable, type Fn, isObject, type MaybeSignal, useSignal } from '@usesignal/shared'
 import { defaultWindow } from '../_configurable'
 import { useSignalWatch } from '../use-signal-watch'
+import { type Arrayable, type Fn, isObject, type MaybeSignal, useSignal } from '../utils'
 
 interface InferEventTarget<Events> {
   addEventListener: (event: Events, fn?: any, options?: any) => any

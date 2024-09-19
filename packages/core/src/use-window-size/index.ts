@@ -1,10 +1,10 @@
 import type { ConfigurableWindow } from '../_configurable'
-import { useSignal } from '@usesignal/shared'
 import { defaultWindow } from '../_configurable'
 import { useEventListener } from '../use-event-listener'
 import { useMediaQuery } from '../use-media-query'
 import { useOnMounted } from '../use-on-mounted'
 import { useSignalWatch } from '../use-signal-watch'
+import { useSignal } from '../utils'
 
 export interface UseWindowSizeOptions extends ConfigurableWindow {
   initialWidth?: number

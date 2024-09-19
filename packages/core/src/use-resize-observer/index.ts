@@ -1,10 +1,10 @@
 import type { ConfigurableWindow } from '../_configurable'
 import type { SignalWatchSource } from '../use-signal-watch'
 import { useComputed } from '@preact/signals-react'
-import { toValue } from '@usesignal/shared'
 import { defaultWindow } from '../_configurable'
 import { useSignalWatch } from '../use-signal-watch'
 import { useSupported } from '../use-supported'
+import { toValue } from '../utils'
 
 export type ResizeObserverCallback = (entries: ReadonlyArray<ResizeObserverEntry>, observer: ResizeObserver) => void
 

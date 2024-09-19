@@ -1,5 +1,5 @@
 import type { Signal } from '@preact/signals-react'
-import type { MaybeSignal } from './utils/types'
+import type { MaybeSignal } from '../utils'
 import { signal as _signal } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'

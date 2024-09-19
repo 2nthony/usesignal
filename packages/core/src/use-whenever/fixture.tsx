@@ -1,6 +1,6 @@
-import { useSignal } from '@usesignal/shared'
 import { useWhenever } from '.'
 import { useToggle } from '../use-toggle'
+import { useSignal } from '../utils'
 
 export default function DemoUseWhenever() {
   const [value, toggle] = useToggle(false)

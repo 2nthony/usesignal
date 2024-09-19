@@ -1,6 +1,6 @@
 import type { LegacyRef } from 'react'
-import { useSignal } from '@usesignal/shared'
 import { useEventListener } from '.'
+import { useSignal } from '../utils'
 
 export default function Demo() {
   const ref = useSignal<HTMLDivElement>()

@@ -33,9 +33,6 @@
     "@preact/signals-react": "*",
     "react": "*"
   },
-  "dependencies": {
-    "@usesignal/shared": "workspace:^"
-  },
   "devDependencies": {
     "@preact/signals-react": "catalog:",
     "@types/react": "catalog:",

@@ -1,4 +1,4 @@
-import { isClient } from '@usesignal/shared'
+import { isClient } from './utils'
 
 export interface ConfigurableWindow {
   /*

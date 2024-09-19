@@ -9,9 +9,7 @@
     "moduleResolution": "Bundler",
     "paths": {
       "@usesignal/core": ["./packages/core/index.ts"],
-      "@usesignal/core/*": ["./packages/core/*"],
-      "@usesignal/shared": ["./packages/shared/index.ts"],
-      "@usesignal/shared/*": ["./packages/shared/*"]
+      "@usesignal/core/*": ["./packages/core/*"]
     },
     "allowImportingTsExtensions": true,
     "strict": true,

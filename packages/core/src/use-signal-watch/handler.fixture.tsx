@@ -1,5 +1,5 @@
-import { useSignal } from '@usesignal/shared'
 import { useSignalWatch } from '.'
+import { useSignal } from '../utils'
 
 export default function DemoUseSignalWatchHandle() {
   const input = useSignal('')

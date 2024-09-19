@@ -1,6 +1,6 @@
 import type { Signal } from '@preact/signals-react'
-import { noop, promiseTimeout, useSignal } from '@usesignal/shared'
 import { useOnMounted } from '../use-on-mounted'
+import { noop, promiseTimeout, useSignal } from '../utils'
 
 export interface UseAsyncStateReturn<Data, Params extends any[]> {
   state: Signal<Data>

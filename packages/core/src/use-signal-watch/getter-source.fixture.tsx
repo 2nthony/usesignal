@@ -1,5 +1,5 @@
-import { useSignal } from '@usesignal/shared'
 import { useSignalWatch } from '.'
+import { useSignal } from '../utils'
 
 export default function DemoUseSignalWatchGetter() {
   const count1 = useSignal(0)

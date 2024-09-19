@@ -1,10 +1,10 @@
-import type { MaybeSignal } from '@usesignal/shared'
+import type { MaybeSignal } from '../utils'
 import { useComputed } from '@preact/signals-react'
-import { toValue, useSignal } from '@usesignal/shared'
 import { defaultWindow } from '../_configurable'
 import { useOnMounted } from '../use-on-mounted'
 import { useResizeObserver, type UseResizeObserverOptions } from '../use-resize-observer'
 import { useSignalWatch } from '../use-signal-watch'
+import { toValue, useSignal } from '../utils'
 
 export interface ElementSize {
   width: number
