@@ -14,9 +14,9 @@
   "bugs": "https://github.com/2nthony/usesignal/issues",
   "keywords": [],
   "scripts": {
-    "build-core": "nr --filter @usesignal/core build",
     "build-shared": "nr --filter @usesignal/shared build",
-    "build": "nr build-core && nr build-shared",
+    "build-core": "nr --filter @usesignal/core build",
+    "build": "nr build-shared && nr build-core",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
