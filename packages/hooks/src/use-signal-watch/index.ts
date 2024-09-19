@@ -24,7 +24,7 @@ interface SignalWatchHandler {
 
 export function useSignalWatch<T>(
   value: SignalWatchSource<T>,
-  cb: SignalWatchCallback,
+  cb?: SignalWatchCallback,
   options?: SignalWatchOptions,
 ): SignalWatchHandler {
   const { immediate = false, once = false } = options ?? {}
@@ -36,7 +36,7 @@ export function useSignalWatch<T>(
 
   let prevValues = values.map(toValue)
 
-  function stop() {
+  function handler() {
     dispose.value?.()
     dispose.value = null
     isActive.value = false
@@ -51,10 +51,10 @@ export function useSignalWatch<T>(
       isActive.value = true
     }
   }
-  stop.stop = stop
-  stop.isActive = isActive
-  stop.pause = pause
-  stop.resume = resume
+  handler.stop = handler
+  handler.isActive = isActive
+  handler.pause = pause
+  handler.resume = resume
 
   function effectFn(force = false) {
     const newValues = values.map(v => toValue(v))
@@ -72,11 +72,11 @@ export function useSignalWatch<T>(
     if (changed && isActive.peek()) {
       const cbNewValues = isArrayValues ? newValues : newValues[0]
       const cbPrevValues = isArrayValues ? prevValues : prevValues[0]
-      cb(cbNewValues, cbPrevValues)
+      cb?.(cbNewValues, cbPrevValues)
       prevValues = newValues
 
       if (once) {
-        stop()
+        handler()
       }
     }
   }
@@ -89,9 +89,9 @@ export function useSignalWatch<T>(
     dispose.value = effect(effectFn)
 
     return () => {
-      stop()
+      handler()
     }
   }, [])
 
-  return stop
+  return handler
 }
