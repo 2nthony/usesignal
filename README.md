@@ -6,8 +6,6 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-**UseSignal**
-<br>
 Collection of Essential React Hooks with [Signals](https://github.com/preactjs/signals/tree/main/packages/react). **Heavily** inspired by [VueUse](https://vueuse.org/).
 
 ## Install
