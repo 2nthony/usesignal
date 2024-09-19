@@ -57,7 +57,7 @@ export function useSignalWatch<T>(
   handler.resume = resume
 
   function effectFn(force = false) {
-    const newValues = values.map(v => toValue(v))
+    const newValues = values.map(toValue)
     let changed = force
 
     if (!changed) {
