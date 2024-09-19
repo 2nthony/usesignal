@@ -1,8 +1,8 @@
 import type { ReadonlySignal, Signal } from '@preact/signals-react'
 import type { Arrayable, MaybeSignal } from '@usesignal/shared'
-import { effect, useComputed } from '@preact/signals-react'
+import { computed, effect } from '@preact/signals-react'
 import { toValue, useSignal } from '@usesignal/shared'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 
 export interface SignalWatchOptions {
   immediate?: boolean
@@ -38,9 +38,10 @@ export function useSignalWatch(
   cb?: any,
   options?: any,
 ): SignalWatchHandler {
-  if (typeof value === 'function') {
-    value = useComputed(value)
-  }
+  value = useMemo(
+    () => typeof value === 'function' ? computed(value) : value,
+    [value],
+  )
 
   const { immediate = false, once = false } = options ?? {}
   const isActive = useSignal(true)
