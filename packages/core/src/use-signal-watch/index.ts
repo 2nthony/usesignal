@@ -1,6 +1,6 @@
-import type { ReadonlySignal, Signal } from '@preact/signals-react'
+import type { ReadonlySignal } from '@preact/signals-react'
 import type { Arrayable, MaybeSignal } from '../utils'
-import { computed, effect } from '@preact/signals-react'
+import { computed, effect, useComputed } from '@preact/signals-react'
 import { useEffect, useMemo } from 'react'
 import { toValue, useSignal } from '../utils'
 
@@ -15,7 +15,7 @@ export type SignalWatchCallback<V = any, OV = any> = (value: V, oldValue: OV) =>
 
 interface SignalWatchHandler {
   (): void // callable, same as stop
-  isActive: Signal<boolean>
+  isActive: ReadonlySignal<boolean>
   pause: () => void
   resume: () => void
   stop: () => void
@@ -45,6 +45,7 @@ export function useSignalWatch(
 
   const { immediate = false, once = false } = options ?? {}
   const isActive = useSignal(true)
+  const readonlyIsActive = useComputed(() => isActive.value)
 
   const dispose = useSignal<(() => void) | null>()
   const isArrayValues = Array.isArray(value)
@@ -68,7 +69,7 @@ export function useSignalWatch(
     }
   }
   handler.stop = handler
-  handler.isActive = isActive
+  handler.isActive = readonlyIsActive
   handler.pause = pause
   handler.resume = resume
 
