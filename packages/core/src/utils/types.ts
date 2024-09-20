@@ -23,6 +23,8 @@ export type RemovableSignal<T> = Omit<Signal<T>, 'value'> & {
  */
 export type MaybeSignal<T = any> = T | Signal<T>
 
+export type MaybeSignalOrGetter<T = any> = MaybeSignal<T> | (() => T)
+
 /**
  * Make all the nested attributes of an object or array to MaybeSignal<T>
  *
