@@ -34,7 +34,6 @@ export function useIntervalFn(cb: Fn, interval: MaybeSignalOrGetter<number> = 10
     immediateCallback = false,
   } = options
 
-  // let timer: ReturnType<typeof setInterval> | null = null
   const timer = useSignal<ReturnType<typeof setInterval> | null>(null)
   const isActive = useSignal(false)
   const readonlyIsActive = useComputed(() => isActive.value)
