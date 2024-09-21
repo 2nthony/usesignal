@@ -1,4 +1,5 @@
 export * from './element'
+export * from './filter'
 export * from './is'
 export * from './signals'
 export * from './to-value'
