@@ -1,4 +1,4 @@
-import type { Signal } from '@preact/signals-react'
+import type { ReadonlySignal, Signal } from '@preact/signals-react'
 
 /**
  * Void function
@@ -74,7 +74,7 @@ export interface Pausable {
   /**
    * A signal indicate whether a pausable instance is active
    */
-  isActive: Readonly<Signal<boolean>>
+  isActive: ReadonlySignal<boolean>
 
   /**
    * Temporary pause the effect from executing
