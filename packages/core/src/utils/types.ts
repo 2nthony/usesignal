@@ -10,6 +10,8 @@ export type Fn = () => void
  */
 export type AnyFn = (...args: any[]) => any
 
+export type MaybeGetter<T> = T | (() => T)
+
 /**
  * A signal that allow to set null or undefined
  */
