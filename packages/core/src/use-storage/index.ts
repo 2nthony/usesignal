@@ -4,8 +4,8 @@ import type { Awaitable, MaybeSignal, MaybeSignalOrGetter, RemovableSignal } fro
 import { defaultWindow } from '../_configurable'
 import { getSSRHandler } from '../ssr-handlers'
 import { useEventListener } from '../use-event-listener'
-import { useMounted } from '../use-mounted'
-import { useOnMounted } from '../use-on-mounted'
+import { useIsMounted } from '../use-is-mounted'
+import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'
 import { nextTick, toValue, useSignal } from '../utils'
 import { guessSerializerType } from './guess'
@@ -164,7 +164,7 @@ export function useStorage<T extends (string | number | boolean | object | null)
     },
   )
 
-  const isMounted = useMounted()
+  const isMounted = useIsMounted()
   useEventListener(
     () => isMounted.value ? window : null,
     () => {
@@ -175,7 +175,7 @@ export function useStorage<T extends (string | number | boolean | object | null)
     },
   )
 
-  useOnMounted(() => {
+  useOnMount(() => {
     if (initOnMounted) {
       update()
     }

@@ -1,8 +1,8 @@
-import { useOnUnmounted } from '.'
+import { useOnCleanup } from '.'
 import { useToggle } from '../use-toggle'
 
 function Component() {
-  useOnUnmounted(() => {
+  useOnCleanup(() => {
     // eslint-disable-next-line no-console
     console.log('unmounted')
   })

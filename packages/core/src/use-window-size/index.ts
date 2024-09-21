@@ -2,7 +2,7 @@ import type { ConfigurableWindow } from '../_configurable'
 import { defaultWindow } from '../_configurable'
 import { useEventListener } from '../use-event-listener'
 import { useMediaQuery } from '../use-media-query'
-import { useOnMounted } from '../use-on-mounted'
+import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'
 import { useSignal } from '../utils'
 
@@ -60,7 +60,7 @@ export function useWindowSize(options: UseWindowSizeOptions = {}) {
     }
   }
 
-  useOnMounted(update)
+  useOnMount(update)
   useEventListener('resize', update, { passive: true })
 
   const matches = useMediaQuery('(orientation: portrait)')

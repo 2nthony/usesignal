@@ -1,7 +1,7 @@
 import type { MaybeSignal } from '../utils'
 import { useComputed } from '@preact/signals-react'
 import { defaultWindow } from '../_configurable'
-import { useOnMounted } from '../use-on-mounted'
+import { useOnMount } from '../use-on-mount'
 import { useResizeObserver, type UseResizeObserverOptions } from '../use-resize-observer'
 import { useWatch } from '../use-watch'
 import { toValue, useSignal } from '../utils'
@@ -57,7 +57,7 @@ export function useElementSize(
     options,
   )
 
-  useOnMounted(() => {
+  useOnMount(() => {
     const ele = toValue(target)
     if (ele) {
       width.value = 'offsetWidth' in ele ? ele.offsetWidth : initialSize.width

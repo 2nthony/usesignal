@@ -2,8 +2,8 @@ import type { ReadonlySignal } from '@preact/signals-react'
 import type { Arrayable, MaybeSignal, Pausable } from '../utils'
 import { computed, effect, useComputed } from '@preact/signals-react'
 import { useMemo } from 'react'
-import { useOnMounted } from '../use-on-mounted'
-import { useOnUnmounted } from '../use-on-unmounted'
+import { useOnCleanup } from '../use-on-cleanup'
+import { useOnMount } from '../use-on-mount'
 import { toValue, useSignal } from '../utils'
 
 export interface WatchOptions {
@@ -97,7 +97,7 @@ export function useWatch(
     }
   }
 
-  useOnMounted(() => {
+  useOnMount(() => {
     if (immediate) {
       effectFn(true)
     }
@@ -105,7 +105,7 @@ export function useWatch(
     dispose.value = effect(effectFn)
   })
 
-  useOnUnmounted(handler)
+  useOnCleanup(handler)
 
   return handler
 }

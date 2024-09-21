@@ -1,7 +1,7 @@
 import type { ConfigurableWindow } from '../_configurable'
 import { defaultWindow } from '../_configurable'
 import { useEventListener } from '../use-event-listener'
-import { useOnMounted } from '../use-on-mounted'
+import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'
 import { useSignal } from '../utils'
 
@@ -23,7 +23,7 @@ export function useWindowScroll(options: UseWindowScrollOptions = {}) {
   const internalY = useSignal(0)
 
   const target = useSignal<Window>()
-  useOnMounted(() => {
+  useOnMount(() => {
     if (window) {
       target.value = window
 

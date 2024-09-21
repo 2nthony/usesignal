@@ -1,10 +1,10 @@
-import { useOnMounted } from '.'
+import { useOnMount } from '.'
 import { useSignal } from '../utils'
 
 export default function DemoUseOnMounted() {
   const mounted = useSignal(false)
 
-  useOnMounted(() => {
+  useOnMount(() => {
     mounted.value = true
   })
 

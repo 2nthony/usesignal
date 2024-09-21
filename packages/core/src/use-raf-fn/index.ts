@@ -1,8 +1,8 @@
 import type { ConfigurableWindow } from '../_configurable'
 import { useComputed } from '@preact/signals-react'
 import { defaultWindow } from '../_configurable'
-import { useOnMounted } from '../use-on-mounted'
-import { useOnUnmounted } from '../use-on-unmounted'
+import { useOnCleanup } from '../use-on-cleanup'
+import { useOnMount } from '../use-on-mount'
 import { useSignal } from '../utils'
 
 export interface UseRafFnCallbackArguments {
@@ -90,13 +90,13 @@ export function useRafFn(fn: (args: UseRafFnCallbackArguments) => void, options:
     }
   }
 
-  useOnMounted(() => {
+  useOnMount(() => {
     if (immediate) {
       resume()
     }
   })
 
-  useOnUnmounted(pause)
+  useOnCleanup(pause)
 
   return {
     isActive: readonlyIsActive,

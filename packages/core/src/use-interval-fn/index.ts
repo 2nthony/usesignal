@@ -1,7 +1,7 @@
 import type { Fn, MaybeSignalOrGetter, Pausable } from '../utils'
 import { useComputed } from '@preact/signals-react'
-import { useOnMounted } from '../use-on-mounted'
-import { useOnUnmounted } from '../use-on-unmounted'
+import { useOnCleanup } from '../use-on-cleanup'
+import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'
 import { isClient, toValue, useSignal } from '../utils'
 
@@ -69,13 +69,13 @@ export function useIntervalFn(cb: Fn, interval: MaybeSignalOrGetter<number> = 10
     }
   }, { immediate })
 
-  useOnMounted(() => {
+  useOnMount(() => {
     if (immediate && isClient) {
       resume()
     }
   })
 
-  useOnUnmounted(pause)
+  useOnCleanup(pause)
 
   return {
     isActive: readonlyIsActive,

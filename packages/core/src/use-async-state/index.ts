@@ -1,5 +1,5 @@
 import type { Signal } from '@preact/signals-react'
-import { useOnMounted } from '../use-on-mounted'
+import { useOnMount } from '../use-on-mount'
 import { noop, promiseTimeout, useSignal } from '../utils'
 
 export interface UseAsyncStateReturn<Data, Params extends any[]> {
@@ -112,7 +112,7 @@ export function useAsyncState<Data, Params extends any[] = []>(
     return state.value as Data
   }
 
-  useOnMounted(() => {
+  useOnMount(() => {
     if (immediate) {
       execute(delay)
     }
