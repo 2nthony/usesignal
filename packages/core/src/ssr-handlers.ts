@@ -34,7 +34,7 @@ const _global
           ? self
           : {}
 
-const globalKey = '__vueuse_ssr_handlers__'
+const globalKey = '__usesignal_ssr_handlers__'
 const handlers = /* #__PURE__ */ getHandlers()
 
 function getHandlers() {
