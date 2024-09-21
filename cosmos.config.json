@@ -1,3 +1,6 @@
 {
-  "plugins": ["react-cosmos-plugin-vite"]
+  "rendererUrl": {
+    "dev": "http://localhost:3000/cosmos/<fixture>",
+    "export": "/cosmos/<fixture>.html"
+  }
 }

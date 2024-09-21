@@ -1,3 +1,4 @@
+'use client'
 import { useWindowScroll } from '.'
 
 export default function DemoUseWindowScroll() {

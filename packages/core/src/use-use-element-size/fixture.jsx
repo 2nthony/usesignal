@@ -1,3 +1,4 @@
+'use client'
 import { useElementSize } from '.'
 import { useSignal } from '../utils'
 

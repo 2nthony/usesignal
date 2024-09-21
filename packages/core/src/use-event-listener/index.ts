@@ -1,6 +1,8 @@
 /* eslint-disable ts/no-unsafe-function-type */
 
+'use client'
 import type { Arrayable, Fn, MaybeGetter, MaybeSignal, MaybeSignalOrGetter } from '../utils'
+import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'
 import { defaultWindow } from '../_configurable'
 import { useWatch } from '../use-watch'
@@ -66,6 +68,8 @@ export function useEventListener<EventType = Event>(
 ): Fn
 
 export function useEventListener(...args: any) {
+  useSignals()
+
   let _target: MaybeSignalOrGetter<EventTarget | null | undefined>
   let events: MaybeGetter<Arrayable<string>>
   let listeners: Arrayable<Function>

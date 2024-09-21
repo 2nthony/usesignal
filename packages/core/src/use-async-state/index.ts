@@ -1,4 +1,6 @@
+'use client'
 import type { Signal } from '@preact/signals-react'
+import { useSignals } from '@preact/signals-react/runtime'
 import { useOnMount } from '../use-on-mount'
 import { noop, promiseTimeout, useSignal } from '../utils'
 
@@ -72,6 +74,7 @@ export function useAsyncState<Data, Params extends any[] = []>(
     resetOnExecute = true,
     throwError = false,
   } = options ?? {}
+  useSignals()
 
   const state = useSignal(initialState)
   const isReady = useSignal(false)

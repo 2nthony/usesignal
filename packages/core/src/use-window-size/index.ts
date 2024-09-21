@@ -1,3 +1,4 @@
+'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import { defaultWindow } from '../_configurable'
 import { useEventListener } from '../use-event-listener'

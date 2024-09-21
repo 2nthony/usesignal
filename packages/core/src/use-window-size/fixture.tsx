@@ -1,3 +1,4 @@
+'use client'
 import { useWindowSize } from '.'
 
 export default function DemoUseWindowSize() {

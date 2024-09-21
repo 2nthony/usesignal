@@ -1,3 +1,4 @@
+'use client'
 import { useResizeObserver } from '.'
 import { useSignal } from '../utils'
 

@@ -1,6 +1,8 @@
+'use client'
 import type { ReadonlySignal } from '@preact/signals-react'
 import type { Arrayable, MaybeSignal, Pausable } from '../utils'
 import { computed, effect, useComputed } from '@preact/signals-react'
+import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'
 import { useOnCleanup } from '../use-on-cleanup'
 import { useOnMount } from '../use-on-mount'
@@ -37,6 +39,8 @@ export function useWatch(
   cb?: any,
   options?: any,
 ): WatchHandler {
+  useSignals()
+
   value = useMemo(
     () => typeof value === 'function' ? computed(value) : value,
     [value],
@@ -55,7 +59,6 @@ export function useWatch(
   function handler() {
     dispose.value?.()
     dispose.value = null
-    isActive.value = false
   }
   function pause() {
     if (dispose.value) {

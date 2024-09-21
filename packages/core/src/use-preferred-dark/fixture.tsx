@@ -1,3 +1,4 @@
+'use client'
 import { usePreferredDark } from '.'
 
 export default function DemoUsePreferredDark() {

@@ -1,17 +1,30 @@
+'use client'
 import { useOnMount } from '.'
-import { useSignal } from '../utils'
+import { useToggle } from '../use-toggle'
+
+function Component() {
+  useOnMount(() => {
+    // eslint-disable-next-line no-console
+    console.log('mount')
+  })
+
+  return <div>Hello</div>
+}
 
 export default function DemoUseOnMounted() {
-  const mounted = useSignal(false)
-
-  useOnMount(() => {
-    mounted.value = true
-  })
+  const [show, toggle] = useToggle(true)
 
   return (
     <div>
-      Mounted:
-      {mounted.toString()}
+      <button
+        onClick={() => {
+          toggle()
+        }}
+      >
+        Toggle
+      </button>
+
+      {show.value && <Component />}
     </div>
   )
 }

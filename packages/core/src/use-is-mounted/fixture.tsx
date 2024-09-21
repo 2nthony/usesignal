@@ -1,3 +1,4 @@
+'use client'
 import { useIsMounted } from '.'
 
 export default function DemoUseIsMounted() {

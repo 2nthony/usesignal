@@ -10,4 +10,7 @@ logs
 node_modules
 temp
 
+.next
+
 cosmos-export
+cosmos.imports.ts

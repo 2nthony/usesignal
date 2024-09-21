@@ -1,16 +1,27 @@
 {
   "compilerOptions": {
+    "incremental": true,
     "target": "es2020",
-    "jsx": "react-jsx",
-    "lib": ["ESNext", "DOM", "DOM.Iterable", "webworker"],
+    "jsx": "preserve",
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable",
+      "webworker"
+    ],
     "useDefineForClassFields": true,
     "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "paths": {
-      "@usesignal/core": ["./packages/core/index.ts"],
-      "@usesignal/core/*": ["./packages/core/*"]
+      "@usesignal/core": [
+        "./packages/core/index.ts"
+      ],
+      "@usesignal/core/*": [
+        "./packages/core/*"
+      ]
     },
+    "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
     "allowJs": true,
     "checkJs": false,
@@ -19,17 +30,25 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noEmit": true,
+    "esModuleInterop": true,
     "isolatedModules": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "*.ts",
     "*.tsx",
-    "packages"
+    "packages",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
     "**/*.md",
-    "**/dist"
+    "**/dist",
+    "cosmos.imports.ts"
   ]
 }

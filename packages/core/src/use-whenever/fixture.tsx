@@ -1,3 +1,4 @@
+'use client'
 import { useWhenever } from '.'
 import { useToggle } from '../use-toggle'
 import { useSignal } from '../utils'

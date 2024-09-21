@@ -1,3 +1,4 @@
+'use client'
 import { useRafFn } from '.'
 import { useSignal } from '../utils'
 

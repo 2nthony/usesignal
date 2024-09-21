@@ -1,5 +1,7 @@
+'use client'
 import type { WatchCallback, WatchOptions, WatchSource } from '../use-watch'
 import type { ConfigurableEventFilter } from '../utils/filter'
+import { useSignals } from '@preact/signals-react/runtime'
 import { useWatch } from '../use-watch'
 import { bypassFilter, createFilterWrapper } from '../utils/filter'
 
@@ -10,6 +12,8 @@ export function useWatchWithFilter<T>(
   cb: WatchCallback,
   options: WatchWithFilterOptions = {},
 ) {
+  useSignals()
+
   const {
     eventFilter = bypassFilter,
     ...watchOptions

@@ -24,8 +24,8 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks",
-    "cosmos": "cosmos",
-    "build-demo": "cosmos-export"
+    "demo": "next dev & cosmos --expose-imports",
+    "build-demo": "next build && cosmos-export --expose-imports && cp -R ./out/_next ./cosmos-export && cp -R ./out/cosmos ./cosmos-export"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
@@ -35,20 +35,19 @@
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@vitejs/plugin-react": "catalog:",
     "bumpp": "catalog:",
     "eslint": "catalog:",
     "esno": "catalog:",
     "globals": "catalog:",
     "lint-staged": "catalog:",
+    "next": "catalog:",
     "pnpm": "catalog:",
     "react": "catalog:",
     "react-cosmos": "catalog:",
-    "react-cosmos-plugin-vite": "catalog:",
+    "react-cosmos-next": "catalog:",
     "react-dom": "catalog:",
     "simple-git-hooks": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:",
     "vitest": "catalog:"
   },
   "simple-git-hooks": {

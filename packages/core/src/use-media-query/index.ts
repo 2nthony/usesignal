@@ -1,11 +1,15 @@
+'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import type { MaybeSignal } from '../utils'
 import { useSignalEffect } from '@preact/signals-react'
+import { useSignals } from '@preact/signals-react/runtime'
 import { defaultWindow } from '../_configurable'
 import { useSupported } from '../use-supported'
 import { toValue, useSignal } from '../utils'
 
 export function useMediaQuery(query: MaybeSignal<string>, options: ConfigurableWindow = {}) {
+  useSignals()
+
   const { window = defaultWindow } = options
   const isSupported = useSupported(() => window && 'matchMedia' in window && typeof window.matchMedia === 'function')
 

@@ -1,3 +1,4 @@
+'use client'
 import { useComputed } from '@preact/signals-react'
 import { useScroll } from '.'
 import { useSignal } from '../utils'

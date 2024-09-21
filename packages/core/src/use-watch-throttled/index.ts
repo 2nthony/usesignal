@@ -1,3 +1,4 @@
+'use client'
 import type { WatchCallback, WatchOptions, WatchSource } from '../use-watch'
 import type { MaybeSignalOrGetter } from '../utils'
 import { useWatchWithFilter } from '../use-watch-with-filter'

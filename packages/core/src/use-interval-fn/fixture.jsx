@@ -1,3 +1,4 @@
+'use client'
 import { useIntervalFn } from '.'
 import { rand, useSignal } from '../utils'
 

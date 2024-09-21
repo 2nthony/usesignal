@@ -1,13 +1,15 @@
 import type { Signal } from '@preact/signals-react'
 import type { MaybeSignal } from '../utils'
 import { signal as _signal } from '@preact/signals-react'
-import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'
 
 export function isSignal(s: any): s is Signal {
   return !!s?.brand
 }
 
+/**
+ * Create a signal, compat `useRef.current` and `signal` itself
+ */
 export function signal<T>(v?: MaybeSignal<T>) {
   const valueIsSignal = isSignal(v)
   const value = valueIsSignal ? v : _signal(v)
@@ -27,9 +29,9 @@ export function signal<T>(v?: MaybeSignal<T>) {
   return value as Signal<T>
 }
 
+/**
+ * Create a new side effect signal, compat `useRef.current` and `useSignal` itself
+ */
 export function useSignal<T>(v?: MaybeSignal<T>) {
-  // NOTE: not sure call this here is ok
-  useSignals()
-
   return useMemo(() => signal(v), [])
 }

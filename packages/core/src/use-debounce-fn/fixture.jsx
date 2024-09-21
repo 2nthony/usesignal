@@ -1,3 +1,4 @@
+'use client'
 import { useDebounceFn } from '.'
 import { useSignal } from '../utils'
 

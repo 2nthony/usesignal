@@ -1,5 +1,7 @@
+'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import { useComputed } from '@preact/signals-react'
+import { useSignals } from '@preact/signals-react/runtime'
 import { defaultWindow } from '../_configurable'
 import { useOnCleanup } from '../use-on-cleanup'
 import { useOnMount } from '../use-on-mount'
@@ -40,6 +42,8 @@ export interface UseRafFnOptions extends ConfigurableWindow {
  * @param options
  */
 export function useRafFn(fn: (args: UseRafFnCallbackArguments) => void, options: UseRafFnOptions = {}) {
+  useSignals()
+
   const {
     immediate = true,
     fpsLimit = undefined,
