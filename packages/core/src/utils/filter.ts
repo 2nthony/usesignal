@@ -1,6 +1,6 @@
-import type { AnyFn, ArgumentsType, Awaited, MaybeSignalOrGetter, Pausable, Promisify } from './types'
+import type { AnyFn, ArgumentsType, Awaited, MaybeSignalOrGetter, Promisify } from './types'
 import { noop } from './is'
-import { isSignal, useSignal } from './signals'
+import { isSignal } from './signals'
 import { toValue } from './to-value'
 
 export type FunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) => Return
@@ -205,29 +205,4 @@ export function throttleFilter(...args: any[]) {
   }
 
   return filter
-}
-
-// FIXME: pausableFilter includes useSignal
-/**
- * EventFilter that gives extra controls to pause and resume the filter
- *
- * @param extendFilter  Extra filter to apply when the PausableFilter is active, default to none
- *
- */
-export function pausableFilter(extendFilter: EventFilter = bypassFilter): Pausable & { eventFilter: EventFilter } {
-  const isActive = useSignal(true)
-
-  function pause() {
-    isActive.value = false
-  }
-  function resume() {
-    isActive.value = true
-  }
-
-  const eventFilter: EventFilter = (...args) => {
-    if (isActive.value)
-      extendFilter(...args)
-  }
-
-  return { isActive, pause, resume, eventFilter }
 }
