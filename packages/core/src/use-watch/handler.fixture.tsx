@@ -1,10 +1,10 @@
-import { useSignalWatch } from '.'
+import { useWatch } from '.'
 import { useSignal } from '../utils'
 
-export default function DemoUseSignalWatchHandle() {
+export default function DemoUseWatchHandle() {
   const input = useSignal('')
   const log = useSignal('')
-  const handle = useSignalWatch(input, () => {
+  const handle = useWatch(input, () => {
     log.value = input.toString()
   })
 

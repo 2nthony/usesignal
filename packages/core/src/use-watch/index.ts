@@ -6,16 +6,16 @@ import { useOnMounted } from '../use-on-mounted'
 import { useOnUnmounted } from '../use-on-unmounted'
 import { toValue, useSignal } from '../utils'
 
-export interface SignalWatchOptions {
+export interface WatchOptions {
   immediate?: boolean
   once?: boolean
 }
 
-export type SignalWatchSource<T> = Arrayable<MaybeSignal<T> | ReadonlySignal<T>>
+export type WatchSource<T> = Arrayable<MaybeSignal<T> | ReadonlySignal<T>>
 
-export type SignalWatchCallback<V = any, OV = any> = (value: V, oldValue: OV) => any
+export type WatchCallback<V = any, OV = any> = (value: V, oldValue: OV) => any
 
-interface SignalWatchHandler {
+interface WatchHandler {
   (): void // callable, same as stop
   isActive: ReadonlySignal<boolean>
   pause: () => void
@@ -23,23 +23,23 @@ interface SignalWatchHandler {
   stop: () => void
 }
 
-export function useSignalWatch<T>(
+export function useWatch<T>(
   value: Arrayable<MaybeSignal<T>>,
-  cb?: SignalWatchCallback,
-  options?: SignalWatchOptions,
-): SignalWatchHandler
+  cb?: WatchCallback,
+  options?: WatchOptions,
+): WatchHandler
 
-export function useSignalWatch<T>(
+export function useWatch<T>(
   value: () => T,
-  cb?: SignalWatchCallback,
-  options?: SignalWatchOptions,
-): SignalWatchHandler
+  cb?: WatchCallback,
+  options?: WatchOptions,
+): WatchHandler
 
-export function useSignalWatch(
+export function useWatch(
   value: any,
   cb?: any,
   options?: any,
-): SignalWatchHandler {
+): WatchHandler {
   value = useMemo(
     () => typeof value === 'function' ? computed(value) : value,
     [value],

@@ -3,7 +3,7 @@
 import type { Arrayable, Fn, MaybeGetter, MaybeSignal, MaybeSignalOrGetter } from '../utils'
 import { useMemo } from 'react'
 import { defaultWindow } from '../_configurable'
-import { useSignalWatch } from '../use-signal-watch'
+import { useWatch } from '../use-watch'
 import { isObject, toValue, useSignal } from '../utils'
 import { toSignal } from '../utils/to-signal'
 
@@ -98,7 +98,7 @@ export function useEventListener(...args: any) {
     cleanups.length = 0
   }
 
-  const stopWatch = useSignalWatch(
+  const stopWatch = useWatch(
     [target, options] as [typeof _target, typeof _options],
     ([el, options]) => {
       cleanup()

@@ -6,7 +6,7 @@ import { getSSRHandler } from '../ssr-handlers'
 import { useEventListener } from '../use-event-listener'
 import { useMounted } from '../use-mounted'
 import { useOnMounted } from '../use-on-mounted'
-import { useSignalWatch } from '../use-signal-watch'
+import { useWatch } from '../use-watch'
 import { nextTick, toValue, useSignal } from '../utils'
 import { guessSerializerType } from './guess'
 
@@ -157,7 +157,7 @@ export function useStorage<T extends (string | number | boolean | object | null)
   const type = guessSerializerType<T>(rawInit)
   const serializer = options.serializer ?? StorageSerializers[type]
 
-  const { pause: pauseWatch, resume: resumeWatch } = useSignalWatch(
+  const { pause: pauseWatch, resume: resumeWatch } = useWatch(
     data,
     () => {
       write(data.value)

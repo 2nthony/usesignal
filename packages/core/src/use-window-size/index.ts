@@ -3,7 +3,7 @@ import { defaultWindow } from '../_configurable'
 import { useEventListener } from '../use-event-listener'
 import { useMediaQuery } from '../use-media-query'
 import { useOnMounted } from '../use-on-mounted'
-import { useSignalWatch } from '../use-signal-watch'
+import { useWatch } from '../use-watch'
 import { useSignal } from '../utils'
 
 export type UseWindowSizeReturn = ReturnType<typeof useWindowSize>
@@ -64,7 +64,7 @@ export function useWindowSize(options: UseWindowSizeOptions = {}) {
   useEventListener('resize', update, { passive: true })
 
   const matches = useMediaQuery('(orientation: portrait)')
-  useSignalWatch(matches, () => {
+  useWatch(matches, () => {
     if (listenOrientation) {
       update()
     }

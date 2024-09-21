@@ -1,9 +1,9 @@
 import type { ConfigurableWindow } from '../_configurable'
-import type { SignalWatchSource } from '../use-signal-watch'
+import type { WatchSource } from '../use-watch'
 import { useComputed } from '@preact/signals-react'
 import { defaultWindow } from '../_configurable'
-import { useSignalWatch } from '../use-signal-watch'
 import { useSupported } from '../use-supported'
+import { useWatch } from '../use-watch'
 import { toValue } from '../utils'
 
 export type ResizeObserverCallback = (entries: ReadonlyArray<ResizeObserverEntry>, observer: ResizeObserver) => void
@@ -19,7 +19,7 @@ export interface UseResizeObserverOptions extends ConfigurableWindow {
 }
 
 export function useResizeObserver(
-  target: SignalWatchSource<HTMLElement>,
+  target: WatchSource<HTMLElement>,
   callback: ResizeObserverCallback,
   options: UseResizeObserverOptions = {},
 ) {
@@ -41,7 +41,7 @@ export function useResizeObserver(
       : [toValue(_targets)]
   })
 
-  const stopWatch = useSignalWatch(
+  const stopWatch = useWatch(
     targets,
     (els) => {
       cleanup()

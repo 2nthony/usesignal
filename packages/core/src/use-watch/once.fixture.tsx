@@ -1,11 +1,11 @@
-import { useSignalWatch } from '.'
+import { useWatch } from '.'
 import { useSignal } from '../utils'
 
-export default function DemoUseSignalWatchOnce() {
+export default function DemoUseWatchOnce() {
   const count = useSignal(0)
   const changedCount = useSignal(0)
 
-  useSignalWatch(count, (countVal) => {
+  useWatch(count, (countVal) => {
     changedCount.value = countVal
   }, { once: true })
 

@@ -1,7 +1,7 @@
-import type { SignalWatchCallback, SignalWatchOptions, SignalWatchSource } from '../use-signal-watch'
-import { useSignalWatch } from '../use-signal-watch'
+import type { WatchCallback, WatchOptions, WatchSource } from '../use-watch'
+import { useWatch } from '../use-watch'
 
-export interface WheneverOptions extends SignalWatchOptions {
+export interface WheneverOptions extends WatchOptions {
   /**
    * Only trigger once when the condition is met
    *
@@ -12,8 +12,8 @@ export interface WheneverOptions extends SignalWatchOptions {
   once?: boolean
 }
 
-export function useWhenever<T>(value: SignalWatchSource<T>, cb: SignalWatchCallback, options?: WheneverOptions) {
-  const stop = useSignalWatch(
+export function useWhenever<T>(value: WatchSource<T>, cb: WatchCallback, options?: WheneverOptions) {
+  const stop = useWatch(
     value,
     (val, prevVal) => {
       if (val) {

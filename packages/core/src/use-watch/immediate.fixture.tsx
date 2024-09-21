@@ -1,23 +1,14 @@
-import { useSignalWatch } from '.'
+import { useWatch } from '.'
 import { useSignal } from '../utils'
 
-export default function DemoUseSignalWatchGetter() {
+export default function DemoUseWatchImmediate() {
   const count1 = useSignal(0)
   const count2 = useSignal(0)
-  const sum = useSignal(0)
 
-  useSignalWatch(
-    () => {
-      return {
-        count1: count1.value,
-        count2: count2.value,
-        sum: count1.value + count2.value,
-      }
-    },
-    (value) => {
-      sum.value = value.sum
-    },
-  )
+  useWatch(count1, () => {
+    // eslint-disable-next-line no-console
+    console.log('count1', count1.value, 'count2', count2.value)
+  }, { immediate: true })
 
   return (
     <div>
@@ -28,10 +19,6 @@ export default function DemoUseSignalWatchGetter() {
       <div>
         count2:
         {count2}
-      </div>
-      <div>
-        sum:
-        {sum}
       </div>
       <button
         onClick={() => {

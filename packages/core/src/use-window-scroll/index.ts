@@ -2,7 +2,7 @@ import type { ConfigurableWindow } from '../_configurable'
 import { defaultWindow } from '../_configurable'
 import { useEventListener } from '../use-event-listener'
 import { useOnMounted } from '../use-on-mounted'
-import { useSignalWatch } from '../use-signal-watch'
+import { useWatch } from '../use-watch'
 import { useSignal } from '../utils'
 
 export interface UseWindowScrollOptions extends ConfigurableWindow {
@@ -52,7 +52,7 @@ export function useWindowScroll(options: UseWindowScrollOptions = {}) {
     },
   )
 
-  useSignalWatch([internalX, internalY], ([xVal, yVal]) => {
+  useWatch([internalX, internalY], ([xVal, yVal]) => {
     if (window) {
       if (user) {
         return
@@ -65,7 +65,7 @@ export function useWindowScroll(options: UseWindowScrollOptions = {}) {
     }
   })
 
-  useSignalWatch([x, y], ([xVal, yVal]) => {
+  useWatch([x, y], ([xVal, yVal]) => {
     if (window) {
       if (internal) {
         return

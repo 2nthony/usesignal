@@ -1,11 +1,11 @@
-import { useSignalWatch } from '.'
+import { useWatch } from '.'
 import { useSignal } from '../utils'
 
-export default function DemoUseSignalWatchBase() {
+export default function DemoUseWatchBase() {
   const count1 = useSignal(0)
   const count2 = useSignal(0)
 
-  useSignalWatch(count1, (count1Val) => {
+  useWatch(count1, (count1Val) => {
     // eslint-disable-next-line no-console
     console.log('count1', count1Val, 'count2', count2.value)
   })

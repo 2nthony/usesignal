@@ -3,7 +3,7 @@ import { useComputed } from '@preact/signals-react'
 import { defaultWindow } from '../_configurable'
 import { useOnMounted } from '../use-on-mounted'
 import { useResizeObserver, type UseResizeObserverOptions } from '../use-resize-observer'
-import { useSignalWatch } from '../use-signal-watch'
+import { useWatch } from '../use-watch'
 import { toValue, useSignal } from '../utils'
 
 export interface ElementSize {
@@ -65,7 +65,7 @@ export function useElementSize(
     }
   })
 
-  const stopWatch = useSignalWatch(target, (ele) => {
+  const stopWatch = useWatch(target, (ele) => {
     width.value = ele ? initialSize.width : 0
     height.value = ele ? initialSize.height : 0
   })

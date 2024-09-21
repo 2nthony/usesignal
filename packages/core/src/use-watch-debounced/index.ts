@@ -1,16 +1,16 @@
-import type { SignalWatchCallback, SignalWatchOptions, SignalWatchSource } from '../use-signal-watch'
+import type { WatchCallback, WatchOptions, WatchSource } from '../use-watch'
 import type { MaybeSignalOrGetter } from '../utils'
 import type { DebounceFilterOptions } from '../utils/filter'
 import { useWatchWithFilter } from '../use-watch-with-filter'
 import { debounceFilter } from '../utils/filter'
 
-export interface WatchDebouncedOptions extends SignalWatchOptions, DebounceFilterOptions {
+export interface WatchDebouncedOptions extends WatchOptions, DebounceFilterOptions {
   debounce?: MaybeSignalOrGetter<number>
 }
 
 export function useWatchDebounced<T>(
-  source: SignalWatchSource<T>,
-  cb: SignalWatchCallback,
+  source: WatchSource<T>,
+  cb: WatchCallback,
   options: WatchDebouncedOptions = {},
 ) {
   const {
