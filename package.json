@@ -25,7 +25,7 @@
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks",
     "demo": "next dev & cosmos --expose-imports",
-    "build-demo": "next build && cosmos-export --expose-imports && cp -R ./out/_next ./cosmos-export && cp -R ./out/cosmos ./cosmos-export"
+    "build-demo": "cosmos-export --expose-imports && next build && cp -R ./out/_next ./cosmos-export && cp -R ./out/cosmos ./cosmos-export"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
