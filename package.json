@@ -14,7 +14,8 @@
   "bugs": "https://github.com/2nthony/usesignal/issues",
   "keywords": [],
   "scripts": {
-    "build-core": "nr --filter @usesignal/core build",
+    "update-core-exports": "esno scripts/update-core-exports.ts",
+    "build-core": "nr update-core-exports && nr --filter @usesignal/core build",
     "build": "nr build-core",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
