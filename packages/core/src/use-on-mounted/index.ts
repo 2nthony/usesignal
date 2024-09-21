@@ -1,8 +1,18 @@
+import { useSignalEffect } from '@preact/signals-react'
 import { useMounted } from '../use-mounted'
-import { useSignalWatch } from '../use-signal-watch'
 
 export function useOnMounted(cb: () => void): void {
+  let flag: boolean | undefined
   const isMounted = useMounted()
 
-  useSignalWatch(isMounted, cb, { once: true })
+  useSignalEffect(() => {
+    if (flag) {
+      return
+    }
+
+    if (isMounted.value) {
+      cb()
+      flag = true
+    }
+  })
 }

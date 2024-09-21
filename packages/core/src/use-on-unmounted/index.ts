@@ -1,15 +1,18 @@
-import { useEffect } from 'react'
+import { useSignalEffect } from '@preact/signals-react'
 import { useMounted } from '../use-mounted'
 
-// TODO: use signal watch
 export function useOnUnmounted(fn: () => void) {
+  let flag: boolean | undefined
   const isMounted = useMounted()
 
-  useEffect(() => {
-    return () => {
-      if (!isMounted.value) {
-        fn()
-      }
+  useSignalEffect(() => {
+    if (flag) {
+      return
     }
-  }, [])
+
+    if (!isMounted.value) {
+      fn()
+      flag = true
+    }
+  })
 }
