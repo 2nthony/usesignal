@@ -1,9 +1,10 @@
 import type { ConfigurableWindow } from '../_configurable'
 import type { StorageLike } from '../ssr-handlers'
-import type { Awaitable, MaybeSignalOrGetter, RemovableSignal } from '../utils'
+import type { Awaitable, MaybeSignal, MaybeSignalOrGetter, RemovableSignal } from '../utils'
 import { defaultWindow } from '../_configurable'
 import { getSSRHandler } from '../ssr-handlers'
 import { useEventListener } from '../use-event-listener'
+import { useMounted } from '../use-mounted'
 import { useOnMounted } from '../use-on-mounted'
 import { useSignalWatch } from '../use-signal-watch'
 import { nextTick, toValue, useSignal } from '../utils'
@@ -141,7 +142,7 @@ export function useStorage<T extends (string | number | boolean | object | null)
     initOnMounted = true,
   } = options
 
-  const data = useSignal(typeof initialValue === 'function' ? initialValue() : initialValue) as RemovableSignal<T>
+  const data = useSignal(toValue(initialValue) as MaybeSignal<T>) as RemovableSignal<T>
 
   if (!storage) {
     try {
@@ -163,22 +164,22 @@ export function useStorage<T extends (string | number | boolean | object | null)
     },
   )
 
-  // FIXME: useStorage, should only one ifelse
-  useEventListener(window, 'storage', update)
-  useEventListener(window, customStorageEventName, update)
+  const isMounted = useMounted()
+  useEventListener(
+    () => isMounted.value ? window : null,
+    () => {
+      return listenToStorageChanges ? 'storage' : customStorageEventName
+    },
+    (event?: StorageEventLike) => {
+      return listenToStorageChanges ? update(event) : updateFromCustomEvent(event as unknown as CustomEvent<StorageEventLike>)
+    },
+  )
+
   useOnMounted(() => {
     if (initOnMounted) {
       update()
     }
   })
-  function update(event?: StorageEventLike) {
-    if (listenToStorageChanges) {
-      updateFromStorage(event)
-    }
-    else {
-      updateFromCustomEvent(event as unknown as CustomEvent<StorageEventLike>)
-    }
-  }
 
   function dispatchWriteEvent(oldValue: string | null, newValue: string | null) {
     // send custom event to communicate within same page
@@ -251,7 +252,7 @@ export function useStorage<T extends (string | number | boolean | object | null)
     }
   }
 
-  function updateFromStorage(event?: StorageEventLike) {
+  function update(event?: StorageEventLike) {
     if (event && event.storageArea !== storage) {
       return
     }
@@ -286,7 +287,7 @@ export function useStorage<T extends (string | number | boolean | object | null)
   }
 
   function updateFromCustomEvent(event: CustomEvent<StorageEventLike>) {
-    updateFromStorage(event.detail)
+    update(event.detail)
   }
 
   return data
