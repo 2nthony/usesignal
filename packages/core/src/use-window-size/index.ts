@@ -6,6 +6,8 @@ import { useOnMounted } from '../use-on-mounted'
 import { useSignalWatch } from '../use-signal-watch'
 import { useSignal } from '../utils'
 
+export type UseWindowSizeReturn = ReturnType<typeof useWindowSize>
+
 export interface UseWindowSizeOptions extends ConfigurableWindow {
   initialWidth?: number
   initialHeight?: number
@@ -70,5 +72,3 @@ export function useWindowSize(options: UseWindowSizeOptions = {}) {
 
   return { width, height }
 }
-
-export type UseWindowSizeReturn = ReturnType<typeof useWindowSize>
