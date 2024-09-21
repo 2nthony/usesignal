@@ -44,6 +44,7 @@
     "pnpm": "catalog:",
     "react": "catalog:",
     "react-cosmos": "catalog:",
+    "react-cosmos-core": "^6.2.0",
     "react-cosmos-next": "catalog:",
     "react-dom": "catalog:",
     "simple-git-hooks": "catalog:",
