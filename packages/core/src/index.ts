@@ -1,5 +1,7 @@
 export * from './use-async-state'
 export * from './use-event-listener'
+export * from './use-interval'
+export * from './use-interval-fn'
 export * from './use-local-storage'
 export * from './use-media-query'
 export * from './use-mounted'
