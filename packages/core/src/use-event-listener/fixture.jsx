@@ -1,9 +1,8 @@
-import type { LegacyRef } from 'react'
 import { useEventListener } from '.'
 import { useSignal } from '../utils'
 
 export default function Demo() {
-  const ref = useSignal<HTMLDivElement>()
+  const ref = useSignal()
   useEventListener(
     ref,
     'click',
@@ -16,7 +15,7 @@ export default function Demo() {
   return (
     <div>
       <div
-        ref={ref as unknown as LegacyRef<HTMLDivElement>}
+        ref={ref}
       >
         Alert hello
       </div>

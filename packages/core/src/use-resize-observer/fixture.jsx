@@ -1,9 +1,8 @@
-import type { LegacyRef } from 'react'
 import { useResizeObserver } from '.'
 import { useSignal } from '../utils'
 
 export default function DemoUseResizeObserver() {
-  const ref = useSignal<HTMLTextAreaElement>()
+  const ref = useSignal()
   const text = useSignal('')
 
   useResizeObserver(ref, (entries) => {
@@ -17,8 +16,9 @@ export default function DemoUseResizeObserver() {
       <p>Resize the box to see changes</p>
 
       <textarea
-        ref={ref as unknown as LegacyRef<HTMLTextAreaElement>}
+        ref={ref}
         value={text.value}
+        readOnly
       />
     </div>
   )

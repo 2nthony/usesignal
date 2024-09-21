@@ -1,9 +1,8 @@
-import type { LegacyRef } from 'react'
 import { useElementSize } from '.'
 import { useSignal } from '../utils'
 
 export default function DemoUseElementSize() {
-  const ref = useSignal<HTMLTextAreaElement >()
+  const ref = useSignal()
   const text = useSignal('')
 
   const { width, height } = useElementSize(
@@ -19,8 +18,9 @@ export default function DemoUseElementSize() {
       <p>Resize the box to see changes</p>
 
       <textarea
-        ref={ref as unknown as LegacyRef<HTMLTextAreaElement>}
+        ref={ref}
         value={text.value}
+        readOnly
       />
     </div>
   )
