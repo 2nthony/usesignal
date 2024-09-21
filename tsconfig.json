@@ -11,8 +11,10 @@
       "@usesignal/core": ["./packages/core/index.ts"],
       "@usesignal/core/*": ["./packages/core/*"]
     },
+    "typeRoots": [],
     "allowImportingTsExtensions": true,
     "allowJs": true,
+    "checkJs": false,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
