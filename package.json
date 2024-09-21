@@ -25,7 +25,7 @@
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks",
     "cosmos": "cosmos",
-    "build-demo": "npm run build-shared && cosmos-export"
+    "build-demo": "cosmos-export"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
