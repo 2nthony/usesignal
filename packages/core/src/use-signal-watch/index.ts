@@ -1,7 +1,9 @@
 import type { ReadonlySignal } from '@preact/signals-react'
 import type { Arrayable, MaybeSignal } from '../utils'
 import { computed, effect, useComputed } from '@preact/signals-react'
-import { useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
+import { useOnMounted } from '../use-on-mounted'
+import { useOnUnmounted } from '../use-on-unmounted'
 import { toValue, useSignal } from '../utils'
 
 export interface SignalWatchOptions {
@@ -98,17 +100,15 @@ export function useSignalWatch(
     }
   }
 
-  useEffect(() => {
+  useOnMounted(() => {
     if (immediate) {
       effectFn(true)
     }
 
     dispose.value = effect(effectFn)
+  })
 
-    return () => {
-      handler()
-    }
-  }, [])
+  useOnUnmounted(handler)
 
   return handler
 }
