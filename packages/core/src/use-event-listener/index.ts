@@ -1,8 +1,11 @@
 /* eslint-disable ts/no-unsafe-function-type */
 
+import type { Arrayable, Fn, MaybeGetter, MaybeSignal, MaybeSignalOrGetter } from '../utils'
+import { useMemo } from 'react'
 import { defaultWindow } from '../_configurable'
 import { useSignalWatch } from '../use-signal-watch'
-import { type Arrayable, type Fn, isObject, type MaybeSignal, useSignal } from '../utils'
+import { isObject, toValue, useSignal } from '../utils'
+import { toSignal } from '../utils/to-signal'
 
 interface InferEventTarget<Events> {
   addEventListener: (event: Events, fn?: any, options?: any) => any
@@ -22,49 +25,49 @@ function register(el: any, event: string, listener: any, options: any) {
 }
 
 export function useEventListener<E extends keyof WindowEventMap>(
-  event: Arrayable<E>,
+  event: MaybeGetter<Arrayable<E>>,
   listener: Arrayable<(this: Window, ev: WindowEventMap[E]) => any>,
   options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
 ): Fn
 
 export function useEventListener<E extends keyof WindowEventMap>(
-  target: Window,
-  event: Arrayable<E>,
+  target: MaybeGetter<Window>,
+  event: MaybeGetter<Arrayable<E>>,
   listener: Arrayable<(this: Window, ev: WindowEventMap[E]) => any>,
   options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
 ): Fn
 
 export function useEventListener<E extends keyof DocumentEventMap>(
-  target: DocumentOrShadowRoot,
-  event: Arrayable<E>,
+  target: MaybeGetter<DocumentOrShadowRoot>,
+  event: MaybeGetter<Arrayable<E>>,
   listener: Arrayable<(this: Document, ev: DocumentEventMap[E]) => any>,
   options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
 ): Fn
 
 export function useEventListener<E extends keyof HTMLElementEventMap>(
-  target: MaybeSignal<HTMLElement | null | undefined>,
-  event: Arrayable<E>,
+  target: MaybeGetter<MaybeSignal<HTMLElement | null | undefined>>,
+  event: MaybeGetter<Arrayable<E>>,
   listener: (this: HTMLElement, ev: HTMLElementEventMap[E]) => any,
   options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
 ): () => void
 
 export function useEventListener<Names extends string, EventType = Event>(
-  target: MaybeSignal<InferEventTarget<Names> | null | undefined>,
-  event: Arrayable<Names>,
+  target: MaybeGetter<MaybeSignal<InferEventTarget<Names> | null | undefined>>,
+  event: MaybeGetter<Arrayable<Names>>,
   listener: Arrayable<GeneralEventListener<EventType>>,
   options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
 ): Fn
 
 export function useEventListener<EventType = Event>(
-  target: MaybeSignal<EventTarget | null | undefined>,
-  event: Arrayable<string>,
+  target: MaybeGetter<MaybeSignal<EventTarget | null | undefined>>,
+  event: MaybeGetter<Arrayable<string>>,
   listener: Arrayable<GeneralEventListener<EventType>>,
   options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
 ): Fn
 
 export function useEventListener(...args: any) {
-  let _target: MaybeSignal<EventTarget | null | undefined>
-  let events: Arrayable<string>
+  let _target: MaybeSignalOrGetter<EventTarget | null | undefined>
+  let events: MaybeGetter<Arrayable<string>>
   let listeners: Arrayable<Function>
   let _options: MaybeSignal<boolean | AddEventListenerOptions | undefined>
 
@@ -76,12 +79,17 @@ export function useEventListener(...args: any) {
     [_target, events, listeners, _options] = args
   }
 
-  if (!Array.isArray(events))
-    events = [events]
-  if (!Array.isArray(listeners))
+  if (!Array.isArray(events)) {
+    events = [toValue(events)] as string[]
+  }
+  if (!Array.isArray(listeners)) {
     listeners = [listeners]
+  }
 
-  const target = useSignal(_target)
+  const target = useMemo(
+    () => toSignal(_target),
+    [],
+  )
   const options = useSignal(_options)
 
   const cleanups: Function[] = []
