@@ -15,7 +15,7 @@ export type WatchSource<T> = Arrayable<MaybeSignal<T> | ReadonlySignal<T>>
 
 export type WatchCallback<V = any, OV = any> = (value: V, oldValue: OV) => any
 
-interface WatchHandler {
+export interface WatchHandler {
   (): void // callable, same as stop
   isActive: ReadonlySignal<boolean>
   pause: () => void
