@@ -1,3 +1,4 @@
+export * from './use-async-queue'
 export * from './use-async-state'
 export * from './use-debounce-fn'
 export * from './use-event-listener'
