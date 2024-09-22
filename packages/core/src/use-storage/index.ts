@@ -67,13 +67,6 @@ export interface StorageEventLike {
 
 export interface UseStorageOptions<T> extends ConfigurableWindow {
   /**
-   * Watch for deep changes
-   *
-   * @default true
-   */
-  deep?: boolean
-
-  /**
    * Listen to storage changes, useful for multiple tabs application
    *
    * @default true
