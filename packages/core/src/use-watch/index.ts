@@ -8,12 +8,12 @@ import { useOnCleanup } from '../use-on-cleanup'
 import { useOnMount } from '../use-on-mount'
 import { toValue, useSignal } from '../utils'
 
-export interface WatchOptions {
-  immediate?: boolean
+export interface WatchOptions<Immediate = boolean> {
+  immediate?: Immediate
   once?: boolean
 }
 
-export type WatchSource<T> = Arrayable<MaybeSignal<T> | ReadonlySignal<T>>
+export type WatchSource<T = any> = Arrayable<MaybeSignal<T> | ReadonlySignal<T>>
 
 export type WatchCallback<V = any, OV = any> = (value: V, oldValue: OV) => any
 
