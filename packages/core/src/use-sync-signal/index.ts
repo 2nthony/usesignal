@@ -5,18 +5,15 @@ import { useWatch } from '../use-watch'
 type Direction = 'ltr' | 'rtl' | 'both'
 
 interface Transform<L, R> {
-  ltr: (left: L) => R
-  rtl: (right: R) => L
+  ltr?: (left: L) => R
+  rtl?: (right: R) => L
 }
 
-interface TransformType<D extends Direction, L, R> {
-  transform?: Partial<Pick<Transform<L, R>, D extends 'both' ? 'ltr' | 'rtl' : D>>
-}
-
-export type SyncSignalOptions<L, R, D extends Direction> = {
+export interface SyncSignalOptions<L, R, D extends Direction> {
   immediate?: boolean
   direction?: D
-} & TransformType<D, L, R>
+  transform?: Transform<L, R>
+}
 
 export function useSyncSignal<L, R, D extends Direction = 'both'>(
   left: Signal<L>,
@@ -29,8 +26,8 @@ export function useSyncSignal<L, R, D extends Direction = 'both'>(
     transform = {},
   } = options ?? {}
 
-  const transformLTR = (('ltr' in transform && transform.ltr) || (v => v)) as ((v: L) => R)
-  const transformRTL = (('rtl' in transform && transform.rtl) || (v => v)) as ((v: R) => L)
+  const transformLTR = ((transform?.ltr) || (v => v))
+  const transformRTL = ((transform?.rtl) || (v => v))
 
   const stopLTR = useWatch(
     left,
