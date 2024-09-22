@@ -14,11 +14,23 @@ export interface UseNowOptions<Controls extends boolean> {
   controls?: Controls
 
   /**
+   * Update the timestamp immediately
+   *
+   * @default true
+   */
+  immediate?: boolean
+
+  /**
    * Update interval in milliseconds, or use requestAnimationFrame
    *
    * @default requestAnimationFrame
    */
   interval?: 'requestAnimationFrame' | number
+
+  /**
+   * Callback on each update
+   */
+  callback?: (now: Date) => void
 }
 
 export type UseNowReturn = ReturnType<typeof useNow>
@@ -33,7 +45,9 @@ export function useNow(options: UseNowOptions<true>): { now: Signal<Date> } & Pa
 export function useNow(options: UseNowOptions<boolean> = {}) {
   const {
     controls: exposeControls = false,
+    immediate = true,
     interval = 'requestAnimationFrame',
+    callback,
   } = options
 
   const now = useSignal(new Date())
@@ -42,9 +56,16 @@ export function useNow(options: UseNowOptions<boolean> = {}) {
     now.value = new Date()
   }
 
+  const cb = callback
+    ? () => {
+        update()
+        callback(now.value)
+      }
+    : update
+
   const controls: Pausable = interval === 'requestAnimationFrame'
-    ? useRafFn(update, { immediate: true })
-    : useIntervalFn(update, interval, { immediate: true })
+    ? useRafFn(cb, { immediate })
+    : useIntervalFn(cb, interval, { immediate })
 
   if (exposeControls) {
     return {
