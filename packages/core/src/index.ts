@@ -1,6 +1,7 @@
 export * from './use-async-queue'
 export * from './use-async-state'
 export * from './use-click-outside'
+export * from './use-color-mode'
 export * from './use-computed'
 export * from './use-cycle-list'
 export * from './use-debounce-fn'
