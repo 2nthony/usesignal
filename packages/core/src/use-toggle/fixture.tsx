@@ -6,16 +6,32 @@ export default function DemoUseToggle() {
 
   return (
     <div>
-      <div>
-        {value.value ? 'Open' : 'Closed'}
-      </div>
+      <p>
+        Value:
+        { value.value ? 'ON' : 'OFF' }
+      </p>
 
       <button
         onClick={() => {
           toggle()
         }}
       >
-        toggle
+        Toggle
+      </button>
+
+      <button
+        onClick={() => {
+          value.value = true
+        }}
+      >
+        Set ON
+      </button>
+      <button
+        onClick={() => {
+          value.value = false
+        }}
+      >
+        Set OFF
       </button>
     </div>
   )
