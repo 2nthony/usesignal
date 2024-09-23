@@ -8,7 +8,7 @@ import { useEventListener } from '../use-event-listener'
 import { useMounted } from '../use-mounted'
 import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'
-import { nextTick, toValue, useSignal } from '../utils'
+import { toValue, useSignal } from '../utils'
 import { guessSerializerType } from './guess'
 
 export interface Serializer<T> {
@@ -151,7 +151,7 @@ export function useStorage<T extends (string | number | boolean | object | null)
   const type = guessSerializerType<T>(rawInit)
   const serializer = options.serializer ?? StorageSerializers[type]
 
-  const { pause: pauseWatch, resume: resumeWatch } = useWatch(
+  useWatch(
     data,
     () => {
       write(data.value)
@@ -260,7 +260,6 @@ export function useStorage<T extends (string | number | boolean | object | null)
       return
     }
 
-    pauseWatch()
     try {
       if (event?.newValue !== serializer.write(data.value)) {
         data.value = read(event)
@@ -268,15 +267,6 @@ export function useStorage<T extends (string | number | boolean | object | null)
     }
     catch (e) {
       onError(e)
-    }
-    finally {
-      // use nextTick to avoid infinite loop
-      if (event) {
-        nextTick(resumeWatch)
-      }
-      else {
-        resumeWatch()
-      }
     }
   }
 
