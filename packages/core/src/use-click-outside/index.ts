@@ -30,6 +30,7 @@ let _iOSWorkaround = false
 /**
  * Listen for clicks outside of an element.
  *
+ * @see https://vueuse.org/onClickOutside/
  * @param target
  * @param handler
  * @param options

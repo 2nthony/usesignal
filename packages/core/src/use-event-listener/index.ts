@@ -26,12 +26,33 @@ function register(el: any, event: string, listener: any, options: any) {
   return () => el.removeEventListener(event, listener, options)
 }
 
+/**
+ * Register using addEventListener on mounted, and removeEventListener automatically on unmounted.
+ *
+ * Overload 1: Omitted Window target
+ *
+ * @see https://vueuse.org/useEventListener
+ * @param event
+ * @param listener
+ * @param options
+ */
 export function useEventListener<E extends keyof WindowEventMap>(
   event: MaybeGetter<Arrayable<E>>,
   listener: Arrayable<(this: Window, ev: WindowEventMap[E]) => any>,
   options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
 ): Fn
 
+/**
+ * Register using addEventListener on mounted, and removeEventListener automatically on unmounted.
+ *
+ * Overload 2: Explicitly Window target
+ *
+ * @see https://vueuse.org/useEventListener
+ * @param target
+ * @param event
+ * @param listener
+ * @param options
+ */
 export function useEventListener<E extends keyof WindowEventMap>(
   target: MaybeGetter<Window>,
   event: MaybeGetter<Arrayable<E>>,
@@ -39,6 +60,17 @@ export function useEventListener<E extends keyof WindowEventMap>(
   options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
 ): Fn
 
+/**
+ * Register using addEventListener on mounted, and removeEventListener automatically on unmounted.
+ *
+ * Overload 3: Explicitly Document target
+ *
+ * @see https://vueuse.org/useEventListener
+ * @param target
+ * @param event
+ * @param listener
+ * @param options
+ */
 export function useEventListener<E extends keyof DocumentEventMap>(
   target: MaybeGetter<DocumentOrShadowRoot>,
   event: MaybeGetter<Arrayable<E>>,
@@ -46,6 +78,17 @@ export function useEventListener<E extends keyof DocumentEventMap>(
   options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
 ): Fn
 
+/**
+ * Register using addEventListener on mounted, and removeEventListener automatically on unmounted.
+ *
+ * Overload 4: Explicitly HTMLElement target
+ *
+ * @see https://vueuse.org/useEventListener
+ * @param target
+ * @param event
+ * @param listener
+ * @param options
+ */
 export function useEventListener<E extends keyof HTMLElementEventMap>(
   target: MaybeGetter<MaybeSignal<HTMLElement | null | undefined>>,
   event: MaybeGetter<Arrayable<E>>,
@@ -53,6 +96,17 @@ export function useEventListener<E extends keyof HTMLElementEventMap>(
   options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
 ): () => void
 
+/**
+ * Register using addEventListener on mounted, and removeEventListener automatically on unmounted.
+ *
+ * Overload 5: Custom event target with event type infer
+ *
+ * @see https://vueuse.org/useEventListener
+ * @param target
+ * @param event
+ * @param listener
+ * @param options
+ */
 export function useEventListener<Names extends string, EventType = Event>(
   target: MaybeGetter<MaybeSignal<InferEventTarget<Names> | null | undefined>>,
   event: MaybeGetter<Arrayable<Names>>,
@@ -60,6 +114,17 @@ export function useEventListener<Names extends string, EventType = Event>(
   options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
 ): Fn
 
+/**
+ * Register using addEventListener on mounted, and removeEventListener automatically on unmounted.
+ *
+ * Overload 6: Custom event target fallback
+ *
+ * @see https://vueuse.org/useEventListener
+ * @param target
+ * @param event
+ * @param listener
+ * @param options
+ */
 export function useEventListener<EventType = Event>(
   target: MaybeGetter<MaybeSignal<EventTarget | null | undefined>>,
   event: MaybeGetter<Arrayable<string>>,

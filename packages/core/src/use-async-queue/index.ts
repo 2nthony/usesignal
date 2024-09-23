@@ -48,6 +48,7 @@ export interface UseAsyncQueueOptions {
 /**
  * Asynchronous queue task controller.
  *
+ * @see https://vueuse.org/useAsyncQueue/
  * @param tasks
  * @param options
  */

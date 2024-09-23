@@ -33,6 +33,7 @@ export interface UseIntervalControls {
 /**
  * Reactive counter increases on every interval
  *
+ * @see https://vueuse.org/useInterval
  * @param interval
  * @param options
  */

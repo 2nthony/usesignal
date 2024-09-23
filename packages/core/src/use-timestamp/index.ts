@@ -29,6 +29,7 @@ export interface UseTimestampOptions<Controls extends boolean> extends
 /**
  * Reactive current timestamp.
  *
+ * @see https://vueuse.org/useTimestamp
  * @param options
  */
 export function useTimestamp(options?: UseTimestampOptions<false>): Signal<number>

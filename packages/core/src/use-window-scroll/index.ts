@@ -12,6 +12,11 @@ export interface UseWindowScrollOptions extends ConfigurableWindow {
 
 export type UseWindowScrollReturn = ReturnType<typeof useWindowScroll>
 
+/**
+ * Reactive window scroll.
+ *
+ * @see https://vueuse.org/useWindowScroll
+ */
 export function useWindowScroll(options: UseWindowScrollOptions = {}) {
   const { window = defaultWindow, behavior = 'auto' } = options
 

@@ -10,6 +10,11 @@ export interface WatchDebouncedOptions extends WatchOptions, DebounceFilterOptio
   debounce?: MaybeSignalOrGetter<number>
 }
 
+/**
+ * Watch a source and debounce the callback.
+ *
+ * @see https://vueuse.org/watchDebounced
+ */
 export function useWatchDebounced<T>(
   source: WatchSource<T>,
   cb: WatchCallback,

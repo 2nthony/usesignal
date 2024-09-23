@@ -5,7 +5,7 @@ import type { Awaitable, MaybeSignal, MaybeSignalOrGetter, RemovableSignal } fro
 import { defaultWindow } from '../_configurable'
 import { getSSRHandler } from '../ssr-handlers'
 import { useEventListener } from '../use-event-listener'
-import { useIsMounted } from '../use-is-mounted'
+import { useMounted } from '../use-mounted'
 import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'
 import { nextTick, toValue, useSignal } from '../utils'
@@ -158,7 +158,7 @@ export function useStorage<T extends (string | number | boolean | object | null)
     },
   )
 
-  const isMounted = useIsMounted()
+  const isMounted = useMounted()
   useEventListener(
     () => isMounted.value ? window : null,
     () => {

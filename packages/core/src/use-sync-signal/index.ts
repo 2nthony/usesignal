@@ -15,6 +15,14 @@ export interface SyncSignalOptions<L, R, D extends Direction> {
   transform?: Transform<L, R>
 }
 
+/**
+ * Two-way signals synchronization.
+ *
+ * @see https://vueuse.org/syncRef
+ * @param left
+ * @param right
+ * @param options
+ */
 export function useSyncSignal<L, R, D extends Direction = 'both'>(
   left: Signal<L>,
   right: Signal<R>,

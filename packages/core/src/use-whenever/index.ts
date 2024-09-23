@@ -13,6 +13,11 @@ export interface WheneverOptions extends WatchOptions {
   once?: boolean
 }
 
+/**
+ * Shorthand for watching value to be truthy
+ *
+ * @see https://vueuse.org/whenever
+ */
 export function useWhenever<T>(value: WatchSource<T>, cb: WatchCallback, options?: WheneverOptions) {
   const stop = useWatch(
     value,

@@ -85,6 +85,7 @@ const ARRIVED_STATE_THRESHOLD_PIXELS = 1
 /**
  * Reactive scroll.
  *
+ * @see https://vueuse.org/useScroll
  * @param element
  * @param options
  */

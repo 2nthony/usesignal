@@ -61,6 +61,14 @@ export interface UseAsyncStateOptions<D = any> {
   throwError?: boolean
 }
 
+/**
+ * Asynchronous state controller.
+ *
+ * @see https://vueuse.org/useAsyncState/
+ * @param promise
+ * @param initialState
+ * @param options
+ */
 export function useAsyncState<Data, Params extends any[] = []>(
   promise: (...args: Params) => Promise<Data>,
   initialState: Data,

@@ -7,6 +7,13 @@ import { defaultWindow } from '../_configurable'
 import { useSupported } from '../use-supported'
 import { toValue, useSignal } from '../utils'
 
+/**
+ * Reactive Media Query.
+ *
+ * @see https://vueuse.org/useMediaQuery
+ * @param query
+ * @param options
+ */
 export function useMediaQuery(query: MaybeSignal<string>, options: ConfigurableWindow = {}) {
   useSignals()
 

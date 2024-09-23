@@ -26,6 +26,7 @@ export interface UseIntervalFnOptions {
 /**
  * Wrapper for `setInterval` with controls
  *
+ * @see https://vueuse.org/useIntervalFn
  * @param cb
  * @param interval
  * @param options

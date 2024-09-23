@@ -23,6 +23,7 @@ export interface UseTimeoutOptions<Controls extends boolean> extends UseTimeoutF
 /**
  * Update value after a given time with controls.
  *
+ * @see https://vueuse.org/useTimeout
  * @param interval
  * @param options
  */

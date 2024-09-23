@@ -10,6 +10,14 @@ export function useLocalStorage(key: string, initialValue: MaybeSignalOrGetter<n
 export function useLocalStorage<T>(key: string, initialValue: MaybeSignalOrGetter<T>, options?: UseStorageOptions<T>): RemovableSignal<T>
 export function useLocalStorage<T = unknown>(key: string, initialValue: MaybeSignalOrGetter<null>, options?: UseStorageOptions<T>): RemovableSignal<T>
 
+/**
+ * Reactive LocalStorage.
+ *
+ * @see https://vueuse.org/useLocalStorage
+ * @param key
+ * @param initialValue
+ * @param options
+ */
 export function useLocalStorage<T extends(string | number | boolean | object | null)>(
   key: string,
   initialValue: MaybeSignalOrGetter<T>,

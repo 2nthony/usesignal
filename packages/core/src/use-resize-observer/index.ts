@@ -19,6 +19,11 @@ export interface UseResizeObserverOptions extends ConfigurableWindow {
   box?: ResizeObserverBoxOptions
 }
 
+/**
+ * Reports changes to the dimensions of an Element's content or the border-box
+ *
+ * @see https://vueuse.org/useResizeObserver
+ */
 export function useResizeObserver(
   target: WatchSource<HTMLElement>,
   callback: ResizeObserverCallback,

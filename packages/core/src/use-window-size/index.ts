@@ -31,6 +31,11 @@ export interface UseWindowSizeOptions extends ConfigurableWindow {
   type?: 'inner' | 'outer'
 }
 
+/**
+ * Reactive window size.
+ *
+ * @see https://vueuse.org/useWindowSize
+ */
 export function useWindowSize(options: UseWindowSizeOptions = {}) {
   const {
     window = defaultWindow,

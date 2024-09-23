@@ -10,6 +10,11 @@ export function useSessionStorage(key: string, initialValue: MaybeSignalOrGetter
 export function useSessionStorage<T>(key: string, initialValue: MaybeSignalOrGetter<T>, options?: UseStorageOptions<T>): RemovableSignal<T>
 export function useSessionStorage<T = unknown>(key: string, initialValue: MaybeSignalOrGetter<null>, options?: UseStorageOptions<T>): RemovableSignal<T>
 
+/**
+ * Reactive SessionStorage.
+ *
+ * @see https://vueuse.org/useSessionStorage
+ */
 export function useSessionStorage<T extends(string | number | boolean | object | null)>(
   key: string,
   initialValue: MaybeSignalOrGetter<T>,

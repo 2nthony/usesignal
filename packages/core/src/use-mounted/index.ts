@@ -6,8 +6,10 @@ import { useSignal } from '../utils'
 
 /**
  * Mounted state in signal
+ *
+ * @see https://vueuse.org/useMounted
  */
-export function useIsMounted() {
+export function useMounted() {
   useSignals()
 
   const isMounted = useSignal(false)

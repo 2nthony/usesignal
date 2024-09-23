@@ -14,6 +14,11 @@ export interface ElementSize {
 
 export type UseElementSizeReturn = ReturnType<typeof useElementSize>
 
+/**
+ * Reactive size of an HTML element.
+ *
+ * @see https://vueuse.org/useElementSize
+ */
 export function useElementSize(
   target: MaybeSignal<HTMLElement>,
   initialSize: ElementSize = { width: 0, height: 0 },

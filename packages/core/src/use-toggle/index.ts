@@ -7,6 +7,11 @@ import { isSignal, useSignal } from '../utils'
 export function useToggle<Truthy, Falsy, T = Truthy | Falsy>(initialValue: Signal<T>): (value?: T) => T
 export function useToggle<Truthy = true, Falsy = false, T = Truthy | Falsy>(initialValue?: T): [Signal<T>, (value?: T) => T]
 
+/**
+ * A boolean ref with a toggler
+ *
+ * @see https://vueuse.org/useToggle
+ */
 export function useToggle(initialValue: MaybeSignal<boolean> = false) {
   useSignals()
 

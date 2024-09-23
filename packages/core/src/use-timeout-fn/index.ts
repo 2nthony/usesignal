@@ -18,6 +18,7 @@ export interface UseTimeoutFnOptions {
 /**
  * Wrapper for `setTimeout` with controls.
  *
+ * @see https://vueuse.org/useTimeoutFn
  * @param cb
  * @param interval
  * @param options

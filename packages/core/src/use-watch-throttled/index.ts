@@ -10,6 +10,11 @@ export interface WatchThrottledOptions extends WatchOptions {
   leading?: boolean
 }
 
+/**
+ * Watch a source and throttle the callback.
+ *
+ * @see https://vueuse.org/watchThrottled
+ */
 export function useWatchThrottled<T>(
   source: WatchSource<T>,
   cb: WatchCallback,

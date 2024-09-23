@@ -38,6 +38,7 @@ export type UseNowReturn = ReturnType<typeof useNow>
 /**
  * Reactive current Date instance.
  *
+ * @see https://vueuse.org/useNow
  * @param options
  */
 export function useNow(options?: UseNowOptions<false>): Signal<Date>

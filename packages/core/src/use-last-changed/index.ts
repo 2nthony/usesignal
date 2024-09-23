@@ -13,6 +13,8 @@ export interface UseLastChangedOptions<
 
 /**
  * Records the timestamp of the last change
+ *
+ * @see https://vueuse.org/useLastChanged
  */
 export function useLastChanged(source: WatchSource, options?: UseLastChangedOptions<false>): Signal<number | null>
 export function useLastChanged(source: WatchSource, options: UseLastChangedOptions<true> | UseLastChangedOptions<boolean, number>): Signal<number>

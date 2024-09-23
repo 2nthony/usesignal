@@ -7,6 +7,11 @@ import { bypassFilter, createFilterWrapper } from '../utils/filter'
 
 export interface WatchWithFilterOptions extends WatchOptions, ConfigurableEventFilter {}
 
+/**
+ * Watch a source and apply a filter to the callback.
+ *
+ * @see https://vueuse.org/watchWithFilter
+ */
 export function useWatchWithFilter<T>(
   source: WatchSource<T>,
   cb: WatchCallback,

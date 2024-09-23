@@ -38,6 +38,7 @@ export interface UseRafFnOptions extends ConfigurableWindow {
 /**
  * Call function on every `requestAnimationFrame`. With controls of pausing and resuming.
  *
+ * @see https://vueuse.org/useRafFn
  * @param fn
  * @param options
  */
