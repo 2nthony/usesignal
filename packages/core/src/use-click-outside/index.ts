@@ -3,6 +3,7 @@ import type { ConfigurableWindow } from '../_configurable'
 import type { Fn, MaybeElementSignal, MaybeSignalOrGetter } from '../utils'
 import { defaultWindow } from '../_configurable'
 import { useEventListener } from '../use-event-listener'
+import { useOnMount } from '../use-on-mount'
 import { isIOS, noop, toValue } from '../utils'
 
 export interface OnClickOutsideOptions extends ConfigurableWindow {
@@ -45,27 +46,29 @@ export function useClickOutside<T extends OnClickOutsideOptions>(
     detectIframe = false,
   } = options
 
-  if (!window) {
-    return noop
-  }
+  useOnMount(() => {
+    if (!window) {
+      return
+    }
 
-  // Fixes: https://github.com/vueuse/vueuse/issues/1520
-  // How it works: https://stackoverflow.com/a/39712411
-  if (isIOS && !_iOSWorkaround) {
-    _iOSWorkaround = true
-    Array.from(window.document.body.children)
-      .forEach((el) => {
-        el.addEventListener('click', noop)
-      })
-    window.document.documentElement.addEventListener('click', noop)
-  }
+    // Fixes: https://github.com/vueuse/vueuse/issues/1520
+    // How it works: https://stackoverflow.com/a/39712411
+    if (isIOS && !_iOSWorkaround) {
+      _iOSWorkaround = true
+      Array.from(window.document.body.children)
+        .forEach((el) => {
+          el.addEventListener('click', noop)
+        })
+      window.document.documentElement.addEventListener('click', noop)
+    }
+  })
 
   let shouldListen = true
 
   const shouldIgnore = (event: PointerEvent) => {
     return toValue(ignore).some((target) => {
       if (typeof target === 'string') {
-        return Array.from(window.document.querySelectorAll(target))
+        return Array.from(window!.document.querySelectorAll(target))
           .some(el => el === event.target || event.composedPath().includes(el))
       }
       else {
@@ -106,7 +109,7 @@ export function useClickOutside<T extends OnClickOutsideOptions>(
         listener(event)
       }
     }, { passive: true, capture }),
-    useEventListener(window, 'pointerdown', (e) => {
+    useEventListener(window, 'pointerdown', (e: PointerEvent) => {
       const el = toValue(target)
       shouldListen = !shouldIgnore(e) && !!(el && !e.composedPath().includes(el))
     }, { passive: true }),
@@ -114,8 +117,8 @@ export function useClickOutside<T extends OnClickOutsideOptions>(
       setTimeout(() => {
         const el = toValue(target)
         if (
-          window.document.activeElement?.tagName === 'IFRAME'
-          && !el?.contains(window.document.activeElement)
+          window!.document.activeElement?.tagName === 'IFRAME'
+          && !el?.contains(window!.document.activeElement)
         ) {
           handler(event as any)
         }
