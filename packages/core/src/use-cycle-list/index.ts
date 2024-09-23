@@ -2,6 +2,7 @@
 import type { Signal } from '@preact/signals-react'
 import type { MaybeSignal, MaybeSignalOrGetter } from '../utils'
 import { useComputed } from '../use-computed'
+import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'
 import { toValue, useSignal } from '../utils'
 
@@ -42,6 +43,10 @@ export interface UseCycleListOptions<T> {
 export function useCycleList<T>(list: MaybeSignalOrGetter<T[]>, options?: UseCycleListOptions<T>): UseCycleListReturn<T> {
   const state = useSignal(getInitialValue()) as Signal<T>
   const listRef = useSignal(list) as Signal<T[]>
+
+  useOnMount(() => {
+    state.value = getInitialValue() as T
+  })
 
   const index = useComputed<number>({
     get() {
