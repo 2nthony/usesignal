@@ -85,11 +85,9 @@ export function computed<T>(
     set(_target, _key, value) {
       if (setter) {
         setter(value)
-
-        return true
       }
 
-      return false
+      return true
     },
   })
 }
