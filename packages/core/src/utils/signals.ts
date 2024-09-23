@@ -46,23 +46,34 @@ export function useSignal<T>(v?: MaybeSignal<T>) {
   return useMemo(() => signal(v), [])
 }
 
-interface ComputedOptions<T> {
-  get: () => T
-  set: (value: any) => void
+export interface WritableComputedOptions<T> {
+  get: ComputedGetter<T>
+  set: ComputedSetter
 }
-export interface ComputedSignal<T> extends ReadonlySignal<T> {}
-export function computed<T>(getter: () => T): ComputedSignal<T>
-export function computed<T>(options: ComputedOptions<T>): ComputedSignal<T>
-export function computed<T>(val: (() => T) | ComputedOptions<T>) {
-  let setter: ComputedOptions<T>['set'] | undefined
-  let getter
 
-  if (typeof val === 'function') {
-    getter = val
+export type ComputedGetter<T> = () => T
+export type ComputedSetter<T = any> = (value: T) => void
+
+export interface ComputedSignal<T> extends ReadonlySignal<T> {}
+
+export function computed<T>(
+  getter: () => T,
+): ComputedSignal<T>
+export function computed<T>(
+  options: WritableComputedOptions<T>,
+): Signal<T>
+export function computed<T>(
+  getterOrOptions: ComputedGetter<T> | WritableComputedOptions<T>,
+) {
+  let getter: ComputedGetter<T>
+  let setter: ComputedSetter<T> | undefined
+
+  if (typeof getterOrOptions === 'function') {
+    getter = getterOrOptions
   }
   else {
-    getter = val.get
-    setter = val.set
+    getter = getterOrOptions.get
+    setter = getterOrOptions.set
   }
 
   const signal = _computed(getter) as ComputedSignal<T>
