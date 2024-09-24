@@ -27,20 +27,10 @@ export default function DemoUseColorMode() {
 
         <span>
           { state }
-          {'>'}
-          {mode}
         </span>
       </button>
 
       <span>← Click to change the color mode</span>
-
-      <button
-        onClick={() => {
-          mode.value = 'auto'
-        }}
-      >
-        set auto
-      </button>
     </div>
   )
 }
