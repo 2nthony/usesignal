@@ -2,9 +2,9 @@
 import type { Signal } from '@preact/signals-react'
 import type { ConfigurableDocument } from '../_configurable'
 import { defaultDocument } from '../_configurable'
+import { useSignal } from '../signals'
 import { useEventListener } from '../use-event-listener'
 import { useMounted } from '../use-mounted'
-import { useSignal } from '../utils'
 
 /**
  * Reactively track `document.visibilityState`.

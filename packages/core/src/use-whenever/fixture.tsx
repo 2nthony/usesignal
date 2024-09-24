@@ -1,7 +1,7 @@
 'use client'
 import { useWhenever } from '.'
+import { useSignal } from '../signals'
 import { useToggle } from '../use-toggle'
-import { useSignal } from '../utils'
 
 export default function DemoUseWhenever() {
   const [value, toggle] = useToggle(false)

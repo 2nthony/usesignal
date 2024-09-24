@@ -1,7 +1,7 @@
 'use client'
 import { useComputed } from '@preact/signals-react'
 import { useScroll } from '.'
-import { useSignal } from '../utils'
+import { useSignal } from '../signals'
 
 export default function DemoUseScroll() {
   const ref = useSignal()

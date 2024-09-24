@@ -4,9 +4,10 @@ import type { Arrayable, MaybeSignal, Pausable } from '../utils'
 import { computed, effect, useComputed } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'
+import { useSignal } from '../signals'
 import { useOnCleanup } from '../use-on-cleanup'
 import { useOnMount } from '../use-on-mount'
-import { toValue, useSignal } from '../utils'
+import { toValue } from '../utils'
 
 export interface WatchOptions<Immediate = boolean> {
   immediate?: Immediate

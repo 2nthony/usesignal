@@ -4,8 +4,9 @@ import type { MaybeSignal } from '../utils'
 import { useSignalEffect } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
 import { defaultWindow } from '../_configurable'
+import { useSignal } from '../signals'
 import { useSupported } from '../use-supported'
-import { toValue, useSignal } from '../utils'
+import { toValue } from '../utils'
 
 /**
  * Reactive Media Query.

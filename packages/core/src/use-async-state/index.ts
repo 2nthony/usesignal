@@ -1,8 +1,9 @@
 'use client'
 import type { Signal } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
+import { useSignal } from '../signals'
 import { useOnMount } from '../use-on-mount'
-import { noop, promiseTimeout, useSignal } from '../utils'
+import { noop, promiseTimeout } from '../utils'
 
 export interface UseAsyncStateReturn<Data, Params extends any[]> {
   state: Signal<Data>

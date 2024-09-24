@@ -1,8 +1,9 @@
 'use client'
 import type { Signal } from '@preact/signals-react'
 import type { WatchOptions, WatchSource } from '../use-watch'
+import { useSignal } from '../signals'
 import { useWatch } from '../use-watch'
-import { timestamp, useSignal } from '../utils'
+import { timestamp } from '../utils'
 
 export interface UseLastChangedOptions<
   Immediate extends boolean,

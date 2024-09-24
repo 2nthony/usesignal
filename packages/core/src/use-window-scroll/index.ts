@@ -1,10 +1,10 @@
 'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import { defaultWindow } from '../_configurable'
+import { useSignal } from '../signals'
 import { useEventListener } from '../use-event-listener'
 import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'
-import { useSignal } from '../utils'
 
 export interface UseWindowScrollOptions extends ConfigurableWindow {
   behavior?: ScrollBehavior

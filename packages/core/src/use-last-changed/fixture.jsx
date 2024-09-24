@@ -1,7 +1,7 @@
 'use client'
 import { useLastChanged } from '.'
+import { useSignal } from '../signals'
 import { useTimeAgo } from '../use-time-ago'
-import { useSignal } from '../utils'
 
 export default function DemoUseLastChanged() {
   const input = useSignal('')

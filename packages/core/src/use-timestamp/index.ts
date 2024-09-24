@@ -2,9 +2,9 @@
 import type { Signal } from '@preact/signals-react'
 import type { UseNowOptions } from '../use-now'
 import type { Pausable } from '../utils'
+import { useSignal } from '../signals'
 import { useNow } from '../use-now'
 import { useWatch } from '../use-watch'
-import { useSignal } from '../utils'
 
 export type UseTimestampReturn = ReturnType<typeof useTimestamp>
 

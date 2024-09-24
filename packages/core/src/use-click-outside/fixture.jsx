@@ -1,7 +1,7 @@
 'use client'
 
 import { useClickOutside } from '.'
-import { useSignal } from '../utils'
+import { useSignal } from '../signals'
 
 export default function DemoUseClickOutside() {
   const ref = useSignal()

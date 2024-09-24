@@ -3,12 +3,13 @@ import type { ConfigurableWindow } from '../_configurable'
 import type { MaybeSignalOrGetter } from '../utils'
 import { useSignals } from '@preact/signals-react/runtime'
 import { defaultWindow } from '../_configurable'
+import { useSignal } from '../signals'
 import { useDebounceFn } from '../use-debounce-fn'
 import { useEventListener } from '../use-event-listener'
 import { useOnMount } from '../use-on-mount'
 import { useThrottleFn } from '../use-throttle-fn'
 import { useWatch } from '../use-watch'
-import { noop, toValue, useSignal } from '../utils'
+import { noop, toValue } from '../utils'
 
 export type UseScrollReturn = ReturnType<typeof useScroll>
 

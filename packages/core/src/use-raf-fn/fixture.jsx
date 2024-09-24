@@ -1,6 +1,6 @@
 'use client'
 import { useRafFn } from '.'
-import { useSignal } from '../utils'
+import { useSignal } from '../signals'
 
 export default function DemoUseRafFn() {
   const fpsLimit = 60

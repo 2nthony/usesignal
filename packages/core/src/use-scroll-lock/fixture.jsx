@@ -1,7 +1,7 @@
 'use client'
 import { useScrollLock } from '.'
+import { useSignal } from '../signals'
 import { useToggle } from '../use-toggle'
-import { useSignal } from '../utils'
 
 export default function DemoUseScrollLock() {
   const ref = useSignal()

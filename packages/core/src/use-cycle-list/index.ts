@@ -1,10 +1,10 @@
 'use client'
 import type { Signal } from '@preact/signals-react'
 import type { MaybeSignal, MaybeSignalOrGetter } from '../utils'
-import { useComputed } from '../signals'
+import { useComputed, useSignal } from '../signals'
 import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'
-import { toValue, useSignal } from '../utils'
+import { toValue } from '../utils'
 
 export interface UseCycleListReturn<T> {
   state: Signal<T>

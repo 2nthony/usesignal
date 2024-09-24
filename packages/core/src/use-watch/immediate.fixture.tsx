@@ -1,6 +1,6 @@
 'use client'
 import { useWatch } from '.'
-import { useSignal } from '../utils'
+import { useSignal } from '../signals'
 
 export default function DemoUseWatchImmediate() {
   const count1 = useSignal(0)

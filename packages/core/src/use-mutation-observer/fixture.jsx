@@ -1,7 +1,7 @@
 'use client'
 import { useMutationObserver } from '.'
+import { useSignal } from '../signals'
 import { useOnMount } from '../use-on-mount'
-import { useSignal } from '../utils'
 
 export default function DemoUseMutationObserver() {
   const ref = useSignal()

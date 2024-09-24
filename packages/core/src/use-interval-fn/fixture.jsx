@@ -1,6 +1,7 @@
 'use client'
 import { useIntervalFn } from '.'
-import { rand, useSignal } from '../utils'
+import { useSignal } from '../signals'
+import { rand } from '../utils'
 
 export default function DemoUseIntervalFn() {
   const greetings = ['Hello', 'Hi', 'Yo!', 'Hey', 'Hola', 'こんにちは', 'Bonjour', 'Salut!', '你好', 'Привет']

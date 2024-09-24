@@ -1,6 +1,6 @@
 'use client'
 import { useTimeoutFn } from '.'
-import { useSignal } from '../utils'
+import { useSignal } from '../signals'
 
 export default function DemoUseTimeoutFn() {
   const defaultText = 'Please wait for 3 seconds'

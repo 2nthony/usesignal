@@ -5,8 +5,9 @@ import type { Arrayable, Fn, MaybeGetter, MaybeSignal, MaybeSignalOrGetter } fro
 import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'
 import { defaultWindow } from '../_configurable'
+import { useSignal } from '../signals'
 import { useWatch } from '../use-watch'
-import { isObject, toValue, useSignal } from '../utils'
+import { isObject, toValue } from '../utils'
 import { toSignal } from '../utils/to-signal'
 
 interface InferEventTarget<Events> {

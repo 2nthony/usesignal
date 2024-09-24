@@ -1,6 +1,6 @@
 'use client'
 import { useWatchWithFilter } from '.'
-import { useSignal } from '../utils'
+import { useSignal } from '../signals'
 import { debounceFilter } from '../utils/filter'
 
 export default function DemoUseWatchWithFilter() {

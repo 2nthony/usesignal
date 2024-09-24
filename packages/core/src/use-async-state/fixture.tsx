@@ -1,6 +1,6 @@
 'use client'
 import { useAsyncState } from '.'
-import { useSignal } from '../utils'
+import { useSignal } from '../signals'
 
 export default function DemoUseAsyncState() {
   const id = useSignal(1)

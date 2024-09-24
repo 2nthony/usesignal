@@ -1,6 +1,6 @@
 'use client'
 import { useSyncSignal } from '.'
-import { useSignal } from '../utils'
+import { useSignal } from '../signals'
 
 export default function DemoUseSyncSignal() {
   const a = useSignal('')

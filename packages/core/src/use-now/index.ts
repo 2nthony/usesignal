@@ -1,9 +1,9 @@
 'use client'
 import type { Signal } from '@preact/signals-react'
 import type { Pausable } from '../utils'
+import { useSignal } from '../signals'
 import { useIntervalFn } from '../use-interval-fn'
 import { useRafFn } from '../use-raf-fn'
-import { useSignal } from '../utils'
 
 export interface UseNowOptions<Controls extends boolean> {
   /**

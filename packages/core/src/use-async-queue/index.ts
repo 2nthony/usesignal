@@ -1,8 +1,9 @@
 'use client'
 import type { Signal } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
+import { useSignal } from '../signals'
 import { useOnMount } from '../use-on-mount'
-import { noop, useSignal } from '../utils'
+import { noop } from '../utils'
 
 export type UseAsyncQueueTask<T> = (...args: any[]) => T | Promise<T>
 

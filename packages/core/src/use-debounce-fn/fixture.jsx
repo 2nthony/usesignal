@@ -1,6 +1,6 @@
 'use client'
 import { useDebounceFn } from '.'
-import { useSignal } from '../utils'
+import { useSignal } from '../signals'
 
 export default function DemoUseDebounceFn() {
   const clicked = useSignal(0)

@@ -1,6 +1,6 @@
 'use client'
 import { useCycleList } from '.'
-import { useSignal } from '../utils'
+import { useSignal } from '../signals'
 
 export default function DemoUseCycleList() {
   const list = useSignal([

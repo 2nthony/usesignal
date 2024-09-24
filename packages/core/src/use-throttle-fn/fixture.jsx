@@ -1,6 +1,6 @@
 'use client'
 import { useThrottleFn } from '.'
-import { useSignal } from '../utils'
+import { useSignal } from '../signals'
 
 export default function DemoUseThrottleFn() {
   const clicked = useSignal(0)

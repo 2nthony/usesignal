@@ -1,8 +1,8 @@
 'use client'
 import { useDocumentVisibility } from '.'
+import { useSignal } from '../signals'
 import { useTimeoutFn } from '../use-timeout-fn'
 import { useWatch } from '../use-watch'
-import { useSignal } from '../utils'
 
 export default function DemoUseDocumentVisibility() {
   const startMessage = '💡 Minimize the page or switch tab then return'
