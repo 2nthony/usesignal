@@ -1,6 +1,6 @@
 import type { AnyFn, ArgumentsType, Awaited, MaybeSignalOrGetter, Promisify } from './types'
+import { isSignal } from '../signals'
 import { noop } from './is'
-import { isSignal } from './signals'
 import { toValue } from './to-value'
 
 export type FunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) => Return

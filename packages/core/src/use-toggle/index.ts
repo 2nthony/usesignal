@@ -2,8 +2,8 @@
 import type { Signal } from '@preact/signals-react'
 import type { MaybeSignal, MaybeSignalOrGetter } from '../utils'
 import { useSignals } from '@preact/signals-react/runtime'
-import { useSignal } from '../signals'
-import { isSignal, toValue } from '../utils'
+import { isSignal, useSignal } from '../signals'
+import { toValue } from '../utils'
 
 export interface UseToggleOptions<Truthy, Falsy> {
   truthyValue?: MaybeSignalOrGetter<Truthy>
