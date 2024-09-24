@@ -1,7 +1,7 @@
 'use client'
 import type { Signal } from '@preact/signals-react'
 import type { MaybeSignal, MaybeSignalOrGetter } from '../utils'
-import { useComputed } from '../use-computed'
+import { useComputed } from '../signals'
 import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'
 import { toValue, useSignal } from '../utils'
