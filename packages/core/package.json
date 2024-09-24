@@ -5,6 +5,14 @@
   "description": "Collection of Essential React Hooks with Signals.",
   "author": "2nthony <hi@2nthony.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2nthony/usesignal.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/2nthony/usesignal/issues"
+  },
   "keywords": [
     "react",
     "signals",
