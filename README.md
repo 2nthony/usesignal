@@ -6,7 +6,11 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-Collection of Essential React Hooks with [Signals](https://github.com/preactjs/signals/tree/main/packages/react). **Heavily** inspired by [VueUse](https://vueuse.org/).
+Collection of Essential React Hooks with [Signals](https://github.com/preactjs/signals/tree/main/packages/react). Basically a **FORK** of [VueUse](https://vueuse.org/).
+
+## Docs & Demos
+
+[UseSignal](https://usesignal.vercel.app/), but you can ref to [VueUse](https://vueuse.org/functions.html) directly, all currently supported functions usage basically the same.
 
 ## Install
 
@@ -17,9 +21,72 @@ pnpm add @preact/signals-react@2 @usesignal/core
 ## Usage
 
 ```ts
-import { usePreferredDark } from '@usesignal/core'
+import { useLocalStorage, useMouse, usePreferredDark } from '@usesignal/core'
 
-const isDark = usePreferredDark()
+export function useCustomHook() {
+  // tracks mouse position
+  const { x, y } = useMouse()
+
+  // if user prefers dark theme
+  const isDark = usePreferredDark()
+
+  // persist state in localStorage
+  const store = useLocalStorage(
+    'my-storage',
+    {
+      name: 'Apple',
+      color: 'red',
+    },
+  )
+
+  return { x, y, isDark, store }
+}
+```
+
+## Enhancements
+
+### `signal`=`useSignal`
+
+Proxy `Signal` to support `useRef`.
+
+```tsx
+import { useSignal } from '@usesignal/core'
+
+export default function App() {
+  const el = useSignal()
+  const input = useSignal('Hello World')
+
+  console.log(el.value) // div
+
+  return (
+    <div ref={el}>
+      <input defaultValue={input.value} />
+    </div>
+  )
+}
+```
+
+### `computed`=`useComputed`
+
+Proxy `ReadonlySignal` to `ComputedSignal`, support `get` and `set`.
+
+```ts
+import { useComputed } from '@usesignal/core'
+
+export default function App() {
+  const count = useSignal(0)
+  // readonly
+  const computed = useComputed(() => count.value * 2)
+  // getter & setter
+  const computed2 = useComputed({
+    get() {
+      return count.value * 2
+    },
+    set(value) {
+      count.value = value / 2
+    },
+  })
+}
 ```
 
 ## License
