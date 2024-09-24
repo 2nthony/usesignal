@@ -1,5 +1,3 @@
-'use client'
-
 import type { ReadonlySignal, Signal } from '@preact/signals-react'
 import { computed as _computed } from '@preact/signals-react'
 import { useMemo } from 'react'

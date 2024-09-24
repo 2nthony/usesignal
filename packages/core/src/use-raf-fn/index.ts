@@ -1,4 +1,3 @@
-'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import { useComputed } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'

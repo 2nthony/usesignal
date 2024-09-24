@@ -1,6 +1,5 @@
 /* eslint-disable ts/no-unsafe-function-type */
 
-'use client'
 import type { Arrayable, Fn, MaybeGetter, MaybeSignal, MaybeSignalOrGetter } from '../utils'
 import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'

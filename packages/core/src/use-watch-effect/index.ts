@@ -1,4 +1,3 @@
-'use client'
 import { useSignalEffect } from '@preact/signals-react'
 
 /**

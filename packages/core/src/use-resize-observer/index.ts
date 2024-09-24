@@ -1,4 +1,3 @@
-'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import type { WatchSource } from '../use-watch'
 import { useComputed } from '@preact/signals-react'

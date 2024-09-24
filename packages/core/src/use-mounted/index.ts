@@ -1,4 +1,3 @@
-'use client'
 import { useSignals } from '@preact/signals-react/runtime'
 import { useSignal } from '../signals'
 import { useOnCleanup } from '../use-on-cleanup'

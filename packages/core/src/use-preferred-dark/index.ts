@@ -1,4 +1,3 @@
-'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import { useMediaQuery } from '../use-media-query'
 

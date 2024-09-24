@@ -1,4 +1,3 @@
-'use client'
 import type { BasicColorSchema, UseColorModeOptions } from '../use-color-mode'
 import { useComputed } from '../signals'
 import { useColorMode } from '../use-color-mode'

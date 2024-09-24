@@ -1,4 +1,3 @@
-'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import type { StorageLike } from '../ssr-handlers'
 import type { Awaitable, MaybeSignal, MaybeSignalOrGetter, RemovableSignal } from '../utils'

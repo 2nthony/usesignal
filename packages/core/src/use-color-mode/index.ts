@@ -1,4 +1,3 @@
-'use client'
 import type { ReadonlySignal, Signal } from '@preact/signals-react'
 import type { StorageLike } from '../ssr-handlers'
 import type { UseStorageOptions } from '../use-storage'

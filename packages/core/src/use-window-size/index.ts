@@ -1,4 +1,3 @@
-'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import { defaultWindow } from '../_configurable'
 import { useSignal } from '../signals'

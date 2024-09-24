@@ -1,4 +1,3 @@
-'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import type { Fn, MaybeElementSignal, MaybeSignalOrGetter } from '../utils'
 import { defaultWindow } from '../_configurable'

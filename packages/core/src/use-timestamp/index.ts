@@ -1,4 +1,3 @@
-'use client'
 import type { Signal } from '@preact/signals-react'
 import type { UseNowOptions } from '../use-now'
 import type { Pausable } from '../utils'

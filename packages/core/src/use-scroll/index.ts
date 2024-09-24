@@ -1,4 +1,3 @@
-'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import type { MaybeSignalOrGetter } from '../utils'
 import { useSignals } from '@preact/signals-react/runtime'

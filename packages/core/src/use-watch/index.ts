@@ -1,4 +1,3 @@
-'use client'
 import type { ReadonlySignal } from '@preact/signals-react'
 import type { Arrayable, MaybeSignal, Pausable } from '../utils'
 import { computed, effect, useComputed } from '@preact/signals-react'

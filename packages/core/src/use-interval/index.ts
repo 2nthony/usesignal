@@ -1,4 +1,3 @@
-'use client'
 import type { Signal } from '@preact/signals-react'
 import type { MaybeSignalOrGetter, Pausable } from '../utils'
 import { useSignal } from '@preact/signals-react'

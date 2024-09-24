@@ -1,4 +1,3 @@
-'use client'
 import type { Signal } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
 import { useSignal } from '../signals'

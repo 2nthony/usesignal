@@ -1,4 +1,3 @@
-'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import type { MaybeSignal } from '../utils'
 import { useSignalEffect } from '@preact/signals-react'

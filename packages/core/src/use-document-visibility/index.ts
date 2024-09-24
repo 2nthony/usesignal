@@ -1,4 +1,3 @@
-'use client'
 import type { Signal } from '@preact/signals-react'
 import type { ConfigurableDocument } from '../_configurable'
 import { defaultDocument } from '../_configurable'

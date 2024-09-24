@@ -1,4 +1,3 @@
-'use client'
 import { useComputed } from '@preact/signals-react'
 import { useMounted } from '../use-mounted'
 

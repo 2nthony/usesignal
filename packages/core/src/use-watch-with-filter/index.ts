@@ -1,4 +1,3 @@
-'use client'
 import type { WatchCallback, WatchOptions, WatchSource } from '../use-watch'
 import type { ConfigurableEventFilter } from '../utils/filter'
 import { useSignals } from '@preact/signals-react/runtime'

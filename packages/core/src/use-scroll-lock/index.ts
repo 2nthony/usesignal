@@ -1,4 +1,3 @@
-'use client'
 import { useSignals } from '@preact/signals-react/runtime'
 import { resolveElement } from '../_resolve-element'
 import { useSignal } from '../signals'

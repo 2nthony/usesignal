@@ -1,4 +1,3 @@
-'use client'
 import type { WatchCallback, WatchOptions, WatchSource } from '../use-watch'
 import type { MaybeSignalOrGetter } from '../utils'
 import type { DebounceFilterOptions } from '../utils/filter'

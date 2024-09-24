@@ -1,4 +1,3 @@
-'use client'
 import type { UseStorageOptions } from '../use-storage'
 import type { MaybeSignalOrGetter, RemovableSignal } from '../utils'
 import { defaultWindow } from '../_configurable'

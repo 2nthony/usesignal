@@ -1,4 +1,3 @@
-'use client'
 import type { MaybeSignal } from '../utils'
 import { useComputed } from '@preact/signals-react'
 import { defaultWindow } from '../_configurable'

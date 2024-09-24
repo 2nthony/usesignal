@@ -1,4 +1,3 @@
-'use client'
 import type { AnyFn, MaybeSignalOrGetter, Stoppable } from '../utils'
 import { useComputed } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'

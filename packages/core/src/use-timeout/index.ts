@@ -1,4 +1,3 @@
-'use client'
 import type { ReadonlySignal } from '@preact/signals-react'
 import type { UseTimeoutFnOptions } from '../use-timeout-fn'
 import type { Fn, MaybeSignalOrGetter, Stoppable } from '../utils'

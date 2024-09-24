@@ -1,4 +1,3 @@
-'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import type { Arrayable, MaybeElement, MaybeElementReadonlySignal, MaybeSignalOrGetter } from '../utils'
 import { useComputed } from '@preact/signals-react'
