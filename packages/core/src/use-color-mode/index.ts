@@ -103,15 +103,13 @@ export function useColorMode<T extends string = BasicColorMode>(
   const {
     selector = 'html',
     attribute = 'class',
+    initialValue = 'auto',
     window = defaultWindow,
     storage,
     storageKey = 'usesignal-color-scheme',
     listenToStorageChanges = true,
     storageSignal,
     disableTransition = true,
-  } = options
-  let {
-    initialValue = 'auto',
   } = options
 
   const modes = {
@@ -123,11 +121,10 @@ export function useColorMode<T extends string = BasicColorMode>(
 
   const preferredDark = usePreferredDark({ window })
   const system = useComputed(() => preferredDark.value ? 'dark' : 'light')
-  initialValue = useSignal(initialValue) as Signal<T | BasicColorSchema>
 
   const store = storageSignal || (
     storageKey == null
-      ? initialValue
+      ? useSignal(initialValue) as Signal<T | BasicColorSchema>
       : useStorage<T | BasicColorSchema>(storageKey, initialValue, storage, { window, listenToStorageChanges })
   )
 
