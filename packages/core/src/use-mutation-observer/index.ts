@@ -21,7 +21,7 @@ export interface UseMutationObserverOptions extends MutationObserverInit, Config
  * @param options
  */
 export function useMutationObserver(
-  target: Arrayable<MaybeElementReadonlySignal> | MaybeSignalOrGetter<MaybeElement[]>,
+  target: Arrayable<MaybeElementReadonlySignal> | MaybeSignalOrGetter<Arrayable<MaybeElement>>,
   callback: MutationCallback,
   options: UseMutationObserverOptions = {},
 ) {

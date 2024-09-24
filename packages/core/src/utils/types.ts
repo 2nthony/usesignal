@@ -1,4 +1,5 @@
 import type { ReadonlySignal, Signal } from '@preact/signals-react'
+import type { ComputedSignal } from '../signals'
 
 /**
  * Void function
@@ -26,6 +27,10 @@ export type RemovableSignal<T> = Omit<Signal<T>, 'value'> & {
 export type MaybeSignal<T = any> = T | Signal<T>
 
 export type MaybeSignalOrGetter<T = any> = MaybeSignal<T> | (() => T)
+
+export type MaybeReadonlySignal<T = any> = T | ReadonlySignal<T>
+
+export type MaybeComputedSignal<T = any> = T | ComputedSignal<T>
 
 /**
  * Make all the nested attributes of an object or array to MaybeSignal<T>
