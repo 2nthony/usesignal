@@ -2,7 +2,7 @@
 import { useTitle } from '.'
 
 export default function DemoUseTitle() {
-  const title = useTitle('useTitle | usesignal', { observe: true })
+  const title = useTitle('useTitle | usesignal')
 
   return (
     <div>

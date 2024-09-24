@@ -1,11 +1,13 @@
 import type { Signal } from '@preact/signals-react'
 import type { ConfigurableDocument } from '../_configurable'
 import type { ComputedSignal } from '../signals'
-import type { MaybeSignal, MaybeSignalOrGetter } from '../utils'
+import type { MaybeElement, MaybeSignal, MaybeSignalOrGetter } from '../utils'
 import { defaultDocument } from '../_configurable'
 import { useSignal } from '../signals'
 import { useMounted } from '../use-mounted'
+import { useMutationObserver } from '../use-mutation-observer'
 import { useOnCleanup } from '../use-on-cleanup'
+import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'
 import { toValue } from '../utils'
 
@@ -18,6 +20,15 @@ export type UseTitleOptionsBase = {
   restoreOnUnmount?: false | ((originalTitle: string, currentTitle: string) => string | null | undefined)
 } & (
   {
+    /**
+     * Observe `document.title` changes using MutationObserve
+     * Cannot be used together with `titleTemplate` option.
+     *
+     * @default false
+     */
+    observe?: boolean
+  }
+  | {
     /**
      * The template string to parse the title (e.g., '%s | My Website')
      * Cannot be used together with `observe` option.
@@ -65,6 +76,7 @@ export function useTitle(
   const originalTitle = document?.title ?? ''
 
   const title = useSignal(newTitle ?? document?.title ?? null) as Signal<string | null | undefined>
+  const isReadonly = newTitle && typeof newTitle === 'function'
 
   function format(t: string) {
     if (!('titleTemplate' in options)) {
@@ -85,6 +97,22 @@ export function useTitle(
       }
     },
     { immediate: true },
+  )
+
+  const observerTarget = useSignal<MaybeElement>()
+  useOnMount(() => {
+    if ((options as any).observe && !(options as any).titleTemplate && document && !isReadonly) {
+      observerTarget.value = document.head?.querySelector('title')
+    }
+  })
+  useMutationObserver(
+    observerTarget,
+    () => {
+      if (document && document.title !== title.value) {
+        title.value = format(document.title)
+      }
+    },
+    { childList: true },
   )
 
   useOnCleanup(() => {
