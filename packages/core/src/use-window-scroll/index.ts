@@ -1,10 +1,9 @@
 'use client'
 import type { ConfigurableWindow } from '../_configurable'
 import { defaultWindow } from '../_configurable'
-import { useSignal } from '../signals'
+import { useComputed, useSignal } from '../signals'
 import { useEventListener } from '../use-event-listener'
 import { useOnMount } from '../use-on-mount'
-import { useWatch } from '../use-watch'
 
 export interface UseWindowScrollOptions extends ConfigurableWindow {
   behavior?: ScrollBehavior
@@ -20,13 +19,26 @@ export type UseWindowScrollReturn = ReturnType<typeof useWindowScroll>
 export function useWindowScroll(options: UseWindowScrollOptions = {}) {
   const { window = defaultWindow, behavior = 'auto' } = options
 
-  let user = false
-  let internal = false
-
-  const x = useSignal(0)
-  const y = useSignal(0)
   const internalX = useSignal(0)
   const internalY = useSignal(0)
+
+  const x = useComputed({
+    get() {
+      return internalX.value
+    },
+    set(x: number) {
+      scrollTo({ left: x, behavior })
+    },
+  })
+
+  const y = useComputed({
+    get() {
+      return internalY.value
+    },
+    set(y: number) {
+      scrollTo({ top: y, behavior })
+    },
+  })
 
   const target = useSignal<Window>()
   useOnMount(() => {
@@ -35,53 +47,21 @@ export function useWindowScroll(options: UseWindowScrollOptions = {}) {
 
       internalX.value = window.scrollX
       internalY.value = window.scrollY
-      x.value = window.scrollX
-      y.value = window.scrollY
     }
   })
 
   useEventListener(
     target,
-    ['scroll', 'scrollend'],
-    (event) => {
+    'scroll',
+    () => {
       internalX.value = window!.scrollX
       internalY.value = window!.scrollY
-
-      if (event.type === 'scrollend') {
-        user = false
-        internal = false
-      }
     },
     {
       capture: false,
       passive: true,
     },
   )
-
-  useWatch([internalX, internalY], ([xVal, yVal]) => {
-    if (window) {
-      if (user) {
-        return
-      }
-
-      internal = true
-
-      x.value = xVal
-      y.value = yVal
-    }
-  })
-
-  useWatch([x, y], ([xVal, yVal]) => {
-    if (window) {
-      if (internal) {
-        return
-      }
-
-      user = true
-
-      scrollTo({ left: xVal, top: yVal, behavior })
-    }
-  })
 
   return { x, y }
 }
