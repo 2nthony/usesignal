@@ -27,7 +27,7 @@ export default function DemoUseScroll() {
         <div>
           <input
             type="number"
-            value={x}
+            value={x.value}
             onChange={(e) => {
               x.value = e.target.value
             }}
@@ -36,7 +36,7 @@ export default function DemoUseScroll() {
         <div>
           <input
             type="number"
-            value={y}
+            value={y.value}
             onChange={(e) => {
               y.value = e.target.value
             }}
@@ -53,14 +53,6 @@ export default function DemoUseScroll() {
               }}
             />
           </label>
-        </div>
-        <div>
-          x:
-          {x}
-        </div>
-        <div>
-          y:
-          {y}
         </div>
         <div>
           isScrolling:

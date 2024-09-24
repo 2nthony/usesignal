@@ -3,12 +3,11 @@ import type { ConfigurableWindow } from '../_configurable'
 import type { MaybeSignalOrGetter } from '../utils'
 import { useSignals } from '@preact/signals-react/runtime'
 import { defaultWindow } from '../_configurable'
-import { useSignal } from '../signals'
+import { useComputed, useSignal } from '../signals'
 import { useDebounceFn } from '../use-debounce-fn'
 import { useEventListener } from '../use-event-listener'
 import { useOnMount } from '../use-on-mount'
 import { useThrottleFn } from '../use-throttle-fn'
-import { useWatch } from '../use-watch'
 import { noop, toValue } from '../utils'
 
 export type UseScrollReturn = ReturnType<typeof useScroll>
@@ -117,13 +116,28 @@ export function useScroll(
     onError = (e) => { console.error(e) },
   } = options
 
-  const x = useSignal(0)
-  const y = useSignal(0)
   const internalX = useSignal(0)
   const internalY = useSignal(0)
 
-  let user = false
-  let internal = false
+  // Use a computed for x and y because we want to write the value to the refs
+  // during a `scrollTo()` without firing additional `scrollTo()`s in the process.
+  const x = useComputed({
+    get() {
+      return internalX.value
+    },
+    set(x: number) {
+      scrollTo(x, undefined)
+    },
+  })
+
+  const y = useComputed({
+    get() {
+      return internalY.value
+    },
+    set(y: number) {
+      scrollTo(undefined, y)
+    },
+  })
 
   function scrollTo(_x: number | undefined, _y: number | undefined) {
     if (!window)
@@ -282,39 +296,9 @@ export function useScroll(
   useEventListener(
     element,
     'scrollend',
-    (event) => {
-      onScrollEnd(event)
-
-      user = false
-      internal = false
-    },
+    onScrollEnd,
     eventListenerOptions,
   )
-
-  useWatch([internalX, internalY], ([xVal, yVal]) => {
-    if (window) {
-      if (user) {
-        return
-      }
-
-      internal = true
-
-      x.value = xVal
-      y.value = yVal
-    }
-  })
-
-  useWatch([x, y], ([xVal, yVal]) => {
-    if (window) {
-      if (internal) {
-        return
-      }
-
-      user = true
-
-      scrollTo(xVal, yVal)
-    }
-  })
 
   return {
     x,
