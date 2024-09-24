@@ -3,7 +3,7 @@
 import { useClickOutside } from '.'
 import { useSignal } from '../signals'
 
-export default function DemoUseClickOutside() {
+export default function DemoOnUseClickOutside() {
   const ref = useSignal()
   const ignoreRef = useSignal()
   const show = useSignal(false)
