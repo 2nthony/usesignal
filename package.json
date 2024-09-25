@@ -19,7 +19,7 @@
     "build": "nr build-core",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
-    "release": "bumpp",
+    "release": "bumpp --all",
     "publish:ci": "esno scripts/publish.ts",
     "start": "esno src/index.ts",
     "test": "vitest",
