@@ -18,7 +18,7 @@ export function signal<T>(v?: MaybeSignalOrGetter<T>) {
   const valueIsSignal = isSignal(v)
   const value = (valueIsSignal ? v : _signal(v)) as Signal<T>
 
-  (value as any).current = null
+  (value as any).current = undefined
 
   return new Proxy(value, {
     get(target, key) {
