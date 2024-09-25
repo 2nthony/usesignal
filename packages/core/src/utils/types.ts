@@ -117,3 +117,8 @@ export type IfAny<T, Y, N> = 0 extends (1 & T) ? Y : N
  * will return `true` if `T` is `any`, or `false` otherwise
  */
 export type IsAny<T> = IfAny<T, true, false>
+
+export interface Position {
+  x: number
+  y: number
+}
