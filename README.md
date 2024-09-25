@@ -89,6 +89,10 @@ export default function App() {
 }
 ```
 
+## Playground(stackblitz)
+
+- [remix-run](https://stackblitz.com/edit/remix-run-remix-6gxayd?file=app/routes/_index.tsx)
+
 ## License
 
 [MIT](./LICENSE) License © 2024-PRESENT [2nthony](https://github.com/2nthony)
