@@ -95,13 +95,13 @@ export default function App() {
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/usesignal?style=flat&colorA=080f12&colorB=1fa669
-[npm-version-href]: https://npmjs.com/package/usesignal
-[npm-downloads-src]: https://img.shields.io/npm/dm/usesignal?style=flat&colorA=080f12&colorB=1fa669
-[npm-downloads-href]: https://npmjs.com/package/usesignal
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/usesignal?style=flat&colorA=080f12&colorB=1fa669&label=minzip
-[bundle-href]: https://bundlephobia.com/result?p=usesignal
+[npm-version-src]: https://img.shields.io/npm/v/@usesignal/core?style=flat&colorA=080f12&colorB=1fa669
+[npm-version-href]: https://npmjs.com/package/@usesignal/core
+[npm-downloads-src]: https://img.shields.io/npm/dm/@usesignal/core?style=flat&colorA=080f12&colorB=1fa669
+[npm-downloads-href]: https://npmjs.com/package/@usesignal/core
+[bundle-src]: https://img.shields.io/bundlephobia/minzip/@usesignal/core?style=flat&colorA=080f12&colorB=1fa669&label=minzip
+[bundle-href]: https://bundlephobia.com/result?p=@usesignal/core
 [license-src]: https://img.shields.io/github/license/2nthony/usesignal.svg?style=flat&colorA=080f12&colorB=1fa669
 [license-href]: https://github.com/2nthony/usesignal/blob/main/LICENSE
 [jsdocs-src]: https://img.shields.io/badge/jsdocs-reference-080f12?style=flat&colorA=080f12&colorB=1fa669
-[jsdocs-href]: https://www.jsdocs.io/package/usesignal
+[jsdocs-href]: https://www.jsdocs.io/package/@usesignal/core
