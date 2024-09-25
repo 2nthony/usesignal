@@ -34,5 +34,8 @@
     "json",
     "jsonc",
     "yaml"
+  ],
+  "conventionalCommits.scopes": [
+    "core"
   ]
 }
