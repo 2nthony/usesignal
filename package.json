@@ -19,7 +19,7 @@
     "build": "nr build-core",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
-    "release": "bumpp --execute=\"npm run release:prepare\" --all -p false",
+    "release": "bumpp --execute=\"npm run release:prepare\" --all",
     "release:prepare": "npm run update",
     "update": "esno scripts/update.ts",
     "publish:ci": "esno scripts/publish.ts",
