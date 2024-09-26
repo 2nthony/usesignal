@@ -89,9 +89,11 @@ export default function App() {
 }
 ```
 
-## Playground(stackblitz)
+## Playground
 
-- [remix-run](https://stackblitz.com/edit/remix-run-remix-6gxayd?file=app/routes/_index.tsx)
+- [Demo(next.js)](https://usesignal.vercel.app/)
+- [Next.js(shadcn/ui(stackblitz))](https://stackblitz.com/edit/stackblitz-starters-xvtr12?description=The%20React%20framework%20for%20production&file=app/page.tsx&title=Next.js%20Starter)
+- [remix-run(stackblitz)](https://stackblitz.com/edit/remix-run-remix-6gxayd?file=app/routes/_index.tsx)
 
 ## License
 
