@@ -7,16 +7,16 @@ export default function DemoUseWatchEffect() {
   const input = useSignal('Hello World!')
   const text = useSignal(toValue(input))
 
-  const handler = useWatchEffect((onCleanup) => {
+  const { stop, pause, resume } = useWatchEffect(() => {
     text.value = input.value
 
     // eslint-disable-next-line no-console
     console.log(input.value)
 
-    onCleanup(() => {
+    return () => {
       // eslint-disable-next-line no-console
       console.log('cleanup')
-    })
+    }
   })
 
   return (
@@ -31,17 +31,17 @@ export default function DemoUseWatchEffect() {
       />
       <div>
         <button
-          onClick={() => handler.pause()}
+          onClick={() => pause()}
         >
           pause
         </button>
         <button
-          onClick={() => handler.resume()}
+          onClick={() => resume()}
         >
           resume
         </button>
         <button
-          onClick={() => handler()}
+          onClick={() => stop()}
         >
           stop
         </button>

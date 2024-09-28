@@ -14,25 +14,24 @@ export interface WatchHandler extends Pausable {
   resume: () => void
 }
 
-type OnCleanup = (cleanupFn: () => void) => void
+type CleanupFn = () => void
 
 /**
  * @see https://vuejs.org/api/reactivity-core.html#watcheffect
  */
 export function useWatchEffect(
-  cb: (onCleanup?: OnCleanup) => void,
+  cb: () => void | CleanupFn,
 ): WatchHandler {
   useSignals()
 
   const isActive = useSignal(true)
   const readonlyIsActive = useComputed(() => isActive.value)
-  const dispose = useSignal<AnyFn | null>(null)
-  let cleanup: AnyFn | null = null
+  const dispose = useSignal<AnyFn | null>()
+  let cleanupFn: CleanupFn | void
 
   function cleanupHandler() {
-    if (cleanup) {
-      cleanup()
-      cleanup = null
+    if (cleanupFn) {
+      cleanupFn()
     }
   }
 
@@ -66,9 +65,7 @@ export function useWatchEffect(
   useOnMount(() => {
     dispose.value = effect(() => {
       if (isActive.value) {
-        cb((cleanupFn: AnyFn) => {
-          cleanup = cleanupFn
-        })
+        cleanupFn = cb()
       }
 
       return () => {
