@@ -39,6 +39,7 @@
     "core",
     "use-watch-effect",
     "utils",
-    "use-watch"
+    "use-watch",
+    "signal"
   ]
 }
