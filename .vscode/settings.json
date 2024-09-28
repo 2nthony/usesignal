@@ -36,6 +36,9 @@
     "yaml"
   ],
   "conventionalCommits.scopes": [
-    "core"
+    "core",
+    "use-watch-effect",
+    "utils",
+    "use-watch"
   ]
 }
