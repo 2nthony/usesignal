@@ -1,5 +1,6 @@
 import type { ReadonlySignal } from '@preact/signals-react'
-import type { Arrayable, MaybeSignal, Pausable } from '../utils'
+import type { WatchHandler } from '../use-watch-effect'
+import type { Arrayable, MaybeSignal } from '../utils'
 import { computed } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'
@@ -15,11 +16,6 @@ export interface WatchOptions<Immediate = boolean> {
 export type WatchSource<T = any> = Arrayable<MaybeSignal<T> | ReadonlySignal<T>>
 
 export type WatchCallback<V = any, OV = any> = (value: V, oldValue: OV) => any
-
-export interface WatchHandler extends Pausable {
-  (): void // callable, same as stop
-  stop: () => void
-}
 
 export function useWatch<T>(
   value: Arrayable<MaybeSignal<T>>,
