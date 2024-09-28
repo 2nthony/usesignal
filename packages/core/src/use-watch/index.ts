@@ -1,12 +1,11 @@
 import type { ReadonlySignal } from '@preact/signals-react'
 import type { Arrayable, MaybeSignal, Pausable } from '../utils'
-import { computed, effect, useComputed } from '@preact/signals-react'
+import { computed } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'
 import { useSignal } from '../signals'
-import { useOnCleanup } from '../use-on-cleanup'
-import { useOnMount } from '../use-on-mount'
-import { toValue } from '../utils'
+import { useWatchEffect } from '../use-watch-effect'
+import { hasChanged, toValue } from '../utils'
 
 export interface WatchOptions<Immediate = boolean> {
   immediate?: Immediate
@@ -48,43 +47,20 @@ export function useWatch(
 
   const { immediate = false, once = false } = options ?? {}
   const isActive = useSignal(true)
-  const readonlyIsActive = useComputed(() => isActive.value)
+  let isFirst = true
 
-  const dispose = useSignal<(() => void) | null>()
   const isArrayValues = Array.isArray(value)
   const values = (isArrayValues ? value : [value]) as ReadonlySignal[]
 
   let prevValues = values.map(toValue)
-
-  function handler() {
-    dispose.value?.()
-    dispose.value = null
-  }
-  function pause() {
-    if (dispose.value) {
-      isActive.value = false
-    }
-  }
-  function resume() {
-    if (dispose.value) {
-      isActive.value = true
-    }
-  }
-  handler.stop = handler
-  handler.isActive = readonlyIsActive
-  handler.pause = pause
-  handler.resume = resume
 
   function effectFn(force = false) {
     const newValues = values.map(toValue)
     let changed = force
 
     if (!changed) {
-      for (let i = 0; i < values.length; i++) {
-        if (newValues[i] !== prevValues[i]) {
-          changed = true
-          break
-        }
+      if (newValues.some((v, i) => hasChanged(v, prevValues[i]))) {
+        changed = true
       }
     }
 
@@ -94,21 +70,21 @@ export function useWatch(
       cb?.(cbNewValues, cbPrevValues)
       prevValues = newValues
 
-      if (once) {
-        handler()
-      }
+      isFirst = false
     }
   }
 
-  useOnMount(() => {
-    if (immediate) {
+  const watchHandler = useWatchEffect(() => {
+    effectFn()
+
+    if (isFirst && immediate) {
       effectFn(true)
     }
 
-    dispose.value = effect(effectFn)
+    if (once && !isFirst) {
+      watchHandler()
+    }
   })
 
-  useOnCleanup(handler)
-
-  return handler
+  return watchHandler
 }
