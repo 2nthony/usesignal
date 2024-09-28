@@ -34,7 +34,7 @@ export function signal<T>(v?: MaybeSignalOrGetter<T>) {
   const value = (valueIsSignal ? v : _signal(v)) as Signal<T>
 
   if (value[SignalFlags.IS_SIGNAL]) {
-    return v
+    return v as Signal<T>
   }
 
   // compat `useRef`
