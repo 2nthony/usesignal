@@ -119,3 +119,8 @@ export function objectOmit<O extends object, T extends keyof O>(obj: O, keys: T[
 export function objectEntries<T extends object>(obj: T) {
   return Object.entries(obj) as Array<[keyof T, T[keyof T]]>
 }
+
+// compare whether a value has changed, accounting for NaN.
+export function hasChanged(value: any, oldValue: any) {
+  return !Object.is(value, oldValue)
+}
