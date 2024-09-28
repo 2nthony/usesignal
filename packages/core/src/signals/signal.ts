@@ -4,7 +4,7 @@ import { signal as _signal } from '@preact/signals-react'
 import { useMemo } from 'react'
 import { SignalFlags } from '../utils/constants'
 
-interface Signal<T = any> extends _Signal<T> {
+export interface Signal<T = any> extends _Signal<T> {
   current?: T
   [SignalFlags.IS_SIGNAL]?: true
 }
