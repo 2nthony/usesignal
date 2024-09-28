@@ -8,6 +8,11 @@
 
 Collection of Essential React Hooks with [Signals](https://github.com/preactjs/signals/tree/main/packages/react). Basically a **FORK** of [VueUse](https://vueuse.org/).
 
+## Notice
+
+- This project is currently in the initial development stage and is not yet stable.
+- Bad DX with server side framework(e.g. Next.js) DEV mode, when a component changed, the `useSignalEffect(@preact/signals-react)/useWatch*(usesignal/core)` will never run the callback when signal changed; works fine in PROD mode.
+
 ## Docs & Demos
 
 [UseSignal](https://usesignal.vercel.app/), but you can ref to [VueUse](https://vueuse.org/functions.html) directly, all currently supported functions usage basically the same.
@@ -91,7 +96,7 @@ export default function App() {
 
 ## Playground
 
-- [Demo(next.js)](https://usesignal.vercel.app/)
+- [Demo(vite-react)](https://usesignal.vercel.app/)
 - [Next.js(shadcn/ui(stackblitz))](https://stackblitz.com/edit/stackblitz-starters-xvtr12?description=The%20React%20framework%20for%20production&file=app/page.tsx&title=Next.js%20Starter)
 - [remix-run(stackblitz)](https://stackblitz.com/edit/remix-run-remix-6gxayd?file=app/routes/_index.tsx)
 
