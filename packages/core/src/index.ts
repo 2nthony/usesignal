@@ -1,6 +1,7 @@
 export * from './signals'
 export * from './use-async-queue'
 export * from './use-async-state'
+export * from './use-cloned'
 export * from './use-color-mode'
 export * from './use-cycle-list'
 export * from './use-dark'
