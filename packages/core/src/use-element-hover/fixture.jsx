@@ -1,4 +1,3 @@
-'use client'
 import { useComputed, useSignal } from '../signals'
 import { useElementHover } from './index'
 

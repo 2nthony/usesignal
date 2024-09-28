@@ -1,4 +1,3 @@
-'use client'
 import { useTimeout } from '.'
 
 export default function DemoUseTimeout() {

@@ -1,4 +1,3 @@
-'use client'
 import { useWatch } from '.'
 import { useSignal } from '../signals'
 

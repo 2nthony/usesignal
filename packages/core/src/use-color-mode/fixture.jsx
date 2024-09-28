@@ -1,4 +1,3 @@
-'use client'
 import { useColorMode } from '.'
 import { useCycleList } from '../use-cycle-list'
 import { useWatchEffect } from '../use-watch-effect'

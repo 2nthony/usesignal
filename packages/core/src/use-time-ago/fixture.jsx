@@ -1,4 +1,3 @@
-'use client'
 import { useComputed } from '@preact/signals-react'
 import { useTimeAgo } from '.'
 import { useSignal } from '../signals'

@@ -1,4 +1,3 @@
-'use client'
 import { useEventListener } from '.'
 import { useSignal } from '../signals'
 

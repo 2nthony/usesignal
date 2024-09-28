@@ -1,4 +1,3 @@
-'use client'
 import { useOnLongPress } from '.'
 import { useSignal } from '../signals'
 

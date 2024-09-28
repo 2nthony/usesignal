@@ -1,4 +1,3 @@
-'use client'
 import { useScrollLock } from '.'
 import { useSignal } from '../signals'
 import { useToggle } from '../use-toggle'

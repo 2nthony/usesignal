@@ -1,4 +1,3 @@
-'use client'
 import { useDocumentVisibility } from '.'
 import { useSignal } from '../signals'
 import { useTimeoutFn } from '../use-timeout-fn'

@@ -1,5 +1,3 @@
-'use client'
-
 import { useTimestamp } from '.'
 
 export default function UseTimestamp() {

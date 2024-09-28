@@ -1,4 +1,3 @@
-'use client'
 import { useInterval } from '.'
 
 export default function DemoUseInterval() {

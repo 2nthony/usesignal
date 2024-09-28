@@ -1,4 +1,3 @@
-'use client'
 import { useCycleList } from '.'
 import { useSignal } from '../signals'
 

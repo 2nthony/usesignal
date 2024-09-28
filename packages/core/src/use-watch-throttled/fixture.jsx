@@ -1,4 +1,3 @@
-'use client'
 import { useWatchThrottled } from '.'
 import { useSignal } from '../signals'
 

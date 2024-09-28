@@ -15,7 +15,7 @@ Collection of Essential React Hooks with [Signals](https://github.com/preactjs/s
 ## Install
 
 ```sh
-pnpm add @preact/signals-react@2 @usesignal/core
+pnpm add @preact/signals-react @usesignal/core
 ```
 
 ## Usage

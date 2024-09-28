@@ -1,4 +1,3 @@
-'use client'
 import { useAsyncQueue } from '.'
 
 export default function DemoUseAsyncQueue() {

@@ -1,4 +1,3 @@
-'use client'
 import { useOnMount } from '.'
 import { useToggle } from '../use-toggle'
 

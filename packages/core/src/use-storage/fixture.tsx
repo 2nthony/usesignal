@@ -1,4 +1,3 @@
-'use client'
 import { useStorage } from '.'
 
 export default function DemoUseStorage() {

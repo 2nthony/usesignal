@@ -1,4 +1,3 @@
-'use client'
 import { useOnCleanup } from '.'
 import { useToggle } from '../use-toggle'
 

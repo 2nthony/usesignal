@@ -1,4 +1,3 @@
-'use client'
 import { useToggle } from '.'
 
 export default function DemoUseToggle() {

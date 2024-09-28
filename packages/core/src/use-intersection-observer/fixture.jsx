@@ -1,4 +1,3 @@
-'use client'
 import { useIntersectionObserver } from '.'
 import { useSignal } from '../signals'
 

@@ -1,4 +1,3 @@
-'use client'
 import { useDebounceFn } from '.'
 import { useSignal } from '../signals'
 

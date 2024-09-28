@@ -1,4 +1,3 @@
-'use client'
 import { useWatchWithFilter } from '.'
 import { useSignal } from '../signals'
 import { debounceFilter } from '../utils/filter'

@@ -1,4 +1,3 @@
-'use client'
 import { useMounted } from '.'
 
 export default function DemoUseMounted() {

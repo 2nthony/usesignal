@@ -1,5 +1,3 @@
-'use client'
-
 import { useClickOutside } from '.'
 import { useSignal } from '../signals'
 

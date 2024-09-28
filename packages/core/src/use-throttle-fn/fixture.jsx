@@ -1,4 +1,3 @@
-'use client'
 import { useThrottleFn } from '.'
 import { useSignal } from '../signals'
 

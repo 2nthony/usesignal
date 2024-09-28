@@ -1,4 +1,3 @@
-'use client'
 import { useAsyncState } from '.'
 import { useSignal } from '../signals'
 

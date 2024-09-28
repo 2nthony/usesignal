@@ -1,4 +1,3 @@
-'use client'
 import { useTimeoutFn } from '.'
 import { useSignal } from '../signals'
 

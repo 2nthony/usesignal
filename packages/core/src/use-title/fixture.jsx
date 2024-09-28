@@ -1,4 +1,3 @@
-'use client'
 import { useTitle } from '.'
 
 export default function DemoUseTitle() {

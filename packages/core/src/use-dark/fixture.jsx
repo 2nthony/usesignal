@@ -1,4 +1,3 @@
-'use client'
 import { useDark } from '.'
 import { useToggle } from '../use-toggle'
 

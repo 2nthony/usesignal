@@ -1,4 +1,3 @@
-'use client'
 import { useMutationObserver } from '.'
 import { useSignal } from '../signals'
 import { useOnMount } from '../use-on-mount'

@@ -17,11 +17,9 @@ catalog:
   esno: ^4.7.0
   globals: ^15.9.0
   lint-staged: ^15.2.10
-  next: ^14.2.13
   pnpm: ^9.9.0
   react: ^18.3.1
   react-cosmos: ^6.2.0
-  react-cosmos-next: ^6.2.0
   react-cosmos-plugin-vite: ^6.2.0
   react-dom: ^18.3.1
   simple-git-hooks: ^2.11.1

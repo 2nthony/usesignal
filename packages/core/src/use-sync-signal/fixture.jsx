@@ -1,4 +1,3 @@
-'use client'
 import { useSyncSignal } from '.'
 import { useSignal } from '../signals'
 

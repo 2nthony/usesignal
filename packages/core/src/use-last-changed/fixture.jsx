@@ -1,4 +1,3 @@
-'use client'
 import { useLastChanged } from '.'
 import { useSignal } from '../signals'
 import { useTimeAgo } from '../use-time-ago'

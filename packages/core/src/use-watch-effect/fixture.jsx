@@ -1,4 +1,3 @@
-'use client'
 import { useWatchEffect } from '.'
 import { useSignal } from '../signals'
 import { toValue } from '../utils'

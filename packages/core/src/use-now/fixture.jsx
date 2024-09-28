@@ -1,4 +1,3 @@
-'use client'
 import { useNow } from '.'
 
 export default function DemoUseNow() {
