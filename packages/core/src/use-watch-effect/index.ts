@@ -27,11 +27,12 @@ export function useWatchEffect(
   const isActive = useSignal(true)
   const readonlyIsActive = useComputed(() => isActive.value)
   const dispose = useSignal<AnyFn | null>()
-  let cleanupFn: CleanupFn | void
+  let cleanupFn: CleanupFn | void | null
 
   function cleanupHandler() {
     if (cleanupFn) {
       cleanupFn()
+      cleanupFn = null
     }
   }
 
@@ -61,7 +62,6 @@ export function useWatchEffect(
   watchHandler.pause = pause
   watchHandler.resume = resume
 
-  // BUG: in strict mode, after cleanup, this won't works
   useOnMount(() => {
     dispose.value = effect(() => {
       if (isActive.value) {
