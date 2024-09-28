@@ -1,10 +1,25 @@
-import type { Signal } from '@preact/signals-react'
+import type { Signal as _Signal } from '@preact/signals-react'
 import type { AnyFn, MaybeSignal, MaybeSignalOrGetter } from '../utils'
 import { signal as _signal } from '@preact/signals-react'
 import { useMemo } from 'react'
+import { SignalFlags } from '../utils/constants'
+
+interface Signal<T = any> extends _Signal<T> {
+  current?: T
+  [SignalFlags.IS_SIGNAL]?: true
+}
 
 export function isSignal(s: any): s is Signal {
-  return !!s?.brand
+  return (
+    s
+      ? (
+          // @usesignal/core
+          s[SignalFlags.IS_SIGNAL]
+          // @preact/signals-react
+          || !!s.brand
+        )
+      : false
+  )
 }
 
 /**
@@ -18,7 +33,13 @@ export function signal<T>(v?: MaybeSignalOrGetter<T>) {
   const valueIsSignal = isSignal(v)
   const value = (valueIsSignal ? v : _signal(v)) as Signal<T>
 
-  (value as any).current = undefined
+  if (value[SignalFlags.IS_SIGNAL]) {
+    return v
+  }
+
+  // compat `useRef`
+  value.current = undefined
+  value[SignalFlags.IS_SIGNAL] = true
 
   return new Proxy(value, {
     get(target, key) {
