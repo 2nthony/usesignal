@@ -40,6 +40,11 @@
     "use-watch-effect",
     "utils",
     "use-watch",
-    "signal"
+    "signal",
+    "use-cloned",
+    "use-counter",
+    "use-date-format",
+    "use-manual-signal-history",
+    "use-signal-history"
   ]
 }
