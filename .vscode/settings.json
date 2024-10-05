@@ -45,6 +45,7 @@
     "use-counter",
     "use-date-format",
     "use-manual-signal-history",
-    "use-signal-history"
+    "use-signal-history",
+    "use-mouse"
   ]
 }
