@@ -39,6 +39,7 @@ export function signal<T>(v?: MaybeSignalOrGetter<T>) {
 
   // compat `useRef`
   value.current = undefined
+
   value[SignalFlags.IS_SIGNAL] = true
 
   return new Proxy(value, {
