@@ -51,15 +51,8 @@ export function useWatch(
 
   function effectFn(force = false) {
     const newValues = values.map(toValue)
-    let changed = force
 
-    if (!changed) {
-      if (newValues.some((v, i) => hasChanged(v, prevValues[i]))) {
-        changed = true
-      }
-    }
-
-    if (changed && isActive.peek()) {
+    function execute() {
       const cbNewValues = isArrayValues ? newValues : newValues[0]
       const cbPrevValues = isArrayValues ? prevValues : prevValues[0]
       cb?.(cbNewValues, cbPrevValues)
@@ -67,13 +60,26 @@ export function useWatch(
 
       isFirst = false
     }
+
+    if (force) {
+      execute()
+      return
+    }
+
+    if (
+      isActive.peek()
+      && newValues.some((v, i) => hasChanged(v, prevValues[i]))
+    ) {
+      execute()
+    }
   }
 
   const watchHandler = useWatchEffect(() => {
-    effectFn()
-
     if (isFirst && immediate) {
       effectFn(true)
+    }
+    else {
+      effectFn()
     }
 
     if (once && !isFirst) {
