@@ -1,33 +1,26 @@
-import type { ComputedSignal } from '../signals'
-import type { AnyFn, Pausable } from '../utils'
+import type { AnyFn, Fn, Pausable } from '../utils'
 import { effect } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
 import { useComputed, useSignal } from '../signals'
 import { useOnCleanup } from '../use-on-cleanup'
 import { useOnMount } from '../use-on-mount'
 
-export interface WatchHandler extends Pausable {
-  (): void // callable, same as stop
-  isActive: ComputedSignal<boolean>
-  stop: () => void
-  pause: () => void
-  resume: () => void
+export interface WatchHandler extends Fn, Pausable {
+  stop: Fn
 }
-
-type CleanupFn = () => void
 
 /**
  * @see https://vuejs.org/api/reactivity-core.html#watcheffect
  */
 export function useWatchEffect(
-  cb: () => void | CleanupFn,
+  cb: Fn | (() => Fn),
 ): WatchHandler {
   useSignals()
 
   const isActive = useSignal(true)
   const readonlyIsActive = useComputed(() => isActive.value)
   const dispose = useSignal<AnyFn | null>()
-  let cleanupFn: CleanupFn | void | null
+  let cleanupFn: Fn | void | null
 
   function cleanupHandler() {
     if (cleanupFn) {
