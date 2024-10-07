@@ -16,7 +16,7 @@ export default function DemoUseIntervalFn() {
 
   return (
     <div>
-      <p>{ word }</p>
+      <p style={{ lineHeight: 1 }}>{ word }</p>
       <p>
         interval:
         <input
