@@ -10,7 +10,7 @@ export interface WritableComputedOptions<T> {
 export type ComputedGetter<T> = () => T
 export type ComputedSetter<T = any> = (value: T) => void
 
-export interface ComputedSignal<T> extends ReadonlySignal<T> {}
+export interface ComputedSignal<T = any> extends ReadonlySignal<T> {}
 
 export function computed<T>(getter: () => T): ComputedSignal<T>
 export function computed<T>(options: WritableComputedOptions<T>): Signal<T>

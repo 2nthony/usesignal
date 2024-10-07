@@ -1,4 +1,4 @@
-import type { ReadonlySignal, Signal } from '@preact/signals-react'
+import type { Signal } from '@preact/signals-react'
 import type { ComputedSignal } from '../signals'
 
 /**
@@ -27,8 +27,6 @@ export type RemovableSignal<T> = Omit<Signal<T>, 'value'> & {
 export type MaybeSignal<T = any> = T | Signal<T>
 
 export type MaybeSignalOrGetter<T = any> = MaybeSignal<T> | (() => T)
-
-export type MaybeReadonlySignal<T = any> = T | ReadonlySignal<T>
 
 export type MaybeComputedSignal<T = any> = T | ComputedSignal<T>
 
@@ -79,7 +77,7 @@ export interface Pausable {
   /**
    * A signal indicate whether a pausable instance is active
    */
-  isActive: ReadonlySignal<boolean>
+  isActive: ComputedSignal<boolean>
 
   /**
    * Temporary pause the effect from executing

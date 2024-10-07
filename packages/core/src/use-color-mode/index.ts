@@ -1,4 +1,5 @@
-import type { ReadonlySignal, Signal } from '@preact/signals-react'
+import type { Signal } from '@preact/signals-react'
+import type { ComputedSignal } from '../signals'
 import type { StorageLike } from '../ssr-handlers'
 import type { UseStorageOptions } from '../use-storage'
 import type { MaybeElementSignal, MaybeSignalOrGetter } from '../utils'
@@ -84,8 +85,8 @@ export interface UseColorModeOptions<T extends string = BasicColorMode> extends 
 export type UseColorModeReturn<T extends string = BasicColorMode> =
   Signal<T | BasicColorSchema> & {
     store: Signal<T | BasicColorSchema>
-    system: ReadonlySignal<BasicColorMode>
-    state: ReadonlySignal<T | BasicColorMode>
+    system: ComputedSignal<BasicColorMode>
+    state: ComputedSignal<T | BasicColorMode>
   }
 
 const CSS_DISABLE_TRANS = '*,*::before,*::after{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}'

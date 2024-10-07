@@ -1,4 +1,4 @@
-import type { ReadonlySignal } from '@preact/signals-react'
+import type { ComputedSignal } from '../signals'
 import type { WatchHandler } from '../use-watch-effect'
 import type { Arrayable, MaybeSignal } from '../utils'
 import { computed } from '@preact/signals-react'
@@ -13,7 +13,7 @@ export interface WatchOptions<Immediate = boolean> {
   once?: boolean
 }
 
-export type WatchSource<T = any> = Arrayable<MaybeSignal<T> | ReadonlySignal<T>>
+export type WatchSource<T = any> = Arrayable<MaybeSignal<T> | ComputedSignal<T>>
 
 export type WatchCallback<V = any, OV = any> = (value: V, oldValue: OV) => any
 
@@ -46,7 +46,7 @@ export function useWatch(
   let isFirst = true
 
   const isArrayValues = Array.isArray(value)
-  const values = (isArrayValues ? value : [value]) as ReadonlySignal[]
+  const values = (isArrayValues ? value : [value]) as ComputedSignal[]
 
   let prevValues = values.map(toValue)
 

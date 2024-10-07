@@ -1,4 +1,4 @@
-import type { ReadonlySignal } from '@preact/signals-react'
+import type { ComputedSignal } from '../signals'
 import type { MaybeSignalOrGetter, Pausable } from '../utils'
 import { useComputed } from '@preact/signals-react'
 import { useNow } from '../use-now'
@@ -123,7 +123,7 @@ function DEFAULT_FORMATTER(date: Date) {
   return date.toISOString().slice(0, 10)
 }
 
-export type UseTimeAgoReturn<Controls extends boolean = false> = Controls extends true ? { timeAgo: ReadonlySignal<string> } & Pausable : ReadonlySignal<string>
+export type UseTimeAgoReturn<Controls extends boolean = false> = Controls extends true ? { timeAgo: ComputedSignal<string> } & Pausable : ComputedSignal<string>
 
 /**
  * Reactive time ago formatter.

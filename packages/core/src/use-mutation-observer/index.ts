@@ -1,5 +1,5 @@
 import type { ConfigurableWindow } from '../_configurable'
-import type { Arrayable, MaybeElement, MaybeElementReadonlySignal, MaybeSignalOrGetter } from '../utils'
+import type { Arrayable, MaybeComputedElementSignal, MaybeElement, MaybeSignalOrGetter } from '../utils'
 import { useComputed } from '@preact/signals-react'
 import { defaultWindow } from '../_configurable'
 import { useOnCleanup } from '../use-on-cleanup'
@@ -21,7 +21,7 @@ export interface UseMutationObserverOptions extends MutationObserverInit, Config
  * @param options
  */
 export function useMutationObserver(
-  target: Arrayable<MaybeElementReadonlySignal> | MaybeSignalOrGetter<Arrayable<MaybeElement>>,
+  target: Arrayable<MaybeComputedElementSignal> | MaybeSignalOrGetter<Arrayable<MaybeElement>>,
   callback: MutationCallback,
   options: UseMutationObserverOptions = {},
 ) {
