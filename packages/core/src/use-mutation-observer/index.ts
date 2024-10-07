@@ -1,7 +1,7 @@
 import type { ConfigurableWindow } from '../_configurable'
 import type { Arrayable, MaybeComputedElementSignal, MaybeElement, MaybeSignalOrGetter } from '../utils'
-import { useComputed } from '@preact/signals-react'
 import { defaultWindow } from '../_configurable'
+import { useComputed } from '../signals'
 import { useOnCleanup } from '../use-on-cleanup'
 import { useSupported } from '../use-supported'
 import { useWatch } from '../use-watch'

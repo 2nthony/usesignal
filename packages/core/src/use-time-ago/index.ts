@@ -1,6 +1,6 @@
 import type { ComputedSignal } from '../signals'
 import type { MaybeSignalOrGetter, Pausable } from '../utils'
-import { useComputed } from '@preact/signals-react'
+import { useComputed } from '../signals'
 import { useNow } from '../use-now'
 import { toValue } from '../utils'
 

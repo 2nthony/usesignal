@@ -1,10 +1,9 @@
 import type { ComputedSignal } from '../signals'
 import type { WatchHandler } from '../use-watch-effect'
 import type { Arrayable, MaybeSignal } from '../utils'
-import { computed } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'
-import { useSignal } from '../signals'
+import { computed, useSignal } from '../signals'
 import { useWatchEffect } from '../use-watch-effect'
 import { hasChanged, toValue } from '../utils'
 

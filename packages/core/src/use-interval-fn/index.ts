@@ -1,7 +1,6 @@
 import type { Fn, MaybeSignalOrGetter, Pausable } from '../utils'
-import { useComputed } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
-import { useSignal } from '../signals'
+import { useComputed, useSignal } from '../signals'
 import { useOnCleanup } from '../use-on-cleanup'
 import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'

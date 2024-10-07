@@ -1,8 +1,8 @@
 import type { ComputedSignal } from '../signals'
 import type { UseTimeoutFnOptions } from '../use-timeout-fn'
 import type { Fn, MaybeSignalOrGetter, Stoppable } from '../utils'
-import { useComputed } from '@preact/signals-react'
 import { useSignals } from '@preact/signals-react/runtime'
+import { useComputed } from '../signals'
 import { useTimeoutFn } from '../use-timeout-fn'
 import { noop } from '../utils'
 

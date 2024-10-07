@@ -1,6 +1,5 @@
-import { useComputed } from '@preact/signals-react'
 import { useTimeAgo } from '.'
-import { useSignal } from '../signals'
+import { useComputed, useSignal } from '../signals'
 
 export default function DemoUseTimeAgo() {
   const slider = useSignal(0)
