@@ -54,15 +54,17 @@ export function useCloned<T>(
     cloned.value = clone(toValue(source))
   }
 
-  if (!manual && (isSignal(source) || typeof source === 'function')) {
-    useWatch(source, sync, {
-      ...options,
-      immediate,
-    })
+  const shouldWatch = !manual && (isSignal(source) || typeof source === 'function')
+
+  let watchOptions: WatchOptions = { immediate }
+  if (!shouldWatch) {
+    watchOptions = {
+      immediate: true,
+      once: true,
+    }
   }
-  else {
-    sync()
-  }
+
+  useWatch(source, sync, watchOptions)
 
   return { cloned, sync }
 }
