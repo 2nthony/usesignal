@@ -113,6 +113,7 @@ export function useClickOutside<T extends OnClickOutsideOptions>(
       const el = toValue(target)
       shouldListen = !shouldIgnore(e) && !!(el && !e.composedPath().includes(el))
     }, { passive: true }),
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     detectIframe && useEventListener(window, 'blur', (event) => {
       setTimeout(() => {
         const el = toValue(target)
