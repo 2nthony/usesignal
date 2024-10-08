@@ -90,6 +90,7 @@ export type UseColorModeReturn<T extends string = BasicColorMode> =
   }
 
 const CSS_DISABLE_TRANS = '*,*::before,*::after{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}'
+const STORAGE_KEY = 'usesignal-color-scheme'
 
 /**
  * Reactive color mode with auto data persistence.
@@ -106,7 +107,7 @@ export function useColorMode<T extends string = BasicColorMode>(
     initialValue = 'auto',
     window = defaultWindow,
     storage,
-    storageKey = 'usesignal-color-scheme',
+    storageKey = STORAGE_KEY,
     listenToStorageChanges = true,
     storageSignal,
     disableTransition = true,
@@ -122,11 +123,10 @@ export function useColorMode<T extends string = BasicColorMode>(
   const preferredDark = usePreferredDark({ window })
   const system = useComputed(() => preferredDark.value ? 'dark' : 'light')
 
-  const store = storageSignal || (
-    storageKey == null
-      ? useSignal(initialValue) as Signal<T | BasicColorSchema>
-      : useStorage<T | BasicColorSchema>(storageKey, initialValue, storage, { window, listenToStorageChanges })
-  )
+  const _valueSignal = useSignal(initialValue) as Signal<T | BasicColorSchema>
+  const _storageSignal = useStorage<T | BasicColorSchema>(storageKey || STORAGE_KEY, initialValue, storage, { window, listenToStorageChanges })
+
+  const store = storageSignal || (storageKey == null ? _valueSignal : _storageSignal)
 
   const state = useComputed<T | BasicColorMode>(() =>
     store.value === 'auto'
