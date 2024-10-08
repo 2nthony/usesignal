@@ -64,7 +64,9 @@ export function useNow(options: UseNowOptions<boolean> = {}) {
     : update
 
   const controls: Pausable = interval === 'requestAnimationFrame'
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     ? useRafFn(cb, { immediate })
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     : useIntervalFn(cb, interval, { immediate })
 
   if (exposeControls) {
