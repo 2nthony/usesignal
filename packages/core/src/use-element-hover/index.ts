@@ -35,12 +35,9 @@ export function useElementHover(el: MaybeSignalOrGetter<EventTarget | null | und
     }
   }
 
-  if (!window) {
-    return isHovered
-  }
-
-  useEventListener(el, 'mouseenter', () => toggle(true), { passive: true })
-  useEventListener(el, 'mouseleave', () => toggle(false), { passive: true })
+  const target = window ? el : null
+  useEventListener(target, 'mouseenter', () => toggle(true), { passive: true })
+  useEventListener(target, 'mouseleave', () => toggle(false), { passive: true })
 
   return isHovered
 }
