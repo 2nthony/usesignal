@@ -2,7 +2,6 @@ import type { Fn, MaybeSignalOrGetter, Pausable } from '../utils'
 import { useSignals } from '@preact/signals-react/runtime'
 import { useComputed, useSignal } from '../signals'
 import { useOnCleanup } from '../use-on-cleanup'
-import { useOnMount } from '../use-on-mount'
 import { useWatch } from '../use-watch'
 import { isClient, toValue } from '../utils'
 
@@ -39,7 +38,7 @@ export function useIntervalFn(cb: Fn, interval: MaybeSignalOrGetter<number> = 10
   } = options
 
   const timer = useSignal<ReturnType<typeof setInterval> | null>(null)
-  const isActive = useSignal(false)
+  const isActive = useSignal(immediate)
   const readonlyIsActive = useComputed(() => isActive.value)
 
   function clean() {
@@ -67,19 +66,18 @@ export function useIntervalFn(cb: Fn, interval: MaybeSignalOrGetter<number> = 10
     timer.value = setInterval(cb, intervalValue)
   }
 
-  useWatch(interval, () => {
+  const stopWatch = useWatch(interval, () => {
     if (isActive.value && isClient) {
       resume()
     }
   }, { immediate })
 
-  useOnMount(() => {
-    if (immediate && isClient) {
-      resume()
-    }
-  })
+  function stop() {
+    stopWatch()
+    pause()
+  }
 
-  useOnCleanup(pause)
+  useOnCleanup(stop)
 
   return {
     isActive: readonlyIsActive,
