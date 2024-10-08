@@ -64,7 +64,9 @@ export default function DemoUseIntersectionObserver() {
         </div>
       </div>
       <div>
-        {isVisible.value ? 'inside' : 'outside'}
+        <span style={{ color: isVisible.value ? 'green' : 'red' }}>
+          {isVisible.value ? 'inside' : 'outside'}
+        </span>
         { ' ' }
         the viewport
       </div>

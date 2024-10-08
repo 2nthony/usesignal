@@ -68,38 +68,36 @@ export function useIntersectionObserver(
   let cleanup = noop
   const isActive = useSignal(immediate)
 
-  const stopWatch = isSupported.value
-    ? useWatch(
-      () => [targets.value, toElement(root as MaybeComputedElementSignal), isActive.value] as const,
-      ([targets, root]: [MaybeElement[], MaybeElement]) => {
-        cleanup()
-        if (!isActive.value) {
-          return
-        }
+  const stopWatch = useWatch(
+    () => isSupported.value ? [targets.value, toElement(root as MaybeComputedElementSignal), isActive.value] as const : null,
+    ([targets, root]: [MaybeElement[], MaybeElement]) => {
+      cleanup()
+      if (!isActive.value) {
+        return
+      }
 
-        if (!targets.length) {
-          return
-        }
+      if (!targets.length) {
+        return
+      }
 
-        const observer = new IntersectionObserver(
-          callback,
-          {
-            root: toElement(root),
-            rootMargin,
-            threshold,
-          },
-        )
+      const observer = new IntersectionObserver(
+        callback,
+        {
+          root: toElement(root),
+          rootMargin,
+          threshold,
+        },
+      )
 
-        targets.forEach(el => el && observer.observe(el))
+      targets.forEach(el => el && observer.observe(el))
 
-        cleanup = () => {
-          observer.disconnect()
-          cleanup = noop
-        }
-      },
-      { immediate },
-    )
-    : noop
+      cleanup = () => {
+        observer.disconnect()
+        cleanup = noop
+      }
+    },
+    { immediate },
+  )
 
   const stop = () => {
     cleanup()
