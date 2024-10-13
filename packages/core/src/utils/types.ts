@@ -27,6 +27,11 @@ export type MaybeSignal<T = any> = T | Signal<T>
 
 export type MaybeSignalOrGetter<T = any> = MaybeSignal<T> | (() => T)
 
+/**
+ * Maybe it's a computed signal, or a readonly value, or a getter function
+ */
+export type ReadonlySignalOrGetter<T> = ComputedSignal<T> | (() => T)
+
 export type MaybeComputedSignal<T = any> = T | ComputedSignal<T>
 
 /**
