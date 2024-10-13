@@ -46,6 +46,7 @@
     "use-date-format",
     "use-manual-signal-history",
     "use-signal-history",
-    "use-mouse"
+    "use-mouse",
+    "use-favicon"
   ]
 }
