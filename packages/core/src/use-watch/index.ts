@@ -47,14 +47,22 @@ export function useWatch(
   const isArrayValues = Array.isArray(value)
   const values = (isArrayValues ? value : [value]) as ComputedSignal[]
 
+  // NOTE: prevValues must be equal to newValues at first time,
+  // otherwise will trigger the effectFn immediately by `useWatchEffect(effectFn)`
+  // because the `isChanged`
   let prevValues = values.map(toValue)
 
   function effectFn(force = false) {
     const newValues = values.map(toValue)
+    const isChanged = newValues.some((v, i) => hasChanged(v, prevValues[i]))
 
     function execute() {
       const cbNewValues = isArrayValues ? newValues : newValues[0]
-      const cbPrevValues = isArrayValues ? prevValues : prevValues[0]
+      let cbPrevValues
+      if (!isFirst && isChanged) {
+        cbPrevValues = isArrayValues ? prevValues : prevValues[0]
+      }
+
       cb?.(cbNewValues, cbPrevValues)
       prevValues = newValues
 
@@ -66,10 +74,7 @@ export function useWatch(
       return
     }
 
-    if (
-      isActive.peek()
-      && newValues.some((v, i) => hasChanged(v, prevValues[i]))
-    ) {
+    if (isActive.peek() && isChanged) {
       execute()
     }
   }
