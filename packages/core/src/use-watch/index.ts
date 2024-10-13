@@ -74,7 +74,7 @@ export function useWatch(
     }
   }
 
-  const watchHandler = useWatchEffect(() => {
+  const stop = useWatchEffect(() => {
     if (isFirst && immediate) {
       effectFn(true)
     }
@@ -83,9 +83,9 @@ export function useWatch(
     }
 
     if (once && !isFirst) {
-      watchHandler()
+      stop()
     }
   })
 
-  return watchHandler
+  return stop
 }
