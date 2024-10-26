@@ -26,6 +26,8 @@ export type OnClickOutsideHandler<T extends { detectIframe: OnClickOutsideOption
 
 let _iOSWorkaround = false
 
+export const useClickOutSide = useOnClickOutside
+
 /**
  * Listen for clicks outside of an element.
  *
@@ -34,7 +36,7 @@ let _iOSWorkaround = false
  * @param handler
  * @param options
  */
-export function useClickOutside<T extends OnClickOutsideOptions>(
+export function useOnClickOutside<T extends OnClickOutsideOptions>(
   target: MaybeElementSignal,
   handler: OnClickOutsideHandler<{ detectIframe: T['detectIframe'] }>,
   options: T = {} as T,
