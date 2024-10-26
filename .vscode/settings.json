@@ -47,6 +47,7 @@
     "use-manual-signal-history",
     "use-signal-history",
     "use-mouse",
-    "use-favicon"
+    "use-favicon",
+    "use-on-click-out-side"
   ]
 }
