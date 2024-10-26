@@ -6,6 +6,7 @@ export default function DemoUseStorage() {
     {
       name: 'usesignal',
       lib: 'core',
+      good: true,
     },
   )
 
@@ -32,6 +33,20 @@ export default function DemoUseStorage() {
           }
         }}
       />
+
+      <label>
+        <input
+          checked={data.value.good}
+          type="checkbox"
+          onChange={(e) => {
+            data.value = {
+              ...data.value,
+              good: e.target.checked,
+            }
+          }}
+        />
+        good
+      </label>
 
       <br />
 
