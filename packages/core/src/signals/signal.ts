@@ -1,6 +1,7 @@
 import type { Signal as _Signal } from '@preact/signals-react'
 import type { AnyFn, MaybeSignal, MaybeSignalOrGetter } from '../utils'
 import { signal as _signal } from '@preact/signals-react'
+import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'
 import { SignalFlags } from '../utils/constants'
 
@@ -64,5 +65,7 @@ export function signal<T>(v?: MaybeSignalOrGetter<T>) {
  * Create a new side effect proxy signal, compat `useRef.current` and `useSignal` itself
  */
 export function useSignal<T>(v?: MaybeSignal<T>) {
+  useSignals()
+
   return useMemo(() => signal(v), [])
 }

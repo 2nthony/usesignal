@@ -1,7 +1,6 @@
 import type { CloneFn } from '../use-cloned'
 import type { UseManualSignalHistoryReturn } from '../use-manual-signal-history'
 import type { ConfigurableEventFilter } from '../utils'
-import { useSignals } from '@preact/signals-react/runtime'
 import { type Signal, useSignal } from '../signals'
 import { useManualSignalHistory } from '../use-manual-signal-history'
 import { useWatchWithFilter } from '../use-watch-with-filter'
@@ -64,8 +63,6 @@ export function useSignalHistory<Raw, Serialized = Raw>(
   source: Signal<Raw>,
   options: UseSignalHistoryOptions<Raw, Serialized> = {},
 ): UseSignalHistoryReturn<Raw, Serialized> {
-  useSignals()
-
   const {
     eventFilter,
   } = options

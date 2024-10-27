@@ -1,7 +1,6 @@
 import type { ComputedSignal } from '../signals'
 import type { WatchHandler } from '../use-watch-effect'
 import type { Arrayable, MaybeSignal } from '../utils'
-import { useSignals } from '@preact/signals-react/runtime'
 import { useMemo } from 'react'
 import { computed, useSignal } from '../signals'
 import { useWatchEffect } from '../use-watch-effect'
@@ -33,8 +32,6 @@ export function useWatch(
   cb?: any,
   options?: any,
 ): WatchHandler {
-  useSignals()
-
   value = useMemo(
     () => typeof value === 'function' ? computed(value) : value,
     [value],

@@ -1,5 +1,4 @@
 import type { AnyFn, MaybeSignalOrGetter, Stoppable } from '../utils'
-import { useSignals } from '@preact/signals-react/runtime'
 import { useComputed, useSignal } from '../signals'
 import { useOnCleanup } from '../use-on-cleanup'
 import { useOnMount } from '../use-on-mount'
@@ -27,8 +26,6 @@ export function useTimeoutFn<CallbackFn extends AnyFn>(
   interval: MaybeSignalOrGetter<number>,
   options: UseTimeoutFnOptions = {},
 ): Stoppable<Parameters<CallbackFn> | []> {
-  useSignals()
-
   const {
     immediate = true,
   } = options

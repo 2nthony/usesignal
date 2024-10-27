@@ -1,4 +1,3 @@
-import { useSignals } from '@preact/signals-react/runtime'
 import { useSignal } from '../signals'
 import { useOnCleanup } from '../use-on-cleanup'
 import { useOnMount } from '../use-on-mount'
@@ -9,8 +8,6 @@ import { useOnMount } from '../use-on-mount'
  * @see https://vueuse.org/useMounted
  */
 export function useMounted() {
-  useSignals()
-
   const isMounted = useSignal(false)
 
   useOnMount(() => {

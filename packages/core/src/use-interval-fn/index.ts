@@ -1,5 +1,4 @@
 import type { Fn, MaybeSignalOrGetter, Pausable } from '../utils'
-import { useSignals } from '@preact/signals-react/runtime'
 import { useComputed, useSignal } from '../signals'
 import { useOnCleanup } from '../use-on-cleanup'
 import { useWatch } from '../use-watch'
@@ -30,8 +29,6 @@ export interface UseIntervalFnOptions {
  * @param options
  */
 export function useIntervalFn(cb: Fn, interval: MaybeSignalOrGetter<number> = 1000, options: UseIntervalFnOptions = {}): Pausable {
-  useSignals()
-
   const {
     immediate = true,
     immediateCallback = false,

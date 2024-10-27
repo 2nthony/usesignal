@@ -1,4 +1,3 @@
-import { useSignals } from '@preact/signals-react/runtime'
 import { resolveElement } from '../_resolve-element'
 import { useSignal } from '../signals'
 import { useEventListener } from '../use-event-listener'
@@ -61,8 +60,6 @@ export function useScrollLock(
   element: MaybeSignalOrGetter<HTMLElement | SVGElement | Window | Document | null | undefined>,
   initialState = false,
 ) {
-  useSignals()
-
   const isLocked = useSignal(initialState)
   const internalIsLock = useSignal(initialState)
   let initialOverflow: CSSStyleDeclaration['overflow'] = ''

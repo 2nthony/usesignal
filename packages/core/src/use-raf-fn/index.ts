@@ -1,5 +1,4 @@
 import type { ConfigurableWindow } from '../_configurable'
-import { useSignals } from '@preact/signals-react/runtime'
 import { defaultWindow } from '../_configurable'
 import { useComputed, useSignal } from '../signals'
 import { useOnCleanup } from '../use-on-cleanup'
@@ -41,8 +40,6 @@ export interface UseRafFnOptions extends ConfigurableWindow {
  * @param options
  */
 export function useRafFn(fn: (args: UseRafFnCallbackArguments) => void, options: UseRafFnOptions = {}) {
-  useSignals()
-
   const {
     immediate = true,
     fpsLimit = undefined,

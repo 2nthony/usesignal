@@ -1,5 +1,4 @@
 import type { Signal } from '@preact/signals-react'
-import { useSignals } from '@preact/signals-react/runtime'
 import { useSignal } from '../signals'
 import { useOnMount } from '../use-on-mount'
 import { noop } from '../utils'
@@ -56,8 +55,6 @@ export function useAsyncQueue<T extends any[], S = MapQueueTask<T>>(
   tasks: S & Array<UseAsyncQueueTask<any>>,
   options?: UseAsyncQueueOptions,
 ): UseAsyncQueueReturn<{ [P in keyof T]: UseAsyncQueueResult<T[P]> }> {
-  useSignals()
-
   const {
     interrupt = true,
     onError = noop,

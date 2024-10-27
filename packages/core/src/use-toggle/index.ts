@@ -1,6 +1,5 @@
 import type { Signal } from '@preact/signals-react'
 import type { MaybeSignal, MaybeSignalOrGetter } from '../utils'
-import { useSignals } from '@preact/signals-react/runtime'
 import { isSignal, useSignal } from '../signals'
 import { toValue } from '../utils'
 
@@ -21,8 +20,6 @@ export function useToggle(
   initialValue: MaybeSignal<boolean> = false,
   options: UseToggleOptions<true, false> = {},
 ) {
-  useSignals()
-
   const {
     truthyValue = true,
     falsyValue = false,

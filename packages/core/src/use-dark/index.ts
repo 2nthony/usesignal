@@ -33,8 +33,6 @@ export interface UseDarkOptions extends Omit<UseColorModeOptions<BasicColorSchem
  * @param options
  */
 export function useDark(options: UseDarkOptions = {}) {
-  // useSignals()
-
   const {
     valueDark = 'dark',
     valueLight = '',

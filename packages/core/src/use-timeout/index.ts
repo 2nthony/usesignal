@@ -1,7 +1,6 @@
 import type { ComputedSignal } from '../signals'
 import type { UseTimeoutFnOptions } from '../use-timeout-fn'
 import type { Fn, MaybeSignalOrGetter, Stoppable } from '../utils'
-import { useSignals } from '@preact/signals-react/runtime'
 import { useComputed } from '../signals'
 import { useTimeoutFn } from '../use-timeout-fn'
 import { noop } from '../utils'
@@ -29,8 +28,6 @@ export interface UseTimeoutOptions<Controls extends boolean> extends UseTimeoutF
 export function useTimeout(interval?: MaybeSignalOrGetter<number>, options?: UseTimeoutOptions<false>): ComputedSignal<boolean>
 export function useTimeout(interval: MaybeSignalOrGetter<number>, options: UseTimeoutOptions<true>): { ready: ComputedSignal<boolean> } & Stoppable
 export function useTimeout(interval: MaybeSignalOrGetter<number> = 1000, options: UseTimeoutOptions<boolean> = {}) {
-  useSignals()
-
   const {
     controls: exposeControls = false,
     callback,

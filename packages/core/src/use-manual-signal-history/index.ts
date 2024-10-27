@@ -1,6 +1,5 @@
 import type { Signal } from '../signals'
 import type { CloneFn } from '../use-cloned'
-import { useSignals } from '@preact/signals-react/runtime'
 import { useComputed, useSignal } from '../signals'
 import { cloneFnJSON } from '../use-cloned'
 import { timestamp } from '../utils'
@@ -137,8 +136,6 @@ export function useManualSignalHistory<Raw, Serialized = Raw>(
   source: Signal<Raw>,
   options: UseManualSignalHistoryOptions<Raw, Serialized> = {},
 ): UseManualSignalHistoryReturn<Raw, Serialized> {
-  useSignals()
-
   const {
     clone = false,
     dump = defaultDump<Raw, Serialized>(clone),

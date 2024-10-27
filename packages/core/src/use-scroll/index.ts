@@ -1,6 +1,5 @@
 import type { ConfigurableWindow } from '../_configurable'
 import type { MaybeSignalOrGetter } from '../utils'
-import { useSignals } from '@preact/signals-react/runtime'
 import { defaultWindow } from '../_configurable'
 import { useComputed, useSignal } from '../signals'
 import { useDebounceFn } from '../use-debounce-fn'
@@ -93,8 +92,6 @@ export function useScroll(
   element: MaybeSignalOrGetter<HTMLElement | SVGElement | Window | Document | null | undefined>,
   options: UseScrollOptions = {},
 ) {
-  useSignals()
-
   const {
     throttle = 0,
     idle = 200,

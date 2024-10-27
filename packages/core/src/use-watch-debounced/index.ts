@@ -1,7 +1,6 @@
 import type { WatchCallback, WatchOptions, WatchSource } from '../use-watch'
 import type { MaybeSignalOrGetter } from '../utils'
 import type { DebounceFilterOptions } from '../utils/filter'
-import { useSignals } from '@preact/signals-react/runtime'
 import { useWatchWithFilter } from '../use-watch-with-filter'
 import { debounceFilter } from '../utils/filter'
 
@@ -19,8 +18,6 @@ export function useWatchDebounced<T>(
   cb: WatchCallback,
   options: WatchDebouncedOptions = {},
 ) {
-  useSignals()
-
   const {
     debounce = 0,
     maxWait = undefined,
