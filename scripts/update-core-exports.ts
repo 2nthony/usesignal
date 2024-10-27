@@ -3,7 +3,7 @@ import path from 'node:path'
 
 main()
 
-const startsWith = ['signals', 'use-']
+const startsWith = ['signals', 'use-', 'utils']
 
 async function main() {
   const srcDir = path.join(import.meta.dirname, '..', 'packages', 'core', 'src')
