@@ -6,11 +6,12 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-Collection of Essential React Hooks with [Signals](https://github.com/preactjs/signals/tree/main/packages/react). Basically a **FORK** of [VueUse](https://vueuse.org/).
+Collection of Essential React Hooks with [Preact Signals](https://github.com/preactjs/signals/tree/main/packages/react). Basically a **FORK** of [VueUse](https://vueuse.org/).
 
 ## Notice
 
 - This project is currently in the initial development stage and is not yet stable.
+- When you notice ONLY the UI not updating as expected, it is necessary to add the `useSignals()` to your component where the signal is used.
 - Bad DX with server side framework(e.g. Next.js) DEV mode, when a component changed, the `useSignalEffect(@preact/signals-react)/useWatch*(usesignal/core)` will never run the callback when signal changed; works fine in PROD mode.
 
 ## Docs & Demos
@@ -93,6 +94,10 @@ export default function App() {
   })
 }
 ```
+
+### `useSignals`=`useSignals`
+
+Re-export `useSignals` from `@preact/signals-react/runtime` for convinience.
 
 ## Playground
 
