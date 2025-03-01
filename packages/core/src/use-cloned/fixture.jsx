@@ -1,6 +1,9 @@
 import { useCloned } from '.'
+import { useSignals } from '../signals'
 
 export default function DemoUseCloned() {
+  useSignals()
+
   const template = { fruit: 'banana', drink: 'water' }
   const { cloned, sync } = useCloned(template, { manual: true })
 

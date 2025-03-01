@@ -1,4 +1,5 @@
 import { useSignalHistory } from '.'
+import { useSignals } from '../signals'
 import { useCounter } from '../use-counter'
 import { formatDate } from '../use-date-format'
 
@@ -7,6 +8,8 @@ function format(ts) {
 }
 
 export default function DemoUseSignalHistory() {
+  useSignals()
+
   const { inc, dec, count } = useCounter()
   const { canUndo, canRedo, history, undo, redo } = useSignalHistory(count, { capacity: 10 })
 

@@ -1,7 +1,9 @@
 import { useScroll } from '.'
-import { useComputed, useSignal } from '../signals'
+import { useComputed, useSignal, useSignals } from '../signals'
 
 export default function DemoUseScroll() {
+  useSignals()
+
   const ref = useSignal()
   const smooth = useSignal(false)
   const behavior = useComputed(() => smooth.value ? 'smooth' : 'auto')

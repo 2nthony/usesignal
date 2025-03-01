@@ -1,7 +1,9 @@
 import { useIntersectionObserver } from '.'
-import { useSignal } from '../signals'
+import { useSignal, useSignals } from '../signals'
 
 export default function DemoUseIntersectionObserver() {
+  useSignals()
+
   const root = useSignal(null)
   const target = useSignal(null)
   const isVisible = useSignal(false)

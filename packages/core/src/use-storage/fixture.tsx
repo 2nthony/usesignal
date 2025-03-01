@@ -1,6 +1,9 @@
 import { useStorage } from '.'
+import { useSignals } from '../signals'
 
 export default function DemoUseStorage() {
+  useSignals()
+
   const data = useStorage(
     'demo-use-storage',
     {

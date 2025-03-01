@@ -1,7 +1,8 @@
-import { useComputed, useSignal } from '../signals'
+import { useComputed, useSignal, useSignals } from '../signals'
 import { useElementHover } from './index'
 
 export default function DemoUseElementHover() {
+  useSignals()
   const el = useSignal()
   const isHovered = useElementHover(
     el,

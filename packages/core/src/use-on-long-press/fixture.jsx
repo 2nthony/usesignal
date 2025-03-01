@@ -1,7 +1,9 @@
 import { useOnLongPress } from '.'
-import { useSignal } from '../signals'
+import { useSignal, useSignals } from '../signals'
 
 export default function DemoUseOnLongPress() {
+  useSignals()
+
   const el1 = useSignal(null)
   const elOptions = useSignal(null)
   const elMouseUp = useSignal(null)

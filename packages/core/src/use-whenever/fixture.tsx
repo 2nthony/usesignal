@@ -1,8 +1,10 @@
 import { useWhenever } from '.'
-import { useSignal } from '../signals'
+import { useSignal, useSignals } from '../signals'
 import { useToggle } from '../use-toggle'
 
 export default function DemoUseWhenever() {
+  useSignals()
+
   const [value, toggle] = useToggle(false)
   const text = useSignal('')
 

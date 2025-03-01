@@ -1,7 +1,9 @@
 import { useTimeoutFn } from '.'
-import { useSignal } from '../signals'
+import { useSignal, useSignals } from '../signals'
 
 export default function DemoUseTimeoutFn() {
+  useSignals()
+
   const defaultText = 'Please wait for 3 seconds'
   const text = useSignal(defaultText)
   const { start, isPending } = useTimeoutFn(() => {

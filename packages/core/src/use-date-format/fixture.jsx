@@ -1,8 +1,9 @@
 import { useDateFormat } from '.'
-import { useSignal } from '../signals'
+import { useSignal, useSignals } from '../signals'
 import { useNow } from '../use-now'
 
 export default function DemoUseDateFormat() {
+  useSignals()
   const formatter = useSignal('dddd YYYY-MM-DD HH:mm:ss')
   const lang = useSignal('en-US')
   const formatted = useDateFormat(useNow(), formatter, { locales: lang })

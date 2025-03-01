@@ -1,7 +1,9 @@
 import { useDark } from '.'
+import { useSignals } from '../signals'
 import { useToggle } from '../use-toggle'
 
 export default function DemoUseDark() {
+  useSignals()
   const isDark = useDark()
   const toggleDark = useToggle(isDark)
 

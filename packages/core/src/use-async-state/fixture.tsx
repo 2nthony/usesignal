@@ -1,7 +1,9 @@
 import { useAsyncState } from '.'
-import { useSignal } from '../signals'
+import { useSignal, useSignals } from '../signals'
 
 export default function DemoUseAsyncState() {
+  useSignals()
+
   const id = useSignal(1)
 
   const { state, isReady, isLoading, execute } = useAsyncState(

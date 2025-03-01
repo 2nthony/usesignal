@@ -1,7 +1,9 @@
 import { useElementSize } from '.'
-import { useSignal } from '../signals'
+import { useSignal, useSignals } from '../signals'
 
 export default function DemoUseElementSize() {
+  useSignals()
+
   const ref = useSignal()
   const text = useSignal('')
 

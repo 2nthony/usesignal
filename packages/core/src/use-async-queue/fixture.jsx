@@ -1,6 +1,8 @@
 import { useAsyncQueue } from '.'
+import { useSignals } from '../signals'
 
 export default function DemoUseAsyncQueue() {
+  useSignals()
   function p1() {
     return new Promise((resolve) => {
       setTimeout(() => {

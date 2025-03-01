@@ -1,4 +1,5 @@
 import { useOnCleanup } from '.'
+import { useSignals } from '../signals'
 import { useToggle } from '../use-toggle'
 
 function Component() {
@@ -11,6 +12,8 @@ function Component() {
 }
 
 export default function DemoUseOnUnmounted() {
+  useSignals()
+
   const [show, toggle] = useToggle(true)
 
   return (

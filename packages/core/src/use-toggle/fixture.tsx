@@ -1,6 +1,9 @@
 import { useToggle } from '.'
+import { useSignals } from '../signals'
 
 export default function DemoUseToggle() {
+  useSignals()
+
   const [value, toggle] = useToggle(false)
 
   return (

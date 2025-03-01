@@ -1,6 +1,9 @@
 import { useWindowScroll } from '.'
+import { useSignals } from '../signals'
 
 export default function DemoUseWindowScroll() {
+  useSignals()
+
   const { x, y } = useWindowScroll({ behavior: 'smooth' })
 
   return (

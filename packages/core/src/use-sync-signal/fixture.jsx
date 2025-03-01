@@ -1,7 +1,9 @@
 import { useSyncSignal } from '.'
-import { useSignal } from '../signals'
+import { useSignal, useSignals } from '../signals'
 
 export default function DemoUseSyncSignal() {
+  useSignals()
+
   const a = useSignal('')
   const b = useSignal('')
 
@@ -27,8 +29,6 @@ export default function DemoUseSyncSignal() {
           placeholder="A"
           onChange={e => a.value = e.target.value}
         />
-      </div>
-      <div>
         <input
           type="text"
           value={b}
@@ -44,8 +44,6 @@ export default function DemoUseSyncSignal() {
           placeholder="A"
           onChange={e => ltrA.value = e.target.value}
         />
-      </div>
-      <div>
         <input
           type="text"
           value={ltrB}
@@ -61,8 +59,6 @@ export default function DemoUseSyncSignal() {
           placeholder="A"
           onChange={e => rtlA.value = e.target.value}
         />
-      </div>
-      <div>
         <input
           type="text"
           value={rtlB}

@@ -1,4 +1,5 @@
 import { useOnMount } from '.'
+import { useSignals } from '../signals'
 import { useToggle } from '../use-toggle'
 
 function Component() {
@@ -11,6 +12,8 @@ function Component() {
 }
 
 export default function DemoUseOnMounted() {
+  useSignals()
+
   const [show, toggle] = useToggle(true)
 
   return (
