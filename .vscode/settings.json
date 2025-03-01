@@ -48,6 +48,7 @@
     "use-signal-history",
     "use-mouse",
     "use-favicon",
-    "use-on-click-outside"
+    "use-on-click-outside",
+    "use-idle"
   ]
 }
