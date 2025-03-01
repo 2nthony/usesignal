@@ -21,4 +21,11 @@ export default antfu(
       'ts/explicit-function-return-type': 0,
     },
   },
+  {
+    files: ['**/fixture.jsx'],
+    rules: {
+      'no-unused-vars': 'off',
+      'unused-imports/no-unused-vars': 'off',
+    },
+  },
 )
