@@ -15,9 +15,6 @@ catalogs:
     '@antfu/utils':
       specifier: ^0.7.10
       version: 0.7.10
-    '@eslint/compat':
-      specifier: ^1.2.0
-      version: 1.2.0
     '@preact/signals-react':
       specifier: ^2.2.0
       version: 2.2.0
@@ -103,7 +100,7 @@ importers:
         version: 0.7.10
       '@eslint/compat':
         specifier: 'catalog:'
-        version: 1.2.0(eslint@9.10.0(jiti@1.21.6))
+        version: 1.2.7(eslint@9.10.0(jiti@1.21.6))
       '@preact/signals-react':
         specifier: 'catalog:'
         version: 2.2.0(react@18.3.1)
@@ -816,8 +813,8 @@ packages:
     resolution: {integrity: sha512-m4DVN9ZqskZoLU5GlWZadwDnYo3vAEydiUayB9widCl9ffWx2IvPnp6n3on5rJmziJSw9Bv+Z3ChDVdMwXCY8Q==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
-  '@eslint/compat@1.2.0':
-    resolution: {integrity: sha512-CkPWddN7J9JPrQedEr2X7AjK9y1jaMJtxZ4A/+jTMFA2+n5BWhcKHW/EbJyARqg2zzQfgtWUtVmG3hrG6+nGpg==}
+  '@eslint/compat@1.2.7':
+    resolution: {integrity: sha512-xvv7hJE32yhegJ8xNAnb62ggiAwTYHBpUCWhRxEj/ksvgDJuSXfoDkBcRYaYNFiJ+jH0IE3K16hd+xXzhBgNbg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^9.10.0
@@ -3897,7 +3894,7 @@ snapshots:
 
   '@eslint-community/regexpp@4.11.1': {}
 
-  '@eslint/compat@1.2.0(eslint@9.10.0(jiti@1.21.6))':
+  '@eslint/compat@1.2.7(eslint@9.10.0(jiti@1.21.6))':
     optionalDependencies:
       eslint: 9.10.0(jiti@1.21.6)
 
@@ -4826,7 +4823,7 @@ snapshots:
 
   eslint-config-flat-gitignore@0.3.0(eslint@9.10.0(jiti@1.21.6)):
     dependencies:
-      '@eslint/compat': 1.2.0(eslint@9.10.0(jiti@1.21.6))
+      '@eslint/compat': 1.2.7(eslint@9.10.0(jiti@1.21.6))
       eslint: 9.10.0(jiti@1.21.6)
       find-up-simple: 1.0.0
 
