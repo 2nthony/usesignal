@@ -18,7 +18,7 @@ export function useDocumentVisibility(options: ConfigurableDocument = {}): Signa
   const isMounted = useMounted()
 
   useEventListener(
-    () => isMounted ? document : null,
+    () => isMounted.value ? document : null,
     'visibilitychange',
     () => {
       if (document) {
