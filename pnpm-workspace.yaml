@@ -7,18 +7,24 @@ catalog:
   '@antfu/eslint-config': ^3.3.2
   '@antfu/ni': ^0.23.0
   '@antfu/utils': ^0.7.10
+  '@eslint/compat': ^1.2.0
   '@preact/signals-react': ^2.2.0
+  '@types/fs-extra': ^11.0.4
   '@types/node': ^22.5.4
   '@types/react': ^18.3.5
   '@types/react-dom': ^18.3.0
   '@vitejs/plugin-react': ^4.3.1
+  alien-signals: ^1.0.4
   bumpp: ^9.5.2
   eslint: ^9.10.0
+  eslint-plugin-react-hooks: ^5.2.0
   esno: ^4.7.0
+  fs-extra: ^11.2.0
   globals: ^15.9.0
   lint-staged: ^15.2.10
   pnpm: ^9.9.0
   react: ^18.3.1
+  react-alien-signals: ^0.2.1
   react-cosmos: ^6.2.0
   react-cosmos-plugin-vite: ^6.2.0
   react-dom: ^18.3.1
