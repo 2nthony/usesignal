@@ -1,6 +1,5 @@
-import type { Signal } from '@preact/signals-react'
 import type { ConfigurableDocument } from '../_configurable'
-import type { ComputedSignal } from '../signals'
+import type { ComputedSignal, Signal } from '../signals'
 import type { MaybeElement, MaybeSignal, MaybeSignalOrGetter } from '../utils'
 import { defaultDocument } from '../_configurable'
 import { useSignal } from '../signals'

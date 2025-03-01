@@ -1,4 +1,4 @@
-import type { Signal } from '@preact/signals-react'
+import type { Signal } from '../signals'
 import type { UseNowOptions } from '../use-now'
 import type { Pausable } from '../utils'
 import { useSignal } from '../signals'

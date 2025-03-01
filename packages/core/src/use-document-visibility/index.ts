@@ -1,5 +1,5 @@
-import type { Signal } from '@preact/signals-react'
 import type { ConfigurableDocument } from '../_configurable'
+import type { Signal } from '../signals'
 import { defaultDocument } from '../_configurable'
 import { useSignal } from '../signals'
 import { useEventListener } from '../use-event-listener'

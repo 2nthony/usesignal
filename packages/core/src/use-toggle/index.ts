@@ -1,4 +1,4 @@
-import type { Signal } from '@preact/signals-react'
+import type { Signal } from '../signals'
 import type { MaybeSignal, MaybeSignalOrGetter } from '../utils'
 import { isSignal, useSignal } from '../signals'
 import { toValue } from '../utils'

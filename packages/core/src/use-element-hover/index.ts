@@ -1,5 +1,5 @@
-import type { Signal } from '@preact/signals-react'
 import type { ConfigurableWindow } from '../_configurable'
+import type { Signal } from '../signals'
 import type { MaybeSignalOrGetter } from '../utils'
 import { defaultWindow } from '../_configurable'
 import { useSignal } from '../signals'

@@ -1,4 +1,4 @@
-import type { Signal } from '@preact/signals-react'
+import type { Signal } from '../signals'
 import type { MaybeSignalOrGetter, Pausable } from '../utils'
 import { useSignal } from '@preact/signals-react'
 import { useIntervalFn } from '../use-interval-fn'

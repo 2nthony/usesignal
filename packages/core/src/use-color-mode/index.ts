@@ -1,5 +1,4 @@
-import type { Signal } from '@preact/signals-react'
-import type { ComputedSignal } from '../signals'
+import type { ComputedSignal, Signal } from '../signals'
 import type { StorageLike } from '../ssr-handlers'
 import type { UseStorageOptions } from '../use-storage'
 import type { MaybeElementSignal, MaybeSignalOrGetter } from '../utils'

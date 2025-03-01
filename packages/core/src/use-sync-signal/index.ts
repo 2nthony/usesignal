@@ -1,4 +1,4 @@
-import type { Signal } from '@preact/signals-react'
+import type { Signal } from '../signals'
 import { useWatch } from '../use-watch'
 
 type Direction = 'ltr' | 'rtl' | 'both'

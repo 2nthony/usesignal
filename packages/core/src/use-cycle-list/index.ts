@@ -1,4 +1,4 @@
-import type { Signal } from '@preact/signals-react'
+import type { Signal } from '../signals'
 import type { MaybeSignal, MaybeSignalOrGetter } from '../utils'
 import { useComputed, useSignal } from '../signals'
 import { useOnMount } from '../use-on-mount'

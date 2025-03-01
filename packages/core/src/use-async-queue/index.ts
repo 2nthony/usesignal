@@ -1,4 +1,4 @@
-import type { Signal } from '@preact/signals-react'
+import type { Signal } from '../signals'
 import { useSignal } from '../signals'
 import { useOnMount } from '../use-on-mount'
 import { noop } from '../utils'
