@@ -47,14 +47,14 @@ export function signal<T>(v?: MaybeSignalOrGetter<T>) {
   return new Proxy(value, {
     get(target, key) {
       if (key === 'current') {
-        return Reflect.get(target, 'value')
+        key = 'value'
       }
 
       return Reflect.get(target, key)
     },
     set(target, key, value) {
       if (key === 'current') {
-        return Reflect.set(target, 'value', value)
+        key = 'value'
       }
 
       return Reflect.set(target, key, value)
