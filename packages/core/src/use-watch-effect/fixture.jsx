@@ -30,17 +30,23 @@ export default function DemoUseWatchEffect() {
       />
       <div>
         <button
-          onClick={() => pause()}
+          onClick={() => {
+            pause()
+          }}
         >
           pause
         </button>
         <button
-          onClick={() => resume()}
+          onClick={() => {
+            resume()
+          }}
         >
           resume
         </button>
         <button
-          onClick={() => stop()}
+          onClick={() => {
+            stop()
+          }}
         >
           stop
         </button>
