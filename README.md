@@ -95,6 +95,36 @@ export default function App() {
 }
 ```
 
+### `watchEffect`=`useWatchEffect`
+
+Enhance `effect` and `useSignalEffect` in `@preact/signals-react` with returns handler. Similar to https://vuejs.org/api/reactivity-core.html#watchEffect
+
+```tsx
+import { useWatchEffect } from '@usesignal/core'
+
+export default function App() {
+  const input = useSignal('Hello World!')
+  const { stop, pause, resume, isActive } = useWatchEffect(() => {
+    // ...
+  })
+}
+```
+
+### `watch`=`useWatch`
+
+Similar to https://vuejs.org/api/reactivity-core.html#watch
+
+```ts
+import { useWatch } from '@usesignal/core'
+
+export default function App() {
+  const input = useSignal('Hello World!')
+  const { stop, pause, resume, isActive } = useWatch(input, (val) => {
+    console.log(val) // Hello World!
+  })
+}
+```
+
 ### `useSignals`=`useSignals`
 
 Re-export `useSignals` from `@preact/signals-react/runtime` for convinience.
