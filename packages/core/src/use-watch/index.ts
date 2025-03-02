@@ -3,6 +3,8 @@ import type { Arrayable, MaybeSignal } from '../utils'
 import { watch } from '../signals'
 import { useOnCleanup } from '../use-on-cleanup'
 
+export * from '../signals/watch'
+
 export function useWatch<T>(
   value: Arrayable<MaybeSignal<T>>,
   cb?: WatchCallback,

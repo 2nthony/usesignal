@@ -2,6 +2,8 @@ import type { Fn } from '../utils'
 import { watchEffect } from '../signals'
 import { useOnCleanup } from '../use-on-cleanup'
 
+export * from '../signals/watch-effect'
+
 /**
  * @see https://vuejs.org/api/reactivity-core.html#watcheffect
  * @type {typeof watchEffect}
