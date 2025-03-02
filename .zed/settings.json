@@ -1,0 +1,43 @@
+// Folder-specific settings
+//
+// For a full list of overridable settings, and general information on folder-specific settings,
+// see the documentation: https://zed.dev/docs/configuring-zed#settings-files
+{
+  "languages": {
+    "JavaScript": {
+      "prettier": {
+        "allowed": false
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": false
+      }
+    },
+    "TypeScript": {
+      "prettier": {
+        "allowed": false
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": false
+      }
+    }
+  },
+  "lsp": {
+    "eslint": {
+      "settings": {
+        "rulesCustomizations": [
+          { "rule": "style/*", "severity": "off" },
+          { "rule": "*-indent", "severity": "off" },
+          { "rule": "*-spacing", "severity": "off" },
+          { "rule": "*-spaces", "severity": "off" },
+          { "rule": "*-order", "severity": "off" },
+          { "rule": "*-dangle", "severity": "off" },
+          { "rule": "*-newline", "severity": "off" },
+          { "rule": "*quotes", "severity": "off" },
+          { "rule": "*semi", "severity": "off" }
+        ]
+      }
+    }
+  }
+}
