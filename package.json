@@ -1,7 +1,7 @@
 {
   "name": "usesignal",
   "type": "module",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "private": true,
   "packageManager": "pnpm@10.5.2",
   "author": "2nthony <hi@2nthony.com>",

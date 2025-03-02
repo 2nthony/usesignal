@@ -1,7 +1,7 @@
 {
   "name": "@usesignal/core",
   "type": "module",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Collection of Essential React Hooks with Signals.",
   "author": "2nthony <hi@2nthony.com>",
   "license": "MIT",
