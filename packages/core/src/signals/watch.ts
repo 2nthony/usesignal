@@ -39,6 +39,7 @@ export function watch(
   const { immediate = false, once = false } = options ?? {}
   const isActive = signal(true)
   let isFirst = true
+  const effected = signal(false)
 
   const isArrayValues = Array.isArray(value)
   const values = (isArrayValues ? value : [value]) as ComputedSignal[]
@@ -75,7 +76,9 @@ export function watch(
     }
   }
 
-  const stop = watchEffect(() => {
+  let stop: WatchHandler
+  // eslint-disable-next-line prefer-const
+  stop = watchEffect(() => {
     if (isFirst && immediate) {
       effectFn(true)
     }
@@ -83,7 +86,9 @@ export function watch(
       effectFn()
     }
 
-    if (once && !isFirst) {
+    effected.value = true
+
+    if (once && !isFirst && stop) {
       stop()
     }
   })
