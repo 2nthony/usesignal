@@ -10,3 +10,8 @@ export function useOnCleanup(fn: () => void) {
     }
   }, [])
 }
+
+/**
+ * Run a cleanup function when the component unmount.
+ */
+export const useOnUnmount = useOnCleanup
