@@ -49,6 +49,7 @@
     "use-mouse",
     "use-favicon",
     "use-on-click-outside",
-    "use-idle"
+    "use-idle",
+    "watch"
   ]
 }
