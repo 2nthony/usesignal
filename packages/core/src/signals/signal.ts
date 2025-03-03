@@ -32,8 +32,7 @@ export function signal<T>(v?: MaybeSignalOrGetter<T>) {
     v = (v as AnyFn)()
   }
 
-  const valueIsSignal = isSignal(v)
-  const value = (valueIsSignal ? v : _signal(v)) as Signal<T>
+  const value = (isSignal(v) ? v : _signal(v)) as Signal<T>
 
   if (value[SignalFlags.IS_SIGNAL]) {
     return v as Signal<T>
