@@ -1,7 +1,9 @@
 import { useRafFn } from '.'
-import { useSignal } from '../signals'
+import { useSignal, useSignals } from '../signals'
 
 export default function DemoUseRafFn() {
+  useSignals()
+
   const fpsLimit = 60
   const count = useSignal(0)
   const deltaMs = useSignal(0)

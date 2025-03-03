@@ -1,7 +1,9 @@
 import { useResizeObserver } from '.'
-import { useSignal } from '../signals'
+import { useSignal, useSignals } from '../signals'
 
 export default function DemoUseResizeObserver() {
+  useSignals()
+
   const ref = useSignal()
   const text = useSignal('')
 
