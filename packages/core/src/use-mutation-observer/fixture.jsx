@@ -1,8 +1,10 @@
 import { useMutationObserver } from '.'
-import { useSignal } from '../signals'
+import { useSignal, useSignals } from '../signals'
 import { useOnMount } from '../use-on-mount'
 
 export default function DemoUseMutationObserver() {
+  useSignals()
+
   const ref = useSignal()
   const messages = useSignal([])
   const className = useSignal('')
