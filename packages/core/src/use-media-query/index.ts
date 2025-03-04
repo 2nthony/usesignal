@@ -1,9 +1,10 @@
 import type { ConfigurableWindow } from '../_configurable'
 import type { MaybeSignal } from '../utils'
-import { useSignalEffect } from '@preact/signals-react'
 import { defaultWindow } from '../_configurable'
 import { useSignal } from '../signals'
+import { useOnCleanup } from '../use-on-cleanup'
 import { useSupported } from '../use-supported'
+import { useWatchEffect } from '../use-watch-effect'
 import { toValue } from '../utils'
 
 /**
@@ -37,7 +38,7 @@ export function useMediaQuery(query: MaybeSignal<string>, options: ConfigurableW
     }
   }
 
-  useSignalEffect(() => {
+  const watchHandler = useWatchEffect(() => {
     if (!isSupported.value) {
       return
     }
@@ -55,11 +56,12 @@ export function useMediaQuery(query: MaybeSignal<string>, options: ConfigurableW
     }
 
     matches.value = mediaQuery.matches
+  })
 
-    return () => {
-      cleanup()
-      mediaQuery = undefined
-    }
+  useOnCleanup(() => {
+    watchHandler()
+    cleanup()
+    mediaQuery = undefined
   })
 
   return matches
