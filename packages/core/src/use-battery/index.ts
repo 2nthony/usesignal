@@ -3,6 +3,7 @@ import { defaultNavigator } from '../_configurable'
 import { useSignal } from '../signals'
 import { useEventListener } from '../use-event-listener'
 import { useSupported } from '../use-supported'
+import { useWatch } from '../use-watch'
 
 export interface BatteryManager extends EventTarget {
   charging: boolean
@@ -31,28 +32,27 @@ export function useBattery(options: ConfigurableNavigator = {}) {
   const dischargingTime = useSignal(0)
   const level = useSignal(1)
 
-  let battery: BatteryManager | null = null
+  const battery = useSignal<BatteryManager | null>(null)
 
-  function updateBatteryInfo(batteryManager: BatteryManager) {
-    charging.value = batteryManager.charging
-    chargingTime.value = batteryManager.chargingTime || 0
-    dischargingTime.value = batteryManager.dischargingTime || 0
-    level.value = batteryManager.level
+  function updateBatteryInfo(this: BatteryManager) {
+    charging.value = this.charging
+    chargingTime.value = this.chargingTime || 0
+    dischargingTime.value = this.dischargingTime || 0
+    level.value = this.level
   }
 
-  useEventListener(
-    () => isSupported.value ? battery : null,
-    events,
-    () => {
+  useWatch(isSupported, (val) => {
+    if (val) {
       (navigator as NavigatorWithBattery)
         .getBattery()
         .then((_battery) => {
-          battery = _battery
-          updateBatteryInfo(battery)
+          battery.value = _battery
+          updateBatteryInfo.call(_battery)
         })
-    },
-    { passive: true },
-  )
+    }
+  }, { once: true })
+
+  useEventListener(battery, events, updateBatteryInfo, { passive: true })
 
   return {
     isSupported,

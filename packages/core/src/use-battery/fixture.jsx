@@ -9,7 +9,24 @@ export default function DemoUseBattery() {
   return (
     <div>
       <p>
-        {JSON.stringify(battery, null, 2)}
+        isSupport:
+        {battery.isSupported.toString()}
+      </p>
+      <p>
+        charging:
+        {battery.charging.toString()}
+      </p>
+      <p>
+        chargingTime:
+        {battery.chargingTime.toString()}
+      </p>
+      <p>
+        dischargingTime:
+        {battery.dischargingTime.toString()}
+      </p>
+      <p>
+        level:
+        {battery.level.toString()}
       </p>
     </div>
   )
