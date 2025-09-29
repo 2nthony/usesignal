@@ -1,7 +1,8 @@
 import type { ConfigurableDocument } from '../_configurable'
+import type { ComputedSignal, Signal } from '../signals'
 import type { MaybeSignal, MaybeSignalOrGetter, ReadonlySignalOrGetter } from '../utils'
 import { defaultDocument } from '../_configurable'
-import { type ComputedSignal, type Signal, useSignal } from '../signals'
+import { useSignal } from '../signals'
 import { useWatch } from '../use-watch'
 
 export interface UseFaviconOptions extends ConfigurableDocument {

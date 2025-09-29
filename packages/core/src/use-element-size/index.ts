@@ -1,8 +1,9 @@
+import type { UseResizeObserverOptions } from '../use-resize-observer'
 import type { MaybeSignal } from '../utils'
 import { defaultWindow } from '../_configurable'
 import { useComputed, useSignal } from '../signals'
 import { useOnMount } from '../use-on-mount'
-import { useResizeObserver, type UseResizeObserverOptions } from '../use-resize-observer'
+import { useResizeObserver } from '../use-resize-observer'
 import { useWatch } from '../use-watch'
 import { toValue } from '../utils'
 

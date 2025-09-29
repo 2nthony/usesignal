@@ -47,7 +47,7 @@ export interface UseColorModeOptions<T extends string = BasicColorMode> extends 
    *
    * @default undefined
    */
-  onChanged?: (mode: T | BasicColorMode, defaultHandler:((mode: T | BasicColorMode) => void)) => void
+  onChanged?: (mode: T | BasicColorMode, defaultHandler: ((mode: T | BasicColorMode) => void)) => void
 
   /**
    * Custom storage ref
@@ -81,8 +81,8 @@ export interface UseColorModeOptions<T extends string = BasicColorMode> extends 
   disableTransition?: boolean
 }
 
-export type UseColorModeReturn<T extends string = BasicColorMode> =
-  Signal<T | BasicColorSchema> & {
+export type UseColorModeReturn<T extends string = BasicColorMode>
+  = Signal<T | BasicColorSchema> & {
     store: Signal<T | BasicColorSchema>
     system: ComputedSignal<BasicColorMode>
     state: ComputedSignal<T | BasicColorMode>

@@ -1,9 +1,10 @@
+import type { MaybeSignalOrGetter } from '../utils'
 import { resolveElement } from '../_resolve-element'
 import { useSignal } from '../signals'
 import { useEventListener } from '../use-event-listener'
 import { useOnCleanup } from '../use-on-cleanup'
 import { useWatch } from '../use-watch'
-import { isIOS, type MaybeSignalOrGetter, toValue } from '../utils'
+import { isIOS, toValue } from '../utils'
 
 function checkOverflowScroll(ele: Element): boolean {
   const style = window.getComputedStyle(ele)

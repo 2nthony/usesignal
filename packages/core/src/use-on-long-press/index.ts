@@ -1,6 +1,7 @@
+import type { MaybeElementSignal, Position } from '../utils'
 import { useComputed } from '../signals'
 import { useEventListener } from '../use-event-listener'
-import { type MaybeElementSignal, type Position, toElement } from '../utils'
+import { toElement } from '../utils'
 
 const DEFAULT_DELAY = 500
 const DEFAULT_THRESHOLD = 10

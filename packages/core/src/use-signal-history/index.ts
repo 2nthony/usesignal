@@ -1,7 +1,8 @@
+import type { Signal } from '../signals'
 import type { CloneFn } from '../use-cloned'
 import type { UseManualSignalHistoryReturn } from '../use-manual-signal-history'
 import type { ConfigurableEventFilter } from '../utils'
-import { type Signal, useSignal } from '../signals'
+import { useSignal } from '../signals'
 import { useManualSignalHistory } from '../use-manual-signal-history'
 import { useWatchWithFilter } from '../use-watch-with-filter'
 
