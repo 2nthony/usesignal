@@ -17,7 +17,7 @@ catalog:
   '@vitejs/plugin-react': ^5.0.4
   bumpp: ^10.2.3
   eslint: ^9.36.0
-  eslint-plugin-react-hooks: ^5.2.0
+  eslint-plugin-react-hooks: ^7.0.0
   esno: ^4.8.0
   fs-extra: ^11.3.2
   globals: ^16.4.0
