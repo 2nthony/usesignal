@@ -1,7 +1,6 @@
 import type { Fn } from '../utils'
-import { useMemo } from 'react'
-import { watchEffect } from '../signals'
-import { useOnCleanup } from '../use-on-cleanup'
+import { useEffect } from 'react'
+import { createWatchEffectHandlerWrapper, watchEffect } from '../signals'
 
 export * from '../signals/watch-effect'
 
@@ -12,9 +11,15 @@ export * from '../signals/watch-effect'
 export function useWatchEffect(
   cb: Fn | (() => Fn),
 ) {
-  const watchHandler = useMemo(() => watchEffect(cb), [])
+  const [handler, handlerWrapper] = createWatchEffectHandlerWrapper()
 
-  useOnCleanup(watchHandler)
+  useEffect(() => {
+    handler.value = watchEffect(cb)
 
-  return watchHandler
+    return () => {
+      handler.value()
+    }
+  }, [cb])
+
+  return handlerWrapper
 }

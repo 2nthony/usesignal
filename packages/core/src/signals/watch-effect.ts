@@ -1,6 +1,7 @@
 import type { AnyFn, Fn, Pausable } from '../utils'
 import { effect } from '@preact/signals-react'
 import { computed, signal } from '../signals'
+import { noop, toValue } from '../utils'
 
 export interface WatchHandler extends Fn, Pausable {
   stop: Fn
@@ -63,4 +64,31 @@ export function watchEffect(
   })
 
   return watchHandler
+}
+
+// TODO: refactor this, hard to understand returned value
+/**
+ * @internal
+ */
+export function createWatchEffectHandlerWrapper() {
+  const handler = signal<WatchHandler>(noop)
+
+  function wrapper() {
+    handler.value()
+  }
+
+  const isActive = computed(() => toValue(handler.value.isActive || false))
+  function pause() {
+    handler.value.pause()
+  }
+  function resume() {
+    handler.value.resume()
+  }
+
+  wrapper.stop = wrapper
+  wrapper.isActive = isActive
+  wrapper.pause = pause
+  wrapper.resume = resume
+
+  return [handler, wrapper] as const
 }

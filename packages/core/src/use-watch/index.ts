@@ -1,8 +1,7 @@
 import type { WatchCallback, WatchHandler, WatchOptions } from '../signals'
 import type { Arrayable, MaybeSignal } from '../utils'
-import { useMemo } from 'react'
-import { watch } from '../signals'
-import { useOnCleanup } from '../use-on-cleanup'
+import { useEffect } from 'react'
+import { createWatchEffectHandlerWrapper, watch } from '../signals'
 
 export * from '../signals/watch'
 
@@ -26,9 +25,15 @@ export function useWatch(
   cb?: any,
   options?: any,
 ) {
-  const stop = useMemo(() => watch(value, cb, options), [])
+  const [handler, handlerWrapper] = createWatchEffectHandlerWrapper()
 
-  useOnCleanup(stop)
+  useEffect(() => {
+    handler.value = watch(value, cb, options)
 
-  return stop
+    return () => {
+      handler.value()
+    }
+  }, [cb])
+
+  return handlerWrapper
 }
