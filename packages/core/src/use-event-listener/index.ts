@@ -38,7 +38,7 @@ function register(el: any, event: string, listener: any, options: any) {
 export function useEventListener<E extends keyof WindowEventMap>(
   event: MaybeGetter<Arrayable<E>>,
   listener: Arrayable<(this: Window, ev: WindowEventMap[E]) => any>,
-  options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
+  options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>,
 ): Fn
 
 /**
@@ -56,7 +56,7 @@ export function useEventListener<E extends keyof WindowEventMap>(
   target: MaybeGetter<Window>,
   event: MaybeGetter<Arrayable<E>>,
   listener: Arrayable<(this: Window, ev: WindowEventMap[E]) => any>,
-  options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
+  options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>,
 ): Fn
 
 /**
@@ -74,7 +74,7 @@ export function useEventListener<E extends keyof DocumentEventMap>(
   target: MaybeGetter<DocumentOrShadowRoot>,
   event: MaybeGetter<Arrayable<E>>,
   listener: Arrayable<(this: Document, ev: DocumentEventMap[E]) => any>,
-  options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
+  options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>,
 ): Fn
 
 /**
@@ -92,7 +92,7 @@ export function useEventListener<E extends keyof HTMLElementEventMap>(
   target: MaybeGetter<MaybeSignal<HTMLElement | null | undefined>>,
   event: MaybeGetter<Arrayable<E>>,
   listener: (this: HTMLElement, ev: HTMLElementEventMap[E]) => any,
-  options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
+  options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>,
 ): () => void
 
 /**
@@ -110,7 +110,7 @@ export function useEventListener<Names extends string, EventType = Event>(
   target: MaybeGetter<MaybeSignal<InferEventTarget<Names> | null | undefined>>,
   event: MaybeGetter<Arrayable<Names>>,
   listener: Arrayable<GeneralEventListener<EventType>>,
-  options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
+  options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>,
 ): Fn
 
 /**
@@ -128,7 +128,7 @@ export function useEventListener<EventType = Event>(
   target: MaybeGetter<MaybeSignal<EventTarget | null | undefined>>,
   event: MaybeGetter<Arrayable<string>>,
   listener: Arrayable<GeneralEventListener<EventType>>,
-  options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>
+  options?: MaybeSignal<boolean | AddEventListenerOptions | undefined>,
 ): Fn
 
 export function useEventListener(...args: any) {

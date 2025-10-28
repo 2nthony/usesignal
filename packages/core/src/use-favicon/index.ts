@@ -19,11 +19,11 @@ export interface UseFaviconOptions extends ConfigurableDocument {
  */
 export function useFavicon(
   newIcon: ReadonlySignalOrGetter<string | null | undefined>,
-  options?: UseFaviconOptions
+  options?: UseFaviconOptions,
 ): ComputedSignal<string | null | undefined>
 export function useFavicon(
   newIcon?: MaybeSignal<string | null | undefined>,
-  options?: UseFaviconOptions
+  options?: UseFaviconOptions,
 ): Signal<string | null | undefined>
 export function useFavicon(
   newIcon: MaybeSignalOrGetter<string | null | undefined> = null,
