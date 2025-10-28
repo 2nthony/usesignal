@@ -11,8 +11,8 @@ Collection of Essential React Hooks with [Preact Signals](https://github.com/pre
 ## Notice
 
 - This project is currently in the initial development stage and is not yet stable.
-- When you notice ONLY the UI not updating as expected, it is necessary to add the `useSignals()` to your component where the signal is used.
-- Bad DX with server side framework(e.g. Next.js) DEV mode, when a component changed, the `useSignalEffect(@preact/signals-react)/useWatch*(usesignal/core)` will never run the callback when signal changed; works fine in PROD mode.
+- If you notice the signal value updated but the UI not updated, please follow [react integration](https://github.com/preactjs/signals/blob/main/packages/react/README.md#react-integration).
+- Bad DX with server side framework(e.g. Next.js) DEV mode, when a component changed, the `useSignalEffect(@preact/signals-react)/useWatch*(@usesignal/core)` will never run the callback when signal changed; works fine in PROD mode.
 
 ## Docs & Demos
 

@@ -1,3 +1,5 @@
+import type { AnyFn } from './types'
+
 export * from './element'
 export * from './filter'
 export * from './is'
@@ -8,7 +10,7 @@ export async function nextTick(cb = () => {}) {
   return await Promise.resolve().then(cb)
 }
 
-export function noop(..._args: any) {}
+export const noop: AnyFn = (..._args: any[]) => {}
 
 export function promiseTimeout(
   ms: number,
